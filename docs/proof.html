@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gatekeeper / SEMAF — Proof Bundle</title>
+<link rel="stylesheet" href="assets/style.css"/></head><body><div class="wrap">
+<div class="nav"><div class="brand"><b>Gatekeeper / SEMAF</b><span>Proof Bundle & Verification</span></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+<a class="chip" href="./index.html">Home</a><a class="chip" href="./assurance.html">Assurance</a><a class="chip" href="./threat-model.html">Threat Model</a></div></div>
+
+<div class="card">
+<h1 style="margin:0 0 10px;font-size:34px">Proof bundle (what you receive)</h1>
+<p class="sub">A portable package that allows independent verification of receipts, chain head, and replay determinism.</p>
+<hr/>
+<h2>Contents</h2>
+<div class="small">
+• <code>audit_chain.jsonl</code> (append-only chain)<br/>
+• <code>decision_receipts/</code> (per-decision receipts)<br/>
+• <code>manifest.json</code> (file list + hashes + pointers)<br/>
+• <code>replay_manifest.json</code> (reproducible run definition)<br/>
+• <code>verifier.py</code> (offline verification tool)
+</div>
+<hr/>
+<h2>Verification (one command)</h2>
+<div class="small">Example:</div>
+<div class="card" style="padding:16px">
+<code>python3 verifier.py --bundle ./proof_bundle --verify --replay</code>
+</div>
+<div class="small">Expected output:</div>
+<div class="card" style="padding:16px">
+<code>RECEIPTS: PASS<br/>CHAIN: PASS<br/>REPLAY: PASS<br/>POLICY: PASS/WARN/BLOCK (as configured)</code>
+</div>
+<hr/>
+<h2>Evidence pointer</h2>
+<div class="small">Bundle head hash (provided with the bundle):</div>
+<div class="card" style="padding:16px"><code>PROOF_BUNDLE_HEAD_HASH</code></div>
+</div>
+
+<div class="footer"><div>© <span id="y"></span> Gatekeeper / SEMAF</div><div>Entity: Day&amp;Ross Global LTD LLC</div></div>
+</div><script>document.getElementById('y').textContent=new Date().getFullYear();</script></body></html>

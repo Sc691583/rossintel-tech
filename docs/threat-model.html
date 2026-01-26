@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gatekeeper / SEMAF — Threat Model</title>
+<link rel="stylesheet" href="assets/style.css"/></head><body><div class="wrap">
+<div class="nav"><div class="brand"><b>Gatekeeper / SEMAF</b><span>Threat Model (1 page)</span></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+<a class="chip" href="./index.html">Home</a><a class="chip" href="./assurance.html">Assurance</a><a class="chip" href="./proof.html">Proof</a></div></div>
+
+<div class="card">
+<h1 style="margin:0 0 10px;font-size:34px">Threat model: integrity first</h1>
+<p class="sub">Focus: tampering, replay manipulation, provenance spoofing, and unsafe autonomous actions.</p>
+<hr/>
+<h2>Threats</h2>
+<div class="small">
+• Audit log deletion / editing<br/>
+• Receipt forgery / mismatch<br/>
+• Replay nondeterminism (poisoned inputs / environment drift)<br/>
+• Supply-chain artifact spoofing (wrong binaries/config)<br/>
+• Unauthorized actions (agent free-run)
+</div>
+<hr/>
+<h2>Controls</h2>
+<div class="small">
+• Append-only chain + head hash (tamper-evident)<br/>
+• Deterministic receipts (inputs+policy+outputs)<br/>
+• Replay verifier (same bundle → same outcome)<br/>
+• Policy gate: <code>ALLOW/WARN/BLOCK</code> + SAFE action whitelist<br/>
+• Operator approval for critical actions + kill switch
+</div>
+<hr/>
+<h2>Assumptions</h2>
+<div class="small">
+• Verification can be executed offline with the proof bundle<br/>
+• Secrets/PII are excluded from bundles (redaction policy)<br/>
+• Critical actions require explicit authorization
+</div>
+</div>
+
+<div class="footer"><div>© <span id="y"></span> Gatekeeper / SEMAF</div><div>Entity: Day&amp;Ross Global LTD LLC</div></div>
+</div><script>document.getElementById('y').textContent=new Date().getFullYear();</script></body></html>

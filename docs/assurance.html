@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gatekeeper / SEMAF — Assurance</title>
+<link rel="stylesheet" href="assets/style.css"/></head><body><div class="wrap">
+<div class="nav"><div class="brand"><b>Gatekeeper / SEMAF</b><span>Assurance Overview</span></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+<a class="chip" href="./index.html">Home</a><a class="chip" href="./proof.html">Proof</a><a class="chip" href="./threat-model.html">Threat Model</a></div></div>
+
+<div class="card">
+<h1 style="margin:0 0 10px;font-size:34px">Assurance by construction</h1>
+<p class="sub">Gatekeeper/SEMAF is an operational integrity layer. Trust is derived from reproducible evidence, not claims.</p>
+<hr/>
+<h2>What is provable</h2>
+<div class="grid">
+  <div class="card" style="padding:16px"><h2>Decision traceability</h2><div class="small">Every action maps to inputs, policy context, and a decision receipt.</div></div>
+  <div class="card" style="padding:16px"><h2>Tamper evidence</h2><div class="small">Append-only chain detects edits/deletions via hash linkage.</div></div>
+  <div class="card" style="padding:16px"><h2>Reproducibility</h2><div class="small">Replay the same bundle and verify deterministic outcomes.</div></div>
+</div>
+<hr/>
+<h2>Control model</h2>
+<div class="small">
+• Policy gates: <code>ALLOW / WARN / BLOCK</code><br/>
+• SAFE action whitelist (no free-run agents)<br/>
+• Human approval for critical actions (operator control)<br/>
+• Kill switch + rate limits + actions ledger
+</div>
+<hr/>
+<h2>Deployment posture</h2>
+<div class="small">
+• Static trust site (no trackers, minimal attack surface)<br/>
+• Offline/air-gapped friendly verification (proof bundle + verifier)<br/>
+• SDK-first runtime visibility (inventory/graph/policy)
+</div>
+</div>
+
+<div class="footer"><div>© <span id="y"></span> Gatekeeper / SEMAF</div><div>Entity: Day&amp;Ross Global LTD LLC</div></div>
+</div><script>document.getElementById('y').textContent=new Date().getFullYear();</script></body></html>
