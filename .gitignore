@@ -1,0 +1,5 @@
+
+# local downloaded proof bundle artifacts (do not commit)
+bundle_*/
+verify.py
+manifest.json
