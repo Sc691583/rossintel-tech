@@ -1,0 +1,3 @@
+Contact: mailto:info@dayandrossglobal.com
+Preferred-Languages: en, hu
+Policy: https://example.invalid/security-policy
