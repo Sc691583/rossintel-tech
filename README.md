@@ -7,5 +7,4 @@ Minimal static “front door” for enterprise / defense conversations.
 - Proof bundle available on request
 
 Contact: info@dayandrossglobal.com  
-Operator:   
 Owner: Day&Ross Global LTD LLC
