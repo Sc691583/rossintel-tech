@@ -1,0 +1,13 @@
+Gatekeeper/SEMAF — Proof Run Receipt
+timestamp_utc: 2026-01-26T18:27:43Z
+site: https://sc691583.github.io/gatekeeperops-site
+bundle: bundle_readiness_go_nogo
+verifier_sha256: 8b8902880cf8b59a013d920d57c3eef1a6b8e903cfcb51bd66443e67eda33a43
+manifest_sha256: cdae8bf5c846c423e1b1fdde32143a9f61f94c6048d7f6b0ee3fe147f2035a10
+status: PASS
+
+--- verifier output ---
+PASS
+bundle: bundle_readiness_go_nogo
+manifest_sha256: cdae8bf5c846c423e1b1fdde32143a9f61f94c6048d7f6b0ee3fe147f2035a10
+chain_head: 7815d606fc472519d6926f7775cb28ba5fd14141bf4671d113677870ccec16a7
