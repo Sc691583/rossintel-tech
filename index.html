@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gatekeeper / SEMAF — Mission Assurance</title>
+  <meta name="description" content="Evidence-driven autonomous operations. Deterministic decision receipts, tamper-evident audit chain, replay verification."/>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <b>Gatekeeper / SEMAF</b>
+        <span>Autonomous Operations with Decision Integrity</span>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+        <span class="chip">Mission Assurance</span>
+        <span class="chip">Deterministic Receipts</span>
+        <span class="chip">Replay Verification</span>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Evidence-driven autonomy you can prove.</h1>
+        <p class="sub">
+          Gatekeeper is an operational integrity layer for autonomous or semi-autonomous workflows.
+          SEMAF is the governance kernel that binds decisions to policy, produces deterministic receipts,
+          and makes outcomes auditable and replayable.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">SDK-first runtime visibility</span>
+          <span class="pill">Policy-bound actions</span>
+          <span class="pill">Append-only evidence</span>
+          <span class="pill">Offline-friendly</span>
+          <span class="pill">Minimal attack surface</span>
+        </div>
+
+        <hr/>
+
+        <h2>Defense-relevant, non-weapon use cases</h2>
+        <div class="grid">
+          <div class="card" style="padding:16px"><h2>Readiness & Maintenance</h2><div class="small">Go/No-Go decisions backed by evidence, policy gates and receipts.</div></div>
+          <div class="card" style="padding:16px"><h2>Supply-chain Trust</h2><div class="small">ALLOW/WARN/BLOCK release gates based on provenance pointers and policy.</div></div>
+          <div class="card" style="padding:16px"><h2>Incident Triage</h2><div class="small">Escalate/Isolate/Observe actions with traceable timelines and replay.</div></div>
+        </div>
+
+        <hr/>
+
+        <h2>Contact</h2>
+        <div class="small">
+          Private briefings and proof bundles on request.<br/>
+ Proof Pack Demo (public): <a href="https://sc691583.github.io/gatekeeper-proofpack-demo/">link</a><br/>
+          Email: <a href="mailto:info@dayandrossglobal.com">info@dayandrossglobal.com</a>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="mailto:info@dayandrossglobal.com?subject=Gatekeeper%20%2F%20SEMAF%20—%20Mission%20Assurance%20Briefing">Request a briefing</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Proof Bar</h2>
+        <div class="small">Pair this page with a proof bundle (hash + receipts + replay verifier).</div>
+
+        <div class="badge"><span class="dot"></span><b>Receipt verification</b>&nbsp;<span class="small">PASS (bundle required)</span></div>
+        <div class="badge"><span class="dot"></span><b>Replay determinism</b>&nbsp;<span class="small">PASS (bundle required)</span></div>
+        <div class="badge"><span class="dot warn"></span><b>Policy gate</b>&nbsp;<span class="small">ALLOW/WARN/BLOCK (config-driven)</span></div>
+
+        <hr/>
+        <div class="small"><b>Sample proof bundles (public):</b></div>
+<div class="small" style="margin-top:8px">
+• <a href="./bundles/bundle_readiness_go_nogo/manifest.json">Readiness bundle</a><br/>
+&nbsp;&nbsp;<code>chain_head=7815d606fc472519d6926f7775cb28ba5fd14141bf4671d113677870ccec16a7</code><br/>
+&nbsp;&nbsp;<code>manifest_sha256=cdae8bf5c846c423e1b1fdde32143a9f61f94c6048d7f6b0ee3fe147f2035a10</code><br/>
+• <a href="./bundles/bundle_supplychain_release_gate/manifest.json">Supply-chain bundle</a><br/>
+&nbsp;&nbsp;<code>chain_head=906a7126e52b06a8f38831137a6ea6f72b141c8e7177713b3f5cde3da4b025d4</code><br/>
+&nbsp;&nbsp;<code>manifest_sha256=191fee5893a9b74cb7b7d9d467f3b216073be29754e77e834a0d86999d9702df</code><br/>
+• <a href="./bundles/bundle_incident_triage/manifest.json">Incident triage bundle</a><br/>
+&nbsp;&nbsp;<code>chain_head=57bca1884cbb250722d4c2a55dad3a357318b20f452481012b3a5eeaf453219c</code><br/>
+&nbsp;&nbsp;<code>manifest_sha256=270971005fab17f5c85dbfdfd11a9bb85c59917ca0783c7c0668e9199d616244</code><br/>
+</div>
+
+
+        <hr/>
+        <h2>Legal / Entity</h2>
+        <div class="small">Owner: Day&amp;Ross Global LTD LLC</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> Gatekeeper / SEMAF</div>
+      <div>Day&amp;Ross Global LTD LLC</div>
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

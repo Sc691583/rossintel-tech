@@ -1,0 +1,25 @@
+:root{--bg:#0b0f17;--text:#e7eefc;--muted:#a9b7d0;--line:#1d2a40;--good:#6ee7b7;--warn:#fde68a;--accent:#9ad1ff}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:48px 20px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.brand b{font-size:18px;letter-spacing:.3px} .brand span{color:var(--muted);font-size:12px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:12px}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border-radius:18px;padding:22px}
+h1{font-size:40px;line-height:1.05;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 18px}
+.pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.pill{border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+hr{border:none;border-top:1px solid var(--line);margin:18px 0}
+h2{margin:0 0 10px;font-size:18px}
+.small{color:var(--muted);font-size:13px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px}
+.dot{width:10px;height:10px;border-radius:99px;background:var(--good)} .dot.warn{background:var(--warn)}
+code{background:rgba(255,255,255,.06);border:1px solid var(--line);padding:2px 6px;border-radius:8px}
+.footer{margin-top:24px;color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.btn{display:inline-block;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:10px 14px;border-radius:12px;color:var(--text)}
+.btn:hover{background:rgba(255,255,255,.06);text-decoration:none}
