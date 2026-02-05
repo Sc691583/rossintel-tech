@@ -1,26 +1,30 @@
 <!doctype html>
 <html lang="hu" data-lang="hu">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>RossIntel.tech — Evidence-first Ops / Audit / Cyber</title>
-  <meta name="description" content="Futurisztikus, evidence-first operations: dokumentáció 72h, audit/evidence pack 3–7 nap, kibervédelem (Zero-Trust alapok)."/>
-  <meta name="theme-color" content="#070A10"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RossIntel.tech — Premium Evidence Ops (Gold × Blue)</title>
+  <meta name="description" content="Prémium arany-kék evidence-first operations: Doc→Spec 72h, Audit/Evidence 3–7 nap, Cyber/Zero-Trust alapok. Ajánlatkérés és regisztráció azonnal." />
+  <meta name="theme-color" content="#070A10" />
   <style>
     :root{
       --bg:#070A10;
       --fg:#EAF0FF;
-      --mut:#9AA7C2;
+      --mut:#A7B3D1;
       --line:rgba(255,255,255,.10);
-      --glass:rgba(255,255,255,.05);
+      --glass:rgba(255,255,255,.055);
       --glass2:rgba(255,255,255,.03);
-      --blue:#4DA3FF;
-      --green:#22C55E;
+
+      --blue:#4DA3FF; /* ion-blue */
+      --blue2:#67B6FF;
+      --gold:#D6B15B; /* premium gold */
+      --gold2:#F3D38A;
       --amber:#F59E0B;
-      --red:#EF4444;
-      --shadow:0 20px 70px rgba(0,0,0,.55);
-      --radius:22px;
+
+      --shadow: 0 22px 85px rgba(0,0,0,.62);
+      --radius: 24px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -30,68 +34,78 @@
       color: var(--fg);
       overflow-x:hidden;
     }
+    a{color:inherit}
 
-    /* ===== Cinematic background ===== */
-    .bg{
-      position:fixed; inset:0; z-index:-3;
+    /* ===== Cinematic background (Gold × Blue) ===== */
+    .bg{position:fixed; inset:0; z-index:-4;
       background:
-        radial-gradient(1100px 700px at 20% 0%, rgba(77,163,255,.18), transparent 60%),
-        radial-gradient(900px 700px at 85% 15%, rgba(34,197,94,.10), transparent 62%),
-        radial-gradient(900px 700px at 55% 110%, rgba(245,158,11,.08), transparent 60%),
-        linear-gradient(180deg, #070A10 0%, #050812 55%, #060A12 100%);
+        radial-gradient(1200px 760px at 18% 0%, rgba(77,163,255,.18), transparent 60%),
+        radial-gradient(1000px 760px at 90% 10%, rgba(214,177,91,.14), transparent 62%),
+        radial-gradient(900px 700px at 55% 115%, rgba(245,158,11,.06), transparent 60%),
+        linear-gradient(180deg, #070A10 0%, #060812 55%, #060A12 100%);
     }
     .grid{
-      position:fixed; inset:-40px; z-index:-2; opacity:.22;
+      position:fixed; inset:-60px; z-index:-3; opacity:.18;
       background-image:
         linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 72px 72px;
-      transform: perspective(900px) rotateX(58deg) translateY(-120px);
+      background-size: 80px 80px;
+      transform: perspective(1000px) rotateX(58deg) translateY(-140px);
+      mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 86%);
       filter: blur(.2px);
-      mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 85%);
+      pointer-events:none;
     }
     .noise{
-      position:fixed; inset:0; z-index:-1; opacity:.05;
+      position:fixed; inset:0; z-index:-2; opacity:.045;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
       mix-blend-mode: overlay;
       pointer-events:none;
     }
     .beam{
-      position:fixed; left:50%; top:-10%;
-      width:380px; height:120%;
+      position:fixed; left:50%; top:-12%;
+      width:440px; height:128%;
       transform: translateX(-50%);
-      background: radial-gradient(closest-side, rgba(77,163,255,.34), transparent 62%),
-                  linear-gradient(180deg, rgba(77,163,255,.16), transparent 70%);
-      filter: blur(10px);
+      z-index:-2; pointer-events:none;
+      background:
+        radial-gradient(closest-side, rgba(214,177,91,.34), transparent 62%),
+        linear-gradient(180deg, rgba(214,177,91,.18), transparent 72%);
+      filter: blur(12px);
       opacity:.9;
-      z-index:-1;
-      pointer-events:none;
+      animation: drift 8.5s ease-in-out infinite;
     }
     .beam::after{
       content:"";
       position:absolute; inset:-40px;
-      background: radial-gradient(circle at 50% 30%, rgba(34,197,94,.14), transparent 55%);
+      background: radial-gradient(circle at 50% 30%, rgba(77,163,255,.16), transparent 55%);
       filter: blur(18px);
-      opacity:.7;
+      opacity:.75;
+    }
+    @keyframes drift{
+      0%{ transform: translateX(-50%) translateY(0); opacity:.92;}
+      50%{ transform: translateX(-50%) translateY(12px); opacity:.84;}
+      100%{ transform: translateX(-50%) translateY(0); opacity:.92;}
+    }
+    #bokeh{
+      position:fixed; inset:0; z-index:-1;
+      pointer-events:none; opacity:.68;
     }
 
     /* ===== Layout ===== */
-    .wrap{max-width:1160px; margin:0 auto; padding:26px 18px 70px}
+    .wrap{max-width:1180px; margin:0 auto; padding:26px 18px 70px;}
     .top{
       display:flex; align-items:center; justify-content:space-between; gap:14px;
       padding:10px 0 6px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
-      letter-spacing:.3px;
-      font-weight:820;
+      font-weight:850; letter-spacing:.35px;
     }
     .dot{
       width:10px; height:10px; border-radius:999px;
-      background:var(--blue);
-      box-shadow: 0 0 18px rgba(77,163,255,.65);
+      background:var(--gold);
+      box-shadow: 0 0 20px rgba(214,177,91,.65), 0 0 34px rgba(77,163,255,.18);
     }
-    .chipbar{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .rightTop{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
     .chip{
       border:1px solid var(--line);
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
@@ -102,10 +116,39 @@
       backdrop-filter: blur(10px);
     }
     .chip b{color:var(--fg); font-weight:750}
+
+    /* ===== HU/EN toggle ===== */
+    .langToggle{
+      display:flex; gap:8px; align-items:center;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      backdrop-filter: blur(14px);
+      padding:6px 8px;
+      border-radius:999px;
+    }
+    .langBtn{
+      font-size:12.5px; font-weight:850; letter-spacing:.2px;
+      color:var(--mut);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+      padding:7px 10px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+    .langBtn.active{
+      color:var(--fg);
+      border-color: rgba(214,177,91,.65);
+      box-shadow: 0 0 0 1px rgba(214,177,91,.22) inset, 0 0 24px rgba(77,163,255,.12);
+    }
+    html[data-lang] [data-lang]{ display:none; }
+    html[data-lang="hu"] [data-lang="hu"]{ display:block; }
+    html[data-lang="en"] [data-lang="en"]{ display:block; }
+
+    /* ===== Hero ===== */
     .hero{
       margin-top:14px;
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 1.08fr .92fr;
       gap:14px;
       align-items:stretch;
     }
@@ -114,35 +157,44 @@
     .panel{
       border:1px solid var(--line);
       border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       backdrop-filter: blur(14px);
       overflow:hidden;
       position:relative;
     }
-    .panel::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(700px 200px at 20% 0%, rgba(77,163,255,.22), transparent 65%),
-                  radial-gradient(600px 220px at 90% 15%, rgba(34,197,94,.12), transparent 60%);
-      opacity:.75;
-      pointer-events:none;
+    /* premium edge (gold × blue) */
+    .panel::after{
+      content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+      background: linear-gradient(90deg, rgba(214,177,91,.26), rgba(77,163,255,.22), rgba(214,177,91,.10));
+      opacity:.62;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding:1px;
+      box-sizing:border-box;
     }
     .panelInner{position:relative; padding:22px 22px 18px}
+
     h1{
       margin:0 0 12px;
-      font-size: clamp(30px, 3.4vw, 54px);
-      line-height:1.03;
-      letter-spacing:-.6px;
+      font-size: clamp(32px, 3.6vw, 56px);
+      line-height:1.02;
+      letter-spacing:-.7px;
     }
-    .gradBlue{background:linear-gradient(90deg, #EAF0FF, rgba(77,163,255,.92)); -webkit-background-clip:text; color:transparent;}
-    .gradGreen{background:linear-gradient(90deg, rgba(34,197,94,.95), #EAF0FF); -webkit-background-clip:text; color:transparent;}
+    .goldText{
+      background: linear-gradient(90deg, #FFF3D6, rgba(214,177,91,.95));
+      -webkit-background-clip:text; color:transparent;
+    }
+    .blueText{
+      background: linear-gradient(90deg, rgba(77,163,255,.95), #EAF0FF);
+      -webkit-background-clip:text; color:transparent;
+    }
     .sub{
-      margin:0 0 18px;
+      margin:0 0 16px;
       color:var(--mut);
       font-size: clamp(14px, 1.5vw, 18px);
       line-height:1.6;
-      max-width:720px;
+      max-width:760px;
     }
 
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
@@ -154,24 +206,22 @@
       background:rgba(255,255,255,.04);
       color:var(--fg);
       text-decoration:none;
-      font-weight:800;
+      font-weight:850;
       letter-spacing:.2px;
       position:relative;
       overflow:hidden;
-      transform: translateZ(0);
     }
     .btn::after{
       content:"";
-      position:absolute; inset:-60px;
+      position:absolute; inset:-70px;
       background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.18), transparent 65%);
       transform: translateX(-60%);
       transition: transform .65s ease;
     }
-    .btn:hover::after{transform: translateX(40%)}
+    .btn:hover::after{ transform: translateX(40%); }
+    .btn.gold{border-color:rgba(214,177,91,.60); box-shadow:0 0 0 1px rgba(214,177,91,.20) inset}
     .btn.blue{border-color:rgba(77,163,255,.55); box-shadow:0 0 0 1px rgba(77,163,255,.18) inset}
-    .btn.green{border-color:rgba(34,197,94,.45); box-shadow:0 0 0 1px rgba(34,197,94,.16) inset}
-    .btn.amber{border-color:rgba(245,158,11,.45); box-shadow:0 0 0 1px rgba(245,158,11,.14) inset}
-
+    .btn.ghost{border-color:rgba(255,255,255,.14)}
     .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .pill{
       border:1px solid var(--line);
@@ -208,17 +258,13 @@
       overflow:hidden;
       min-height:64px;
     }
-    .seg::before{
-      content:"";
-      position:absolute; inset:-30px;
-      opacity:.22;
-      filter: blur(12px);
-    }
+    .seg::before{content:""; position:absolute; inset:-30px; opacity:.22; filter: blur(12px);}
     .seg h3{margin:0 0 4px; font-size:13px; letter-spacing:.4px}
     .seg p{margin:0; color:var(--mut); font-size:12.5px; line-height:1.35}
-    .allow::before{background: radial-gradient(circle at 30% 20%, rgba(34,197,94,.8), transparent 55%)}
-    .warn::before{background: radial-gradient(circle at 30% 20%, rgba(245,158,11,.85), transparent 55%)}
-    .block::before{background: radial-gradient(circle at 30% 20%, rgba(239,68,68,.85), transparent 55%)}
+    .allow::before{background: radial-gradient(circle at 30% 20%, rgba(214,177,91,.75), transparent 55%)}
+    .warn::before{background: radial-gradient(circle at 30% 20%, rgba(77,163,255,.75), transparent 55%)}
+    .block::before{background: radial-gradient(circle at 30% 20%, rgba(245,158,11,.75), transparent 55%)}
+
     .kv{
       margin-top:12px;
       display:grid;
@@ -235,7 +281,7 @@
     .kv .item b{display:block; margin-bottom:4px; font-size:12.5px}
     .kv .item span{color:var(--mut); font-size:12.5px; line-height:1.4}
 
-    /* ===== Sections ===== */
+    /* ===== Modules ===== */
     .section{
       margin-top:16px;
       display:grid;
@@ -253,12 +299,13 @@
       position:relative;
       overflow:hidden;
     }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      opacity:.65;
-      background: radial-gradient(460px 180px at 20% 0%, rgba(77,163,255,.18), transparent 60%);
-      pointer-events:none;
+    .card::after{
+      content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+      background: linear-gradient(90deg, rgba(214,177,91,.18), rgba(77,163,255,.16), rgba(214,177,91,.08));
+      opacity:.55;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding:1px;
     }
     .card h2{position:relative; margin:0 0 8px; font-size:16px; letter-spacing:.2px}
     .card ul{position:relative; margin:0; padding-left:18px}
@@ -271,6 +318,95 @@
       background:rgba(0,0,0,.20);
     }
 
+    /* ===== Reveal motion ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(28px) scale(.985);
+      filter: blur(3px);
+      transition:
+        opacity 720ms cubic-bezier(.2,.9,.2,1),
+        transform 720ms cubic-bezier(.2,.9,.2,1),
+        filter 720ms cubic-bezier(.2,.9,.2,1);
+      transition-delay: calc(var(--d,0) * 90ms);
+      will-change: transform, opacity, filter;
+    }
+    .reveal.in{ opacity:1; transform: translateY(0) scale(1); filter: blur(0); }
+
+    /* ===== Modal (Quote/Register) ===== */
+    .modalBack{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background:rgba(0,0,0,.62);
+      backdrop-filter: blur(12px);
+      z-index:9999;
+    }
+    .modalBack.on{display:flex;}
+    .modal{
+      width:min(900px, 92vw);
+      border:1px solid var(--line);
+      border-radius:22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow: 0 30px 110px rgba(0,0,0,.7);
+      overflow:hidden;
+      position:relative;
+    }
+    .modal::after{
+      content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+      background: linear-gradient(90deg, rgba(214,177,91,.26), rgba(77,163,255,.22), rgba(214,177,91,.10));
+      opacity:.62;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding:1px;
+    }
+    .modalTop{
+      position:relative;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--line);
+      padding:10px 14px;
+      background: rgba(0,0,0,.18);
+    }
+    .modalTop b{ letter-spacing:.3px; }
+    .modalClose{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--fg);
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:850;
+    }
+    .modalGrid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      padding:14px;
+    }
+    @media(max-width:860px){ .modalGrid{grid-template-columns:1fr;} }
+    .field label{display:block; color:var(--mut); font-size:12.5px; margin:0 0 6px;}
+    .field input,.field select,.field textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      color:var(--fg);
+      outline:none;
+    }
+    .field textarea{min-height:110px; resize:vertical;}
+    .modalActions{
+      position:relative;
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+      padding:0 14px 14px;
+    }
+    .modalHint{
+      position:relative;
+      padding:0 14px 14px;
+      color:var(--mut);
+      font-size:12.5px;
+      line-height:1.5;
+    }
+
+    /* ===== Footer ===== */
     .footer{
       margin-top:18px;
       border:1px solid var(--line);
@@ -280,191 +416,57 @@
       color:var(--mut);
       font-size:12.5px;
       display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+      backdrop-filter: blur(12px);
     }
-    .footer b{color:var(--fg)}
-  
-/* ===== AGIComply-style: float-in cards ===== */
-.reveal{
-  opacity:0;
-  transform: translateY(28px) scale(.985);
-  filter: blur(3px);
-  transition:
-    opacity 720ms cubic-bezier(.2,.9,.2,1),
-    transform 720ms cubic-bezier(.2,.9,.2,1),
-    filter 720ms cubic-bezier(.2,.9,.2,1);
-  transition-delay: calc(var(--d,0) * 90ms);
-  will-change: transform, opacity, filter;
-}
-.reveal.in{
-  opacity:1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-}
-
-/* hover: subtle lift */
-.card, .panel, .seg{
-  transition: transform 240ms cubic-bezier(.2,.9,.2,1), box-shadow 240ms cubic-bezier(.2,.9,.2,1);
-}
-.card:hover, .panel:hover, .seg:hover{ transform: translateY(-3px); }
-
-/* ===== HU/EN toggle ===== */
-.langToggle{
-  display:flex; gap:8px; align-items:center;
-  border:1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  backdrop-filter: blur(14px);
-  padding:6px 8px;
-  border-radius:999px;
-}
-.langBtn{
-  font-size:12.5px; font-weight:800; letter-spacing:.2px;
-  color:var(--mut);
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.20);
-  padding:7px 10px;
-  border-radius:999px;
-  cursor:pointer;
-}
-.langBtn.active{
-  color:var(--fg);
-  border-color: rgba(77,163,255,.55);
-  box-shadow: 0 0 0 1px rgba(77,163,255,.18) inset, 0 0 22px rgba(77,163,255,.14);
-}
-
-/* language show/hide */
-html[data-lang] html[data-lang] [data-lang]{ display:none; }
-html[data-lang="hu"] [data-lang="hu"]{ display:block; }
-html[data-lang="en"] [data-lang="en"]{ display:block; }
-
-/* ===== bokeh canvas background ===== */
-#bokeh{
-  position:fixed; inset:0;
-  z-index:-2;
-  pointer-events:none;
-  opacity:.65;
-  filter: blur(.2px);
-}
-
-
-/* ==== AGIComply motion: float-in reveal ==== */
-.reveal{opacity:0;transform:translateY(28px) scale(.985);filter:blur(3px);
-transition:opacity 720ms cubic-bezier(.2,.9,.2,1),transform 720ms cubic-bezier(.2,.9,.2,1),filter 720ms cubic-bezier(.2,.9,.2,1);
-transition-delay:calc(var(--d,0)*90ms);will-change:transform,opacity,filter;}
-.reveal.in{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
-
-/* neon edge (subtle) */
-.card,.panel{position:relative;}
-.card::after,.panel::after{
-content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
-background:linear-gradient(90deg, rgba(77,163,255,.22), rgba(34,197,94,.12), rgba(245,158,11,.10));
-opacity:.55;filter:blur(.2px);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
--webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-padding:1px;box-sizing:border-box;
-}
-
-/* HU/EN toggle */
-.langToggle{display:flex;gap:8px;align-items:center;border:1px solid var(--line);
-background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-backdrop-filter:blur(14px);padding:6px 8px;border-radius:999px;}
-.langBtn{font-size:12.5px;font-weight:800;color:var(--mut);border:1px solid rgba(255,255,255,.10);
-background:rgba(0,0,0,.20);padding:7px 10px;border-radius:999px;cursor:pointer;}
-.langBtn.active{color:var(--fg);border-color:rgba(77,163,255,.55);
-box-shadow:0 0 0 1px rgba(77,163,255,.18) inset,0 0 22px rgba(77,163,255,.14);}
-
-/* bokeh canvas */
-#bokeh{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.65;}
-
-
-/* ===== Modal (Quote / Register) ===== */
-.modalBack{
-  position:fixed; inset:0; display:none; align-items:center; justify-content:center;
-  background:rgba(0,0,0,.62);
-  backdrop-filter: blur(10px);
-  z-index:9999;
-}
-.modalBack.on{ display:flex; }
-.modal{
-  width:min(860px, 92vw);
-  border:1px solid var(--line);
-  border-radius:22px;
-  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-  box-shadow: 0 30px 110px rgba(0,0,0,.7);
-  overflow:hidden;
-  position:relative;
-}
-.modal::before{
-  content:""; position:absolute; inset:-2px; pointer-events:none; opacity:.75;
-  background:
-    radial-gradient(700px 240px at 15% 0%, rgba(77,163,255,.22), transparent 65%),
-    radial-gradient(600px 220px at 85% 15%, rgba(34,197,94,.12), transparent 60%);
-}
-.modalInner{ position:relative; padding:18px 18px 16px; }
-.modalTop{
-  display:flex; align-items:center; justify-content:space-between; gap:10px;
-  border-bottom:1px solid var(--line);
-  padding:10px 14px;
-  background: rgba(0,0,0,.18);
-}
-.modalTop b{ letter-spacing:.3px; }
-.modalClose{
-  border:1px solid var(--line); background:rgba(255,255,255,.03);
-  color:var(--fg); border-radius:12px; padding:8px 10px; cursor:pointer; font-weight:800;
-}
-.modalGrid{
-  display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:14px;
-}
-@media(max-width:860px){ .modalGrid{ grid-template-columns:1fr; } }
-.field label{ display:block; color:var(--mut); font-size:12.5px; margin:0 0 6px; }
-.field input, .field select, .field textarea{
-  width:100%; padding:12px 12px; border-radius:14px;
-  border:1px solid var(--line);
-  background:rgba(0,0,0,.22); color:var(--fg);
-  outline:none;
-}
-.field textarea{ min-height:110px; resize:vertical; }
-.modalActions{
-  display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-  padding:0 14px 14px;
-}
-.modalHint{ padding:0 14px 14px; color:var(--mut); font-size:12.5px; line-height:1.5; }
-
-</style>
-<!-- BUILD_20260205T140726Z -->
-
+    .footer b{color:var(--fg);}
+  </style>
+</head>
 <body>
- <canvas id="bokeh"></canvas>
   <div class="bg"></div>
   <div class="grid"></div>
   <div class="beam"></div>
   <div class="noise"></div>
+  <canvas id="bokeh"></canvas>
 
   <div class="wrap">
     <div class="top">
       <div class="brand"><span class="dot"></span> RossIntel.tech</div>
-      <div class="chipbar">
+
+      <div class="rightTop">
         <div class="chip"><b>NDA</b> ready</div>
         <div class="chip"><b>Evidence</b>-first</div>
         <div class="chip">SDK-first • Docker-only</div>
+
+        <div class="langToggle" role="group" aria-label="Language">
+          <button class="langBtn" data-set-lang="hu" type="button">magyar</button>
+          <button class="langBtn" data-set-lang="en" type="button">english</button>
+        </div>
       </div>
     </div>
 
     <div class="hero">
       <div class="panel reveal" style="--d:0">
         <div class="panelInner">
-          <h1><span data-lang="hu"><span class="gradBlue">Futurisztikus</span> működés, <span class="gradGreen">bizonyítható</span> átadással.</span><span data-lang="en">Futuristic, <span class="gradGreen">verifiable</span> handover.</span></h1>
-          <p class="sub"><span data-lang="hu">
-            Kézzelfogható deliverable-ek: <b>Doc→Spec 72h</b>, <b>Audit/Evidence Pack 3–7 nap</b>, <b>Cyber/Zero-Trust alapok</b>.
-            Nem “AI-mese”: kontroll + nyomvonal + ellenőrizhető átadás.
-          </span><span data-lang="en">Concrete deliverables: <b>Doc→Spec (72h)</b>, <b>Audit/Evidence Pack (3–7 days)</b>, <b>Cyber / Zero-Trust basics</b>. Controlled ops + traceability + proof.</span></p>
+          <h1>
+            <span data-lang="hu"><span class="goldText">Arany</span> × <span class="blueText">kék</span> prémium átadás.<br>Bizonyítható, nem bemondás.</span>
+            <span data-lang="en"><span class="goldText">Gold</span> × <span class="blueText">blue</span> premium handover.<br>Verifiable, not hand-waving.</span>
+          </h1>
+
+          <p class="sub">
+            <span data-lang="hu">Három gyors csomag: <b>Doc→Spec 72h</b>, <b>Audit/Evidence 3–7 nap</b>, <b>Cyber/Zero-Trust</b>. Az eredmény egy <b>átadási csomag</b>, amit le lehet tenni az asztalra.</span>
+            <span data-lang="en">Three fast packages: <b>Doc→Spec (72h)</b>, <b>Audit/Evidence (3–7 days)</b>, <b>Cyber/Zero-Trust</b>. You get a <b>handover bundle</b> you can put on the table.</span>
+          </p>
+
           <div class="ctaRow">
-            <a class="btn blue" href="#doc">Doc→Spec 72h</a>
-            <a class="btn green" href="#audit">Audit/Evidence</a>
-            <a class="btn amber" href="#cyber">Cyber / Zero-Trust</a>
+            <a class="btn gold" href="#" data-open="quote"><span data-lang="hu">Ajánlatkérés</span><span data-lang="en">Request quote</span></a>
+            <a class="btn blue" href="#" data-open="register"><span data-lang="hu">Regisztráció</span><span data-lang="en">Register</span></a>
+            <a class="btn ghost" href="#modules"><span data-lang="hu">Mit kapsz?</span><span data-lang="en">What you get</span></a>
           </div>
+
           <div class="pillRow">
-            <div class="pill">Leadás: PDF + DOCX</div>
-            <div class="pill">Integritás: manifest (hash)</div>
-            <div class="pill">Visszahívás: 15 perc (munkaidő)</div>
+            <div class="pill"><span data-lang="hu">Leadás: PDF + DOCX</span><span data-lang="en">Delivery: PDF + DOCX</span></div>
+            <div class="pill"><span data-lang="hu">Integritás: manifest (hash)</span><span data-lang="en">Integrity: manifest (hash)</span></div>
+            <div class="pill"><span data-lang="hu">Visszahívás: 15 perc</span><span data-lang="en">Callback: 15 min</span></div>
           </div>
         </div>
       </div>
@@ -478,296 +480,248 @@ box-shadow:0 0 0 1px rgba(77,163,255,.18) inset,0 0 22px rgba(77,163,255,.14);}
           <div class="proofBar">
             <div class="seg allow">
               <h3>ALLOW</h3>
-              <p>Policy engedélyezve + receipt</p>
+              <p><span data-lang="hu">Mehet + nyomvonal</span><span data-lang="en">Go + trail</span></p>
             </div>
             <div class="seg warn">
               <h3>WARN</h3>
-              <p>Eltérés jelölve + evidence pointer</p>
+              <p><span data-lang="hu">Eltérés jelölve</span><span data-lang="en">Deviation flagged</span></p>
             </div>
             <div class="seg block">
               <h3>BLOCK</h3>
-              <p>Stop + audit nyomvonal</p>
+              <p><span data-lang="hu">Stop + magyarázat</span><span data-lang="en">Stop + reason</span></p>
             </div>
           </div>
+
           <div class="kv">
-            <div class="item"><b>Bizonyítékos átadás (fekete doboz)</b><span><span data-lang="hu"><span data-lang="hu">A végén kapsz egy átadási csomagot: mit csináltunk, mikor, és mi lett az eredmény. Nem magyarázkodás – ott a nyom.</span><span data-lang="en">You get a handover bundle: what we did, when, and what the outcome was. No hand-waving — the trail is there.</span></span><span data-lang="en">You get a handover bundle: what we did, when, and what the outcome was. No hand-waving — the trail is there.</span></span></div>
-            <div class="item"><b>Visszakereshető döntések (repülési napló)</b><span><span data-lang="hu"><span data-lang="hu">Ha valami kérdéses (vagy vita van), vissza tudjuk nézni lépésről lépésre. Ugyanaz a sztori, ugyanazok a jelek.</span><span data-lang="en">If anything is disputed, we can replay it step-by-step. Same story, same signals.</span></span><span data-lang="en">If anything is disputed, we can replay it step-by-step. Same story, same signals.</span></span></div>
+            <div class="item">
+              <b><span data-lang="hu">„Fekete doboz” átadás</span><span data-lang="en">Black-box handover</span></b>
+              <span data-lang="hu">Kapsz egy csomagot: mit csináltunk, mikor, mi lett a vége. Ha kérdés van, nem emlékezni kell – ott a nyom.</span>
+              <span data-lang="en">You get a bundle: what we did, when, and the outcome. If questioned, you don’t rely on memory — the trail is there.</span>
+            </div>
+            <div class="item">
+              <b><span data-lang="hu">Visszanézhető sztori</span><span data-lang="en">Replayable story</span></b>
+              <span data-lang="hu">Vita esetén lépésről lépésre visszanézhető, ugyanazokkal a jelekkel. Kevesebb zaj, gyorsabb döntés.</span>
+              <span data-lang="en">In disputes, we can replay it step-by-step with the same signals. Less noise, faster decisions.</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="card reveal" id="doc" style="--d:0">
-        <h2>Doc→Spec 72h</h2>
+    <div class="section" id="modules">
+      <div class="card reveal" style="--d:0">
+        <h2><span data-lang="hu">Doc→Spec 72h</span><span data-lang="en">Doc→Spec (72h)</span></h2>
         <ul>
-          <li>PDF/Word → specifikáció / SOP / eljárásrend</li>
-          <li>Egységesítés, fejezetelés, hibajavítás</li>
-          <li>Többnyelvű átadás kérhető</li>
-          <li>NDA + redakció igény szerint</li>
+          <li><span data-lang="hu">PDF/Word → specifikáció / SOP / eljárásrend</span><span data-lang="en">PDF/Word → spec / SOP / procedures</span></li>
+          <li><span data-lang="hu">Egységesítés, fejezetelés, hibajavítás</span><span data-lang="en">Normalize, structure, fix issues</span></li>
+          <li><span data-lang="hu">Többnyelvű átadás kérhető</span><span data-lang="en">Multi-language handover available</span></li>
+          <li><span data-lang="hu">NDA + redakció igény szerint</span><span data-lang="en">NDA + redaction if needed</span></li>
         </ul>
         <div class="tags">
-          <span class="tag">72h Mini</span>
-          <span class="tag">7 nap Standard</span>
-          <span class="tag">Retainer</span>
+          <span class="tag">72h Mini</span><span class="tag">7 nap</span><span class="tag">Retainer</span>
         </div>
       </div>
 
-      <div class="card reveal" id="audit" style="--d:1">
-        <h2>Audit / Evidence Pack (3–7 nap)</h2>
+      <div class="card reveal" style="--d:1">
+        <h2><span data-lang="hu">Audit / Evidence (3–7 nap)</span><span data-lang="en">Audit / Evidence (3–7 days)</span></h2>
         <ul>
-          <li>Policy + változásrend + átadási csomag</li>
-          <li>Evidence export: manifest + ellenőrzési lépések</li>
-          <li>Incident-ready dokumentáció</li>
-          <li>Scope-limited, audit-safe megfogalmazás</li>
+          <li><span data-lang="hu">Policy + változásrend + átadási csomag</span><span data-lang="en">Policy + change control + handover bundle</span></li>
+          <li><span data-lang="hu">Manifest + ellenőrzési lépések</span><span data-lang="en">Manifest + verification steps</span></li>
+          <li><span data-lang="hu">Incident-ready dokumentáció</span><span data-lang="en">Incident-ready documentation</span></li>
+          <li><span data-lang="hu">Scope-limited, audit-safe szöveg</span><span data-lang="en">Scope-limited, audit-safe language</span></li>
         </ul>
         <div class="tags">
-          <span class="tag">3 nap Mini</span>
-          <span class="tag">7 nap Standard</span>
-          <span class="tag">Evidence Ops</span>
+          <span class="tag">3 nap</span><span class="tag">7 nap</span><span class="tag">Evidence Ops</span>
         </div>
       </div>
 
-      <div class="card reveal" id="cyber" style="--d:2">
-        <h2>Kibervédelem / Zero-Trust alapok</h2>
+      <div class="card reveal" style="--d:2">
+        <h2><span data-lang="hu">Cyber / Zero-Trust</span><span data-lang="en">Cyber / Zero-Trust</span></h2>
         <ul>
-          <li>Hardening checklist (Docker/host/service)</li>
-          <li>Jogosultság-minimum + hozzáférési rend</li>
-          <li>Incident triage rend + átadási csomag</li>
-          <li>Ajánlás/ticket only (SAFE működés)</li>
+          <li><span data-lang="hu">Hardening checklist (Docker/host/service)</span><span data-lang="en">Hardening checklist (Docker/host/service)</span></li>
+          <li><span data-lang="hu">Jogosultság-minimum + hozzáférési rend</span><span data-lang="en">Least privilege + access rules</span></li>
+          <li><span data-lang="hu">Incident triage rend + átadás</span><span data-lang="en">Incident triage + handover</span></li>
+          <li><span data-lang="hu">Ajánlás/ticket only (SAFE)</span><span data-lang="en">Recommendation/ticket only (SAFE)</span></li>
         </ul>
         <div class="tags">
-          <span class="tag">Rapid assess</span>
-          <span class="tag">Recommendation pack</span>
-          <span class="tag">Monthly control</span>
+          <span class="tag">Assess</span><span class="tag">Pack</span><span class="tag">Monthly</span>
         </div>
       </div>
     </div>
 
     <div class="footer reveal" style="--d:2">
       <div><b>Contact:</b> info@dayandrossglobal.com</div>
-      <div><b>RossIntel.tech</b> • Evidence-first operations</div>
-      <div>© <span id="y"></span></div>
+      <div><b>Operator:</b> Gatekeeper Operations Kft. • <b>Owner:</b> Day&Ross Global LTD LLC</div>
+      <div>© <span id="y"></span> RossIntel.tech</div>
+    </div>
+  </div>
+
+  <!-- ===== Lead Modals ===== -->
+  <div class="modalBack" id="modalBack" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Lead form">
+      <div class="modalTop">
+        <b id="modalTitle">Ajánlatkérés</b>
+        <button class="modalClose" type="button" data-close="1">Close</button>
+      </div>
+
+      <!-- FORM ENDPOINT: cseréld Formspree-re -->
+      <form id="leadForm" action="https://formspree.io/f/XXXXYYYY" method="POST">
+        <input type="hidden" name="source" value="rossintel.tech"/>
+        <input type="hidden" name="form_type" id="formType" value="quote"/>
+        <input type="hidden" name="page_lang" id="pageLang" value="hu"/>
+
+        <div class="modalGrid">
+          <div class="field">
+            <label><span data-lang="hu">Név / Cég</span><span data-lang="en">Name / Company</span></label>
+            <input name="name_company" placeholder="Robi / Gatekeeper Operations Kft." required>
+          </div>
+          <div class="field">
+            <label><span data-lang="hu">Email / Telefon</span><span data-lang="en">Email / Phone</span></label>
+            <input name="contact" placeholder="email + phone" required>
+          </div>
+
+          <div class="field" id="pkgField">
+            <label><span data-lang="hu">Csomag</span><span data-lang="en">Package</span></label>
+            <select name="package">
+              <option>Doc→Spec (72h)</option>
+              <option>Audit/Evidence (3–7 days)</option>
+              <option>Cyber / Zero-Trust</option>
+              <option>Monthly retainer</option>
+            </select>
+          </div>
+
+          <div class="field" id="deadlineField">
+            <label><span data-lang="hu">Határidő</span><span data-lang="en">Deadline</span></label>
+            <select name="deadline">
+              <option>72 hours</option>
+              <option>7 days</option>
+              <option>Custom</option>
+            </select>
+          </div>
+
+          <div class="field" style="grid-column:1/-1">
+            <label><span data-lang="hu">Dokumentum link</span><span data-lang="en">File link</span></label>
+            <input name="file_link" placeholder="https://...">
+          </div>
+
+          <div class="field" style="grid-column:1/-1">
+            <label><span data-lang="hu">Rövid leírás</span><span data-lang="en">Short description</span></label>
+            <textarea name="notes" placeholder="Mit kérsz, hány oldal, milyen formátum? / What do you need, how many pages, what format?"></textarea>
+          </div>
+        </div>
+
+        <div class="modalActions">
+          <button class="btn gold" type="submit"><span data-lang="hu">Küldés</span><span data-lang="en">Send</span></button>
+          <button class="btn ghost" type="button" data-close="1"><span data-lang="hu">Mégse</span><span data-lang="en">Cancel</span></button>
+        </div>
+
+        <div class="modalHint">
+          <span data-lang="hu">Scope-limited. NDA-ready. Nem tanúsítás.</span>
+          <span data-lang="en">Scope-limited. NDA-ready. Not a certification.</span>
+        </div>
+      </form>
     </div>
   </div>
 
   <script>
+  (function(){
+    // year
     document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 
-<script>
-(function(){
-  // -------- Language
-  const stored = localStorage.getItem("rossintel_lang");
-  const lang = stored || "hu";
-  document.documentElement.setAttribute("data-lang", lang);
-  function sync(lang){
-    document.querySelectorAll(".langBtn").forEach(b=>{
-      b.classList.toggle("active", b.dataset.setLang === lang);
-    });
-  }
-  sync(lang);
-  document.addEventListener("click", (e)=>{
-    const btn = e.target.closest("[data-set-lang]");
-    if(!btn) return;
-    const l = btn.dataset.setLang;
-    document.documentElement.setAttribute("data-lang", l);
-    localStorage.setItem("rossintel_lang", l);
-    sync(l);
-  });
-
-  // -------- Scroll reveal
-  const els = Array.from(document.querySelectorAll(".reveal"));
-  const io = new IntersectionObserver((entries)=>{
-    for(const en of entries){
-      if(en.isIntersecting){
-        en.target.classList.add("in");
-        io.unobserve(en.target);
+    // lang init
+    const stored = localStorage.getItem("rossintel_lang");
+    const lang = stored || "hu";
+    document.documentElement.setAttribute("data-lang", lang);
+    function sync(l){
+      document.querySelectorAll(".langBtn").forEach(b=>b.classList.toggle("active", b.dataset.setLang===l));
+      document.getElementById("pageLang").value = l;
+    }
+    sync(lang);
+    document.addEventListener("click",(e)=>{
+      const b=e.target.closest("[data-set-lang]");
+      if(b){
+        const l=b.dataset.setLang;
+        document.documentElement.setAttribute("data-lang", l);
+        localStorage.setItem("rossintel_lang", l);
+        sync(l);
       }
-    }
-  }, {threshold: 0.14, rootMargin: "0px 0px -12% 0px"});
-  els.forEach(el=>io.observe(el));
-
-  // -------- Bokeh background (subtle, AGIComply-ish)
-  const c = document.getElementById("bokeh");
-  if(!c) return;
-  const ctx = c.getContext("2d");
-  let W=0,H=0, dpr=window.devicePixelRatio||1;
-
-  function resize(){
-    W = window.innerWidth; H = window.innerHeight;
-    c.width = Math.floor(W*dpr);
-    c.height = Math.floor(H*dpr);
-    c.style.width = W+"px";
-    c.style.height = H+"px";
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  window.addEventListener("resize", resize, {passive:true});
-  resize();
-
-  const N = Math.min(44, Math.max(22, Math.floor((W*H)/50000)));
-  const dots = [];
-  const palette = ["rgba(34,197,94,0.24)","rgba(77,163,255,0.18)","rgba(245,158,11,0.16)"];
-
-  function rand(min,max){ return min + Math.random()*(max-min); }
-
-  for(let i=0;i<N;i++){
-    dots.push({
-      x: rand(0,W), y: rand(0,H),
-      r: rand(3,10),
-      vx: rand(-0.18,0.18),
-      vy: rand(-0.12,0.12),
-      a: rand(0.12,0.34),
-      col: palette[(Math.random()*palette.length)|0]
     });
-  }
 
-  function step(){
-    ctx.clearRect(0,0,W,H);
-    // soft vignette
-    const g = ctx.createRadialGradient(W*0.5,H*0.35, 0, W*0.5,H*0.35, Math.max(W,H)*0.8);
-    g.addColorStop(0,"rgba(255,255,255,0.00)");
-    g.addColorStop(1,"rgba(0,0,0,0.30)");
-    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    // reveal
+    const els=[...document.querySelectorAll(".reveal")];
+    const io=new IntersectionObserver((ents)=>{
+      ents.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }});
+    },{threshold:.14, rootMargin:"0px 0px -12% 0px"});
+    els.forEach(el=>io.observe(el));
 
-    for(const d of dots){
-      d.x += d.vx; d.y += d.vy;
-      if(d.x < -20) d.x = W+20;
-      if(d.x > W+20) d.x = -20;
-      if(d.y < -20) d.y = H+20;
-      if(d.y > H+20) d.y = -20;
-
-      // glow dot
-      ctx.beginPath();
-      ctx.fillStyle = d.col;
-      ctx.globalAlpha = d.a;
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
-      ctx.fill();
-
-      // tiny highlight
-      ctx.globalAlpha = d.a*0.55;
-      ctx.beginPath();
-      ctx.fillStyle = "rgba(255,255,255,0.08)";
-      ctx.arc(d.x-2, d.y-2, d.r*0.35, 0, Math.PI*2);
-      ctx.fill();
+    // modal
+    const back=document.getElementById("modalBack");
+    const title=document.getElementById("modalTitle");
+    const formType=document.getElementById("formType");
+    const pkg=document.getElementById("pkgField");
+    const dead=document.getElementById("deadlineField");
+    function openModal(t){
+      formType.value=t;
+      if(t==="register"){
+        title.textContent = (document.documentElement.getAttribute("data-lang")==="hu") ? "Regisztráció" : "Register";
+        pkg.style.display="none"; dead.style.display="none";
+      }else{
+        title.textContent = (document.documentElement.getAttribute("data-lang")==="hu") ? "Ajánlatkérés" : "Request quote";
+        pkg.style.display=""; dead.style.display="";
+      }
+      back.classList.add("on"); back.setAttribute("aria-hidden","false");
     }
-    ctx.globalAlpha = 1;
+    function closeModal(){ back.classList.remove("on"); back.setAttribute("aria-hidden","true"); }
+    document.addEventListener("click",(e)=>{
+      const o=e.target.closest("[data-open]");
+      const c=e.target.closest("[data-close]");
+      if(o){ e.preventDefault(); openModal(o.getAttribute("data-open")); }
+      if(c){ e.preventDefault(); closeModal(); }
+      if(e.target===back){ closeModal(); }
+    });
+    document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeModal(); });
+
+    // bokeh
+    const c=document.getElementById("bokeh");
+    const ctx=c.getContext("2d");
+    let W=0,H=0,dpr=window.devicePixelRatio||1;
+    function resize(){
+      W=innerWidth;H=innerHeight;
+      c.width=W*dpr; c.height=H*dpr;
+      c.style.width=W+"px"; c.style.height=H+"px";
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    addEventListener("resize",resize,{passive:true}); resize();
+    const N=Math.min(54,Math.max(28,Math.floor((W*H)/46000)));
+    const pal=[
+      "rgba(214,177,91,0.22)",
+      "rgba(77,163,255,0.16)",
+      "rgba(243,211,138,0.14)"
+    ];
+    const dots=[...Array(N)].map(()=>({
+      x:Math.random()*W, y:Math.random()*H,
+      r:3+Math.random()*11,
+      vx:(Math.random()-.5)*0.36,
+      vy:(Math.random()-.5)*0.24,
+      a:.12+Math.random()*.22,
+      col:pal[(Math.random()*pal.length)|0]
+    }));
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      for(const d of dots){
+        d.x+=d.vx; d.y+=d.vy;
+        if(d.x<-20)d.x=W+20; if(d.x>W+20)d.x=-20;
+        if(d.y<-20)d.y=H+20; if(d.y>H+20)d.y=-20;
+        ctx.globalAlpha=d.a; ctx.fillStyle=d.col;
+        ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fill();
+        ctx.globalAlpha=d.a*.55; ctx.fillStyle="rgba(255,255,255,0.08)";
+        ctx.beginPath(); ctx.arc(d.x-2,d.y-2,d.r*.35,0,Math.PI*2); ctx.fill();
+      }
+      ctx.globalAlpha=1;
+      requestAnimationFrame(step);
+    }
     requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-})();
-</script>
-
-
-<!-- ===== Lead Modals ===== -->
-<div class="modalBack" id="modalBack" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-label="Lead form">
-    <div class="modalTop">
-      <b id="modalTitle">Request quote</b>
-      <button class="modalClose" type="button" data-close="1">Close</button>
-    </div>
-
-    <form id="leadForm" action="https://formspree.io/f/XXXXYYYY" method="POST">
-      <input type="hidden" name="source" value="rossintel.tech"/>
-      <input type="hidden" name="form_type" id="formType" value="quote"/>
-      <input type="hidden" name="page_lang" id="pageLang" value="hu"/>
-
-      <div class="modalGrid">
-        <div class="field">
-          <label>Name / Company</label>
-          <input name="name_company" placeholder="Robi / Gatekeeper Operations Kft." required>
-        </div>
-        <div class="field">
-          <label>Email / Phone</label>
-          <input name="contact" placeholder="email + phone" required>
-        </div>
-
-        <div class="field" id="pkgField">
-          <label>Package</label>
-          <select name="package">
-            <option>Doc→Spec (72h)</option>
-            <option>Audit/Evidence Pack (3–7 days)</option>
-            <option>Cyber / Zero-Trust (3–7 days)</option>
-            <option>Monthly retainer</option>
-          </select>
-        </div>
-
-        <div class="field" id="deadlineField">
-          <label>Deadline</label>
-          <select name="deadline">
-            <option>72 hours</option>
-            <option>7 days</option>
-            <option>Custom</option>
-          </select>
-        </div>
-
-        <div class="field" style="grid-column:1/-1">
-          <label>File link (Drive / WeTransfer / any)</label>
-          <input name="file_link" placeholder="https://...">
-        </div>
-
-        <div class="field" style="grid-column:1/-1">
-          <label>Short description</label>
-          <textarea name="notes" placeholder="What do you need, how many pages, what format, any constraints?"></textarea>
-        </div>
-      </div>
-
-      <div class="modalActions">
-        <button class="btn blue" type="submit">Send</button>
-        <button class="btn" type="button" data-close="1">Cancel</button>
-      </div>
-
-      <div class="modalHint">
-        Evidence-first handover. Scope-limited. NDA-ready. No certification claims.
-      </div>
-    </form>
-  </div>
-</div>
-
-
-<script>
-(function(){
-  const back = document.getElementById("modalBack");
-  const title = document.getElementById("modalTitle");
-  const formType = document.getElementById("formType");
-  const pageLang = document.getElementById("pageLang");
-  const pkgField = document.getElementById("pkgField");
-  const deadlineField = document.getElementById("deadlineField");
-
-  function lang(){
-    return document.documentElement.getAttribute("data-lang") || "hu";
-  }
-  function openModal(type){
-    pageLang.value = lang();
-    formType.value = type;
-    if(type === "register"){
-      title.textContent = "Register (Early Access / Baseline)";
-      pkgField.style.display = "none";
-      deadlineField.style.display = "none";
-    }else{
-      title.textContent = "Request quote";
-      pkgField.style.display = "";
-      deadlineField.style.display = "";
-    }
-    back.classList.add("on");
-    back.setAttribute("aria-hidden","false");
-  }
-  function closeModal(){
-    back.classList.remove("on");
-    back.setAttribute("aria-hidden","true");
-  }
-
-  document.addEventListener("click", (e)=>{
-    const o = e.target.closest("[data-open]");
-    const c = e.target.closest("[data-close]");
-    if(o){ e.preventDefault(); openModal(o.getAttribute("data-open")); }
-    if(c){ e.preventDefault(); closeModal(); }
-    if(e.target === back){ closeModal(); }
-  });
-
-  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeModal(); });
-})();
-</script>
-
+  })();
+  </script>
 </body>
 </html>
