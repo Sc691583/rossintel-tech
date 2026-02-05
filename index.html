@@ -1,218 +1,410 @@
 <!doctype html>
 <html lang="hu">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RossIntel.tech — Dokumentáció 72 órán belül / Audit & Cyber Pack 3–7 nap</title>
-  <meta name="description" content="Profi vállalati dokumentáció 72 órán belül. Audit/Evidence Pack és Kibervédelem (Zero-Trust alapok) 3–7 nap. NDA, fix határidő, leadható csomag." />
-  <meta name="robots" content="index,follow" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>RossIntel.tech — Evidence-first Ops / Audit / Cyber</title>
+  <meta name="description" content="Futurisztikus, evidence-first operations: dokumentáció 72h, audit/evidence pack 3–7 nap, kibervédelem (Zero-Trust alapok)."/>
+  <meta name="theme-color" content="#070A10"/>
   <style>
     :root{
-      --bg:#070A10; --card:#0D1220; --muted:#9AA4B2; --text:#E9EEF6;
-      --line:rgba(255,255,255,.10); --accent:#4DA3FF; --accent2:#22C55E; --warn:#F59E0B;
+      --bg:#070A10;
+      --fg:#EAF0FF;
+      --mut:#9AA7C2;
+      --line:rgba(255,255,255,.10);
+      --glass:rgba(255,255,255,.05);
+      --glass2:rgba(255,255,255,.03);
+      --blue:#4DA3FF;
+      --green:#22C55E;
+      --amber:#F59E0B;
+      --red:#EF4444;
+      --shadow:0 20px 70px rgba(0,0,0,.55);
+      --radius:22px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 800px at 70% -20%, rgba(77,163,255,.18), transparent 60%),
-        radial-gradient(1000px 700px at 20% 0%, rgba(34,197,94,.10), transparent 60%),
-        var(--bg);
-      color:var(--text);
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: var(--bg);
+      color: var(--fg);
+      overflow-x:hidden;
     }
-    a{color:inherit}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 64px}
-    .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:750; letter-spacing:.2px}
-    .dot{width:10px; height:10px; border-radius:999px; background:var(--accent); box-shadow:0 0 18px rgba(77,163,255,.6)}
-    .pill{border:1px solid var(--line); border-radius:999px; padding:8px 12px; color:var(--muted); font-size:13px}
-    .hero{padding:26px 0 18px}
-    h1{margin:0 0 10px; font-size:clamp(28px, 3.4vw, 48px); line-height:1.08}
-    .sub{color:var(--muted); font-size:clamp(14px, 1.7vw, 18px); line-height:1.55; max-width:920px}
-    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+
+    /* ===== Cinematic background ===== */
+    .bg{
+      position:fixed; inset:0; z-index:-3;
+      background:
+        radial-gradient(1100px 700px at 20% 0%, rgba(77,163,255,.18), transparent 60%),
+        radial-gradient(900px 700px at 85% 15%, rgba(34,197,94,.10), transparent 62%),
+        radial-gradient(900px 700px at 55% 110%, rgba(245,158,11,.08), transparent 60%),
+        linear-gradient(180deg, #070A10 0%, #050812 55%, #060A12 100%);
+    }
+    .grid{
+      position:fixed; inset:-40px; z-index:-2; opacity:.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 72px 72px;
+      transform: perspective(900px) rotateX(58deg) translateY(-120px);
+      filter: blur(.2px);
+      mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 85%);
+    }
+    .noise{
+      position:fixed; inset:0; z-index:-1; opacity:.05;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      pointer-events:none;
+    }
+    .beam{
+      position:fixed; left:50%; top:-10%;
+      width:380px; height:120%;
+      transform: translateX(-50%);
+      background: radial-gradient(closest-side, rgba(77,163,255,.34), transparent 62%),
+                  linear-gradient(180deg, rgba(77,163,255,.16), transparent 70%);
+      filter: blur(10px);
+      opacity:.9;
+      z-index:-1;
+      pointer-events:none;
+    }
+    .beam::after{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(circle at 50% 30%, rgba(34,197,94,.14), transparent 55%);
+      filter: blur(18px);
+      opacity:.7;
+    }
+
+    /* ===== Layout ===== */
+    .wrap{max-width:1160px; margin:0 auto; padding:26px 18px 70px}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:10px 0 6px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      letter-spacing:.3px;
+      font-weight:820;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background:var(--blue);
+      box-shadow: 0 0 18px rgba(77,163,255,.65);
+    }
+    .chipbar{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .chip{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      color:var(--mut);
+      padding:8px 11px;
+      border-radius:999px;
+      font-size:12.8px;
+      backdrop-filter: blur(10px);
+    }
+    .chip b{color:var(--fg); font-weight:750}
+    .hero{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media(max-width:980px){ .hero{grid-template-columns:1fr} }
+
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 200px at 20% 0%, rgba(77,163,255,.22), transparent 65%),
+                  radial-gradient(600px 220px at 90% 15%, rgba(34,197,94,.12), transparent 60%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .panelInner{position:relative; padding:22px 22px 18px}
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(30px, 3.4vw, 54px);
+      line-height:1.03;
+      letter-spacing:-.6px;
+    }
+    .gradBlue{background:linear-gradient(90deg, #EAF0FF, rgba(77,163,255,.92)); -webkit-background-clip:text; color:transparent;}
+    .gradGreen{background:linear-gradient(90deg, rgba(34,197,94,.95), #EAF0FF); -webkit-background-clip:text; color:transparent;}
+    .sub{
+      margin:0 0 18px;
+      color:var(--mut);
+      font-size: clamp(14px, 1.5vw, 18px);
+      line-height:1.6;
+      max-width:720px;
+    }
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 16px; border-radius:14px; border:1px solid var(--line);
-      text-decoration:none; font-weight:700; letter-spacing:.2px;
-      background:rgba(255,255,255,.04);
-    }
-    .btn.primary{border-color:rgba(77,163,255,.55); box-shadow:0 0 0 1px rgba(77,163,255,.20) inset}
-    .btn.secondary{border-color:rgba(34,197,94,.45); box-shadow:0 0 0 1px rgba(34,197,94,.18) inset}
-    .btn.warn{border-color:rgba(245,158,11,.45); box-shadow:0 0 0 1px rgba(245,158,11,.16) inset}
-    .btn:hover{transform:translateY(-1px)}
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .badge{font-size:13px; color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:999px}
-    .grid{display:grid; grid-template-columns:1.15fr .85fr; gap:14px; margin-top:22px}
-    @media (max-width:960px){ .grid{grid-template-columns:1fr} }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      padding:12px 14px;
+      border-radius:16px;
       border:1px solid var(--line);
-      border-radius:18px; padding:16px 16px 14px;
+      background:rgba(255,255,255,.04);
+      color:var(--fg);
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+      position:relative;
+      overflow:hidden;
+      transform: translateZ(0);
     }
-    .card h2{margin:0 0 6px; font-size:18px}
-    .card p{margin:0 0 10px; color:var(--muted); line-height:1.55}
-    .klist{margin:0; padding-left:18px}
-    .klist li{margin:6px 0; color:var(--muted)}
-    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
-    .tag.info{border-color:rgba(77,163,255,.35)}
-    .tag.ok{border-color:rgba(34,197,94,.35)}
-    .tag.warn{border-color:rgba(245,158,11,.35)}
-    form{display:grid; gap:10px; margin-top:10px}
-    label{font-size:13px; color:var(--muted)}
-    input, textarea, select{
-      width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--line);
-      background:rgba(0,0,0,.25); color:var(--text); outline:none;
+    .btn::after{
+      content:"";
+      position:absolute; inset:-60px;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.18), transparent 65%);
+      transform: translateX(-60%);
+      transition: transform .65s ease;
     }
-    textarea{min-height:110px; resize:vertical}
-    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-    @media (max-width:640px){ .row{grid-template-columns:1fr} }
-    .mini{font-size:12px; color:var(--muted)}
-    .hr{height:1px; background:var(--line); margin:18px 0}
-    .foot{margin-top:18px; color:var(--muted); font-size:12.5px; line-height:1.6}
+    .btn:hover::after{transform: translateX(40%)}
+    .btn.blue{border-color:rgba(77,163,255,.55); box-shadow:0 0 0 1px rgba(77,163,255,.18) inset}
+    .btn.green{border-color:rgba(34,197,94,.45); box-shadow:0 0 0 1px rgba(34,197,94,.16) inset}
+    .btn.amber{border-color:rgba(245,158,11,.45); box-shadow:0 0 0 1px rgba(245,158,11,.14) inset}
+
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--mut);
+      font-size:12.5px;
+      background:rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    /* ===== Proof Bar ===== */
+    .proofTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .proofTitle b{font-size:14px; letter-spacing:.3px}
+    .mini{color:var(--mut); font-size:12.5px}
+    .proofBar{
+      display:flex; gap:10px;
+      padding:12px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+    }
+    .seg{
+      flex:1;
+      border-radius:14px;
+      padding:12px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
+      min-height:64px;
+    }
+    .seg::before{
+      content:"";
+      position:absolute; inset:-30px;
+      opacity:.22;
+      filter: blur(12px);
+    }
+    .seg h3{margin:0 0 4px; font-size:13px; letter-spacing:.4px}
+    .seg p{margin:0; color:var(--mut); font-size:12.5px; line-height:1.35}
+    .allow::before{background: radial-gradient(circle at 30% 20%, rgba(34,197,94,.8), transparent 55%)}
+    .warn::before{background: radial-gradient(circle at 30% 20%, rgba(245,158,11,.85), transparent 55%)}
+    .block::before{background: radial-gradient(circle at 30% 20%, rgba(239,68,68,.85), transparent 55%)}
+    .kv{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    @media(max-width:980px){ .kv{grid-template-columns:1fr} }
+    .kv .item{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px 12px;
+      background:rgba(255,255,255,.03);
+    }
+    .kv .item b{display:block; margin-bottom:4px; font-size:12.5px}
+    .kv .item span{color:var(--mut); font-size:12.5px; line-height:1.4}
+
+    /* ===== Sections ===== */
+    .section{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:14px;
+    }
+    @media(max-width:980px){ .section{grid-template-columns:1fr} }
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding:16px 16px 14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      opacity:.65;
+      background: radial-gradient(460px 180px at 20% 0%, rgba(77,163,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .card h2{position:relative; margin:0 0 8px; font-size:16px; letter-spacing:.2px}
+    .card ul{position:relative; margin:0; padding-left:18px}
+    .card li{color:var(--mut); margin:7px 0; line-height:1.45}
+    .tags{position:relative; display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tag{
+      font-size:12px; color:var(--mut);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background:rgba(0,0,0,.20);
+    }
+
+    .footer{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.03);
+      padding:14px 16px;
+      color:var(--mut);
+      font-size:12.5px;
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+    }
+    .footer b{color:var(--fg)}
   </style>
 </head>
 <body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="beam"></div>
+  <div class="noise"></div>
+
   <div class="wrap">
-    <div class="topbar">
+    <div class="top">
       <div class="brand"><span class="dot"></span> RossIntel.tech</div>
-      <div class="pill">NDA • Fix határidő • Számla • Evidence-first</div>
+      <div class="chipbar">
+        <div class="chip"><b>NDA</b> ready</div>
+        <div class="chip"><b>Evidence</b>-first</div>
+        <div class="chip">SDK-first • Docker-only</div>
+      </div>
     </div>
 
     <div class="hero">
-      <h1>Profi vállalati dokumentáció <span style="color:var(--accent)">72 órán belül</span> — és <span style="color:var(--accent2)">Audit/Cyber Pack 3–7 nap</span></h1>
-      <div class="sub">
-        PDF/Word anyagból specifikáció, eljárásrend, belső szabályzat — egységesítve, redakcióval, leadható minőségben.
-        Többnyelvű átadás kérhető. Kibervédelemnél Zero-Trust alapok + incident-ready átadás.
+      <div class="panel">
+        <div class="panelInner">
+          <h1><span class="gradBlue">Futurisztikus</span> működés, <span class="gradGreen">bizonyítható</span> átadással.</h1>
+          <p class="sub">
+            Kézzelfogható deliverable-ek: <b>Doc→Spec 72h</b>, <b>Audit/Evidence Pack 3–7 nap</b>, <b>Cyber/Zero-Trust alapok</b>.
+            Nem “AI-mese”: kontroll + nyomvonal + ellenőrizhető átadás.
+          </p>
+          <div class="ctaRow">
+            <a class="btn blue" href="#doc">Doc→Spec 72h</a>
+            <a class="btn green" href="#audit">Audit/Evidence</a>
+            <a class="btn amber" href="#cyber">Cyber / Zero-Trust</a>
+          </div>
+          <div class="pillRow">
+            <div class="pill">Leadás: PDF + DOCX</div>
+            <div class="pill">Integritás: manifest (hash)</div>
+            <div class="pill">Visszahívás: 15 perc (munkaidő)</div>
+          </div>
+        </div>
       </div>
 
-      <div class="ctaRow">
-        <a class="btn primary" href="#doc">Doc→Spec 72h ajánlatkérés</a>
-        <a class="btn secondary" href="#audit">Audit/Evidence 3–7 nap</a>
-        <a class="btn warn" href="#cyber">Kibervédelem / Zero-Trust</a>
-      </div>
-
-      <div class="badges">
-        <div class="badge">Leadás: DOCX + PDF</div>
-        <div class="badge">Integritás: manifest (hash lista)</div>
-        <div class="badge">Bizalmas kezelés (NDA)</div>
-        <div class="badge">Munkaidőben: 15 perces visszahívás</div>
+      <div class="panel">
+        <div class="panelInner">
+          <div class="proofTitle">
+            <b>PROOF BAR</b>
+            <span class="mini">ALLOW/WARN/BLOCK • receipts • replay</span>
+          </div>
+          <div class="proofBar">
+            <div class="seg allow">
+              <h3>ALLOW</h3>
+              <p>Policy engedélyezve + receipt</p>
+            </div>
+            <div class="seg warn">
+              <h3>WARN</h3>
+              <p>Eltérés jelölve + evidence pointer</p>
+            </div>
+            <div class="seg block">
+              <h3>BLOCK</h3>
+              <p>Stop + audit nyomvonal</p>
+            </div>
+          </div>
+          <div class="kv">
+            <div class="item"><b>Deterministic receipts</b><span>Mit futtattunk, mikor, milyen scope-pal, ellenőrizhető lenyomattal.</span></div>
+            <div class="item"><b>Replay verification</b><span>Visszajátszható átadás: “ne higgy, ellenőrizd”.</span></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="grid">
+    <div class="section">
       <div class="card" id="doc">
-        <h2>1) Doc→Spec / Műszaki és vállalati dokumentáció (72 óra)</h2>
-        <p>Gyors csomag KKV-knak: több dokumentumból egységes, profi anyag — amit le lehet tenni vezetés/partner elé.</p>
-        <ul class="klist">
-          <li>PDF/Word → specifikáció / leírás / eljárásrend</li>
-          <li>Egységesítés, hibajavítás, formázás, fejezetelés</li>
-          <li>Többnyelvű átadás kérhető (bármely nyelv)</li>
-          <li>Redakció + bizalmas kezelés (NDA)</li>
+        <h2>Doc→Spec 72h</h2>
+        <ul>
+          <li>PDF/Word → specifikáció / SOP / eljárásrend</li>
+          <li>Egységesítés, fejezetelés, hibajavítás</li>
+          <li>Többnyelvű átadás kérhető</li>
+          <li>NDA + redakció igény szerint</li>
         </ul>
-        <div class="tagrow">
-          <div class="tag info">72h Mini</div>
-          <div class="tag ok">7 nap Standard</div>
-          <div class="tag warn">Havi retainer</div>
+        <div class="tags">
+          <span class="tag">72h Mini</span>
+          <span class="tag">7 nap Standard</span>
+          <span class="tag">Retainer</span>
         </div>
       </div>
 
       <div class="card" id="audit">
-        <h2>2) Audit / Evidence Pack (3–7 nap)</h2>
-        <p>Policy + dokumentáció + ellenőrizhető átadás. Cél: nyomvonal, változásrend, viták és auditkérések kezelése.</p>
-        <ul class="klist">
-          <li>1–2 folyamat dokumentálása (scope szerint)</li>
-          <li>Policy / eljárásrend / változásnapló sablonok</li>
+        <h2>Audit / Evidence Pack (3–7 nap)</h2>
+        <ul>
+          <li>Policy + változásrend + átadási csomag</li>
           <li>Evidence export: manifest + ellenőrzési lépések</li>
-          <li>Gatekeeper-kompatibilis “proof” struktúra</li>
+          <li>Incident-ready dokumentáció</li>
+          <li>Scope-limited, audit-safe megfogalmazás</li>
         </ul>
-        <div class="tagrow">
-          <div class="tag info">3 nap Mini</div>
-          <div class="tag ok">7 nap Standard</div>
-          <div class="tag warn">Havi Evidence Ops</div>
+        <div class="tags">
+          <span class="tag">3 nap Mini</span>
+          <span class="tag">7 nap Standard</span>
+          <span class="tag">Evidence Ops</span>
         </div>
       </div>
-    </div>
 
-    <div class="hr"></div>
-
-    <div class="grid">
       <div class="card" id="cyber">
-        <h2>3) Kibervédelem / Zero-Trust alapok (3–7 nap)</h2>
-        <p>Nem “pentest”. Kontrollált rendrakás: minimális jogosultság, hardening javaslatok, incident-ready átadás.</p>
-        <ul class="klist">
-          <li>Zero-Trust szemlélet: jogosultság-minimum + hozzáférési rend</li>
-          <li>Hardening checklist: Docker/host/service (scope szerint)</li>
-          <li>Incident-ready: változásnapló + átadási csomag (viták ellen)</li>
-          <li>Ajánlás/ticket only (nincs “szabadjára engedett” automatika)</li>
+        <h2>Kibervédelem / Zero-Trust alapok</h2>
+        <ul>
+          <li>Hardening checklist (Docker/host/service)</li>
+          <li>Jogosultság-minimum + hozzáférési rend</li>
+          <li>Incident triage rend + átadási csomag</li>
+          <li>Ajánlás/ticket only (SAFE működés)</li>
         </ul>
-        <div class="tagrow">
-          <div class="tag info">Gyors felmérés</div>
-          <div class="tag ok">Javaslatcsomag</div>
-          <div class="tag warn">Havi kontroll</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Ajánlatkérés (1 perc)</h2>
-        <p class="mini">Most ideiglenesen mailto módban: email készül a gépeden. Következő lépés: rendes lead-gyűjtés (POST) evidence naplóval.</p>
-
-        <form action="mailto:info@dayandrossglobal.com" method="post" enctype="text/plain">
-          <div class="row">
-            <div>
-              <label>Név / Cég</label>
-              <input name="name_company" placeholder="Név, cég" required />
-            </div>
-            <div>
-              <label>Email / Telefon</label>
-              <input name="contact" placeholder="email + telefon" required />
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label>Csomag</label>
-              <select name="package">
-                <option>Doc→Spec 72h</option>
-                <option>Doc→Spec 7 nap</option>
-                <option>Audit/Evidence Pack 3–7 nap</option>
-                <option>Kibervédelem / Zero-Trust 3–7 nap</option>
-                <option>Havi retainer</option>
-              </select>
-            </div>
-            <div>
-              <label>Határidő</label>
-              <select name="deadline">
-                <option>72 óra</option>
-                <option>7 nap</option>
-                <option>Egyedi</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label>Dokumentum link (Drive / WeTransfer / bármi)</label>
-            <input name="file_link" placeholder="https://..." />
-          </div>
-
-          <div>
-            <label>Rövid leírás</label>
-            <textarea name="notes" placeholder="Mi a cél, hány oldal, nyelv (bármely), milyen formátum kell a végén?"></textarea>
-          </div>
-
-          <button class="btn primary" type="submit">Ajánlatkérés elküldése</button>
-          <div class="mini">Email: info@dayandrossglobal.com • Owner: Day&amp;Ross Global LTD LLC / Gatekeeper Operations Kft.</div>
-        </form>
-
-        <div class="foot">
-          Jogi megjegyzés: dokumentáció- és működésrendezés. Nem tanúsítás, nem auditor-szerep.
+        <div class="tags">
+          <span class="tag">Rapid assess</span>
+          <span class="tag">Recommendation pack</span>
+          <span class="tag">Monthly control</span>
         </div>
       </div>
     </div>
 
-    <div class="foot">© <span id="y"></span> RossIntel.tech</div>
+    <div class="footer">
+      <div><b>Contact:</b> info@dayandrossglobal.com</div>
+      <div><b>RossIntel.tech</b> • Evidence-first operations</div>
+      <div>© <span id="y"></span></div>
+    </div>
   </div>
 
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
