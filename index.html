@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>RossIntel.tech — Prémium munka vállalás (Doksi / Audit / Kiber)</title>
-  <meta name="description" content="Munkát vállalunk: dokumentáció 72h, audit/evidence 3–7 nap, kiber-rendrakás 3–7 nap. Ajánlatkérés 1 perc alatt."/>
+  <title>RossIntel.tech — Gold×Blue Assurance Services</title>
+  <meta name="description" content="Prémium dokumentáció, audit-ready evidence csomagok és cyber hardening. Briefing / inquiry egy kattintásra. HU/EN váltó."/>
   <meta name="theme-color" content="#070A10"/>
   <style>
     :root{
@@ -12,49 +12,42 @@
       --blue:#4DA3FF; --blue2:#78C4FF;
       --gold:#D6B15B; --gold2:#F3D38A;
       --shadow:0 26px 110px rgba(0,0,0,.65);
-      --r:26px;
+      --r:24px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; color:var(--fg); background:var(--bg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      overflow-x:hidden;
-    }
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;overflow-x:hidden}
     a{color:inherit}
 
-    /* ===== Premium cinematic (no images) ===== */
-    .bg{position:fixed;inset:0;z-index:-5;
+    /* premium cinematic (no images) */
+    .bg{position:fixed;inset:0;z-index:-6;
       background:
-        radial-gradient(1200px 780px at 20% 0%, rgba(77,163,255,.18), transparent 60%),
-        radial-gradient(980px 720px at 86% 12%, rgba(214,177,91,.16), transparent 62%),
+        radial-gradient(1200px 780px at 18% 0%, rgba(77,163,255,.18), transparent 60%),
+        radial-gradient(980px 720px at 88% 12%, rgba(214,177,91,.16), transparent 62%),
         radial-gradient(900px 700px at 50% 115%, rgba(243,211,138,.06), transparent 60%),
         linear-gradient(180deg,#070A10 0%,#060812 60%,#060A12 100%);
     }
-    .grid{position:fixed;inset:-70px;z-index:-4;opacity:.16;pointer-events:none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 90px 90px;
-      transform: perspective(1100px) rotateX(58deg) translateY(-160px);
-      mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 86%);
-      filter: blur(.2px);
+    .grid{position:fixed;inset:-70px;z-index:-5;opacity:.14;pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size:92px 92px;
+      transform:perspective(1100px) rotateX(58deg) translateY(-165px);
+      mask-image:radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 86%);
+      filter:blur(.2px);
     }
-    .beam{position:fixed;left:50%;top:-12%;width:520px;height:132%;
-      transform:translateX(-50%);z-index:-3;pointer-events:none;filter:blur(12px);opacity:.9;
-      background:
-        radial-gradient(closest-side, rgba(214,177,91,.34), transparent 62%),
-        radial-gradient(closest-side, rgba(77,163,255,.18), transparent 62%);
-      animation: drift 8.5s ease-in-out infinite;
+    .beam{position:fixed;left:50%;top:-14%;width:560px;height:135%;
+      transform:translateX(-50%);z-index:-4;pointer-events:none;filter:blur(12px);opacity:.88;
+      background:radial-gradient(closest-side, rgba(214,177,91,.30), transparent 62%),
+               radial-gradient(closest-side, rgba(77,163,255,.16), transparent 62%);
+      animation:drift 8.5s ease-in-out infinite;
     }
     @keyframes drift{0%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(12px)}100%{transform:translateX(-50%) translateY(0)}}
-    #bokeh{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.72;}
-    .noise{position:fixed;inset:0;z-index:-1;opacity:.045;pointer-events:none;
+    #bokeh{position:fixed;inset:0;z-index:-3;pointer-events:none;opacity:.7;}
+    .noise{position:fixed;inset:0;z-index:-2;opacity:.045;pointer-events:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
+      mix-blend-mode:overlay;
     }
 
-    /* ===== Layout ===== */
+    /* layout */
     .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px;}
     .top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 6px;}
     .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.35px;}
@@ -64,8 +57,6 @@
     .chip{border:1px solid var(--line);border-radius:999px;padding:8px 11px;
       background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
       color:rgba(234,240,255,.78);font-size:12.8px;backdrop-filter:blur(12px);}
-    .chip b{color:var(--fg);font-weight:800}
-
     .langToggle{display:flex;gap:8px;align-items:center;border:1px solid var(--line);
       background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
       backdrop-filter:blur(14px);padding:6px 8px;border-radius:999px;}
@@ -75,35 +66,33 @@
     .langBtn.active{color:var(--fg);border-color:rgba(214,177,91,.65);
       box-shadow:0 0 0 1px rgba(214,177,91,.22) inset,0 0 24px rgba(77,163,255,.12);}
 
-    /* ===== Glass blocks ===== */
-    .panel,.card,.footer,.modal{
-      border:1px solid var(--line);
-      border-radius:var(--r);
-      background:linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.02));
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      position:relative;
-      overflow:hidden;
-    }
-    .panel::after,.card::after,.footer::after,.modal::after{
-      content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
-      background:linear-gradient(90deg,rgba(214,177,91,.26),rgba(77,163,255,.22),rgba(214,177,91,.10));
-      opacity:.62;
-      mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      padding:1px;box-sizing:border-box;
-    }
+    html[data-lang] [data-lang]{display:none;}
+    html[data-lang="hu"] [data-lang="hu"]{display:block;}
+    html[data-lang="en"] [data-lang="en"]{display:block;}
 
-    /* ===== Hero ===== */
-    .hero{margin-top:14px;display:grid;grid-template-columns:1.12fr .88fr;gap:14px;}
+    /* hero: NOT two giant boxes */
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:start;
+    }
     @media(max-width:980px){.hero{grid-template-columns:1fr}}
-    .inner{position:relative;padding:22px 22px 18px;}
-    h1{margin:0 0 12px;font-size:clamp(34px,3.6vw,58px);line-height:1.02;letter-spacing:-.7px;}
+    .heroText{
+      padding:10px 4px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(34px, 3.4vw, 58px);
+      line-height:1.02;
+      letter-spacing:-.7px;
+    }
     .goldText{background:linear-gradient(90deg,#FFF3D6,rgba(214,177,91,.95));-webkit-background-clip:text;color:transparent;}
     .blueText{background:linear-gradient(90deg,rgba(77,163,255,.95),#EAF0FF);-webkit-background-clip:text;color:transparent;}
-    .sub{margin:0 0 16px;color:var(--mut);font-size:clamp(14px,1.5vw,18px);line-height:1.6;}
+    .sub{margin:0 0 16px;color:var(--mut);font-size:clamp(14px,1.5vw,18px);line-height:1.6;max-width:780px;}
 
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
       padding:12px 14px;border-radius:16px;border:1px solid var(--line);
       background:rgba(255,255,255,.04);color:var(--fg);text-decoration:none;font-weight:900;letter-spacing:.2px;
@@ -115,41 +104,71 @@
     .btn.blue{border-color:rgba(77,163,255,.55);box-shadow:0 0 0 1px rgba(77,163,255,.18) inset;}
     .btn.ghost{border-color:rgba(255,255,255,.14)}
 
-    .bul{margin:0;padding-left:18px}
-    .bul li{color:var(--mut);margin:7px 0;line-height:1.45}
+    .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{border:1px solid var(--line);padding:8px 10px;border-radius:999px;color:rgba(234,240,255,.78);font-size:12.5px;background:rgba(0,0,0,.20);backdrop-filter:blur(10px);}
 
-    /* ===== Packages ===== */
-    .section{margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-    @media(max-width:980px){.section{grid-template-columns:1fr}}
-    .card{padding:16px 16px 14px;}
-    .card h2{margin:0 0 8px;font-size:16px;letter-spacing:.2px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{font-size:12px;color:rgba(234,240,255,.78);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.20);}
-
-    .footer{margin-top:18px;padding:14px 16px;color:rgba(234,240,255,.78);font-size:12.5px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;}
-    .footer b{color:var(--fg);}
-
-    /* ===== Modal ===== */
-    .modalBack{position:fixed;inset:0;display:none;align-items:center;justify-content:center;
-      background:rgba(0,0,0,.62);backdrop-filter:blur(12px);z-index:9999;}
-    .modalBack.on{display:flex;}
-    .modal{width:min(920px,92vw);}
-    .modalTop{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);
-      padding:10px 14px;background:rgba(0,0,0,.18);}
-    .modalClose{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--fg);border-radius:12px;padding:8px 10px;cursor:pointer;font-weight:900;}
-    .modalGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;}
-    @media(max-width:860px){.modalGrid{grid-template-columns:1fr}}
-    .field label{display:block;color:rgba(234,240,255,.78);font-size:12.5px;margin:0 0 6px;}
-    .field input,.field select,.field textarea{width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--fg);outline:none;}
-    .field textarea{min-height:110px;resize:vertical;}
-    .modalActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;padding:0 14px 14px;}
-    .modalHint{padding:0 14px 14px;color:rgba(234,240,255,.72);font-size:12.5px;line-height:1.5;}
-
-    /* ===== Reveal (subtle) ===== */
-    .reveal{opacity:0;transform:translateY(22px);filter:blur(2px);
-      transition:opacity 680ms cubic-bezier(.2,.9,.2,1),transform 680ms cubic-bezier(.2,.9,.2,1),filter 680ms cubic-bezier(.2,.9,.2,1);
+    /* smaller proof panel */
+    .panel{
+      border:1px solid var(--line);border-radius:var(--r);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      box-shadow:var(--shadow);backdrop-filter:blur(14px);
+      position:relative;overflow:hidden;
     }
-    .reveal.in{opacity:1;transform:translateY(0);filter:blur(0);}
+    .panel::after{
+      content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+      background:linear-gradient(90deg,rgba(214,177,91,.26),rgba(77,163,255,.22),rgba(214,177,91,.10));
+      opacity:.62;
+      mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding:1px;box-sizing:border-box;
+    }
+    .inner{position:relative;padding:14px 14px 12px}
+    .proofTitle{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+    .proofTitle b{font-size:13px;letter-spacing:.35px}
+    .mini{color:rgba(234,240,255,.70);font-size:12.5px}
+    .proofBar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    @media(max-width:980px){.proofBar{grid-template-columns:1fr}}
+    .seg{border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:12px;background:rgba(0,0,0,.20)}
+    .seg h3{margin:0 0 6px;font-size:12.5px;letter-spacing:.4px}
+    .seg p{margin:0;color:rgba(234,240,255,.76);font-size:12.5px;line-height:1.35}
+    .seg.allow{box-shadow:0 0 0 1px rgba(214,177,91,.18) inset}
+    .seg.warn{box-shadow:0 0 0 1px rgba(77,163,255,.16) inset}
+    .seg.block{box-shadow:0 0 0 1px rgba(243,211,138,.12) inset}
+
+    /* capabilities */
+    .capTitle{margin-top:18px;font-size:12px;letter-spacing:.35px;color:rgba(234,240,255,.72);text-transform:uppercase}
+    .caps{margin-top:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    @media(max-width:980px){.caps{grid-template-columns:1fr}}
+    .card{border:1px solid var(--line);border-radius:var(--r);
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      box-shadow:var(--shadow);backdrop-filter:blur(14px);padding:16px;position:relative;overflow:hidden}
+    .card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+      background:linear-gradient(90deg,rgba(214,177,91,.18),rgba(77,163,255,.14),rgba(214,177,91,.06));
+      opacity:.55;mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);padding:1px}
+    .card h2{margin:0 0 8px;font-size:16px}
+    .card ul{margin:0;padding-left:18px}
+    .card li{color:rgba(234,240,255,.78);margin:7px 0;line-height:1.45}
+    .tagRow{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;color:rgba(234,240,255,.72);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.18)}
+
+    /* modal */
+    .modalBack{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.62);backdrop-filter:blur(12px);z-index:9999}
+    .modalBack.on{display:flex;}
+    .modal{width:min(920px,92vw);border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:var(--shadow);overflow:hidden;position:relative}
+    .modal::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:linear-gradient(90deg,rgba(214,177,91,.26),rgba(77,163,255,.22),rgba(214,177,91,.10));opacity:.62;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);padding:1px}
+    .modalTop{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:10px 14px;background:rgba(0,0,0,.18);position:relative}
+    .modalClose{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--fg);border-radius:12px;padding:8px 10px;cursor:pointer;font-weight:900}
+    .modalGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;position:relative}
+    @media(max-width:860px){.modalGrid{grid-template-columns:1fr}}
+    .field label{display:block;color:rgba(234,240,255,.72);font-size:12.5px;margin:0 0 6px}
+    .field input,.field select,.field textarea{width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--fg);outline:none}
+    .field textarea{min-height:110px;resize:vertical}
+    .modalActions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;padding:0 14px 14px;position:relative}
+    .modalHint{padding:0 14px 14px;color:rgba(234,240,255,.70);font-size:12.5px;line-height:1.5;position:relative}
+
+    .footer{margin-top:18px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.03);padding:14px 16px;color:rgba(234,240,255,.78);font-size:12.5px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;backdrop-filter:blur(12px)}
+    .footer b{color:var(--fg)}
   </style>
 </head>
 <body>
@@ -161,9 +180,9 @@
       <div class="brand"><span class="dot"></span> RossIntel.tech</div>
       <div class="rightTop">
         <div class="chip"><b>NDA</b> ready</div>
-        <div class="chip"><b>table-ready</b> átadás</div>
-        <div class="chip"><b>15 perc</b> visszahívás</div>
-        <div class="langToggle" role="group" aria-label="Language">
+        <div class="chip"><b>table-ready</b> handover</div>
+        <div class="chip"><b>15 min</b> callback</div>
+        <div class="langToggle">
           <button class="langBtn active" data-set-lang="hu" type="button">magyar</button>
           <button class="langBtn" data-set-lang="en" type="button">english</button>
         </div>
@@ -171,181 +190,164 @@
     </div>
 
     <div class="hero">
-      <div class="panel reveal">
-        <div class="inner">
-          <h1><span data-lang="hu"><span class="goldText">Prémium</span> <span class="blueText">átadási csomag</span>.<br/>Bizonyítható eredmény, nyomvonallal.</span><span data-lang="en"><span class="goldText">Premium</span> <span class="blueText">handover bundle</span>.<br/>Verifiable outcome with a trace.</span></h1>
+      <div class="heroText">
+        <h1>
+          <span data-lang="hu"><span class="goldText">Prémium</span> átadási csomagok.<br/><span class="blueText">Audit-kész</span> anyag, viták ellen.</span>
+          <span data-lang="en"><span class="goldText">Premium</span> handover bundles.<br/><span class="blueText">Audit-ready</span> deliverables for disputes.</span>
+        </h1>
+        <p class="sub">
+          <span data-lang="hu">Dokumentáció, audit-felkészítés, kiber-rendrakás. Fix határidő, rendezett leadás (PDF/DOCX), és nyomvonal. Nem mérnöknyelv: érthető, asztalra tehető.</span>
+          <span data-lang="en">Documentation, audit readiness, cyber hardening. Fixed deadlines, clean delivery (PDF/DOCX), with a trace. Plain language, table-ready.</span>
+        </p>
 
-          <p class="sub"><span data-lang="hu">Dokumentáció, audit-felkészítés, kiber-rendrakás — fix határidővel. A végén kapsz egy átadási csomagot (PDF/DOCX + nyomvonal), amit le lehet tenni vezetés/partner elé.</span><span data-lang="en">Documentation, audit readiness, cyber hardening — with a fixed deadline. You get a handover bundle (PDF/DOCX + trace) that is table-ready for leadership/partners.</span></p>
+        <div class="ctaRow">
+          <a class="btn gold" href="#" data-open="brief"><span data-lang="hu">Briefing kérés</span><span data-lang="en">Request a briefing</span></a>
+          <a class="btn blue" href="#" data-open="quote"><span data-lang="hu">Inquiry / ajánlat</span><span data-lang="en">Inquiry / quote</span></a>
+          <a class="btn ghost" href="#caps"><span data-lang="hu">Szolgáltatások</span><span data-lang="en">Services</span></a>
+        </div>
 
-          <div class="ctaRow">
-            <a class="btn gold" href="#" data-open="quote"><span data-lang="hu">Ajánlatkérés (1 perc)</span><span data-lang="en">Request quote (1 min)</span></a>
-            <a class="btn blue" href="#" data-open="register"><span data-lang="hu">Regisztráció</span><span data-lang="en">Register</span></a>
-            <a class="btn ghost" href="#packages"><span data-lang="hu">Csomagok</span><span data-lang="en">Packages</span></a>
-          </div>
-
-          <ul class="bul" style="margin-top:14px">
-            <li><span data-lang="hu"><b>Indulás:</b> 15 perces visszahívás munkaidőben</span><span data-lang="en"><b>Start:</b> 15-minute callback (business hours)</span></li>
-            <li><span data-lang="hu"><b>Leadás:</b> PDF + DOCX + ellenőrizhető átadás</span><span data-lang="en"><b>Delivery:</b> PDF + DOCX + verifiable handover</span></li>
-            <li><span data-lang="hu"><b>Biztonság:</b> NDA + redakció igény szerint</span><span data-lang="en"><b>Security:</b> NDA + redaction if needed</span></li>
-          </ul>
+        <div class="pillRow">
+          <div class="pill"><span data-lang="hu">72h / 3–7 nap</span><span data-lang="en">72h / 3–7 days</span></div>
+          <div class="pill"><span data-lang="hu">NDA + redakció</span><span data-lang="en">NDA + redaction</span></div>
+          <div class="pill"><span data-lang="hu">átadási csomag</span><span data-lang="en">handover bundle</span></div>
         </div>
       </div>
 
-      <div class="panel reveal">
+      <div class="panel">
         <div class="inner">
-          <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px">
-            <b><span data-lang="hu">Mit kapsz?</span><span data-lang="en">What you get</span></b>
-            <span style="color:rgba(234,240,255,.70);font-size:12.5px">table-ready</span>
+          <div class="proofTitle">
+            <b>PROOF BAR</b>
+            <span class="mini">simple, human-readable</span>
           </div>
-          <ul class="bul">
-            <li><span data-lang="hu"><b>Rendezett anyag</b> (nem „összedobott”)</span><span data-lang="en"><b>Clean deliverable</b> (not messy)</span></li>
-            <li><span data-lang="hu"><b>Nyomvonal</b>: mikor mi történt, mi lett a vége</span><span data-lang="en"><b>Trace</b>: when, what happened, outcome</span></li>
-            <li><span data-lang="hu"><b>Vitaálló átadás</b>: nem emlékezni kell, ott a csomag</span><span data-lang="en"><b>Dispute-ready</b>: bundle beats memory</span></li>
-          </ul>
+          <div class="proofBar">
+            <div class="seg allow">
+              <h3><span data-lang="hu">MEHET</span><span data-lang="en">GO</span></h3>
+              <p><span data-lang="hu">rendben van + átadási nyom</span><span data-lang="en">ok + handover trail</span></p>
+            </div>
+            <div class="seg warn">
+              <h3><span data-lang="hu">JELZÉS</span><span data-lang="en">FLAG</span></h3>
+              <p><span data-lang="hu">eltérés megjelölve</span><span data-lang="en">deviation noted</span></p>
+            </div>
+            <div class="seg block">
+              <h3><span data-lang="hu">STOP</span><span data-lang="en">STOP</span></h3>
+              <p><span data-lang="hu">kockázat + magyarázat</span><span data-lang="en">risk + explanation</span></p>
+            </div>
+          </div>
+          <div style="margin-top:10px;color:rgba(234,240,255,.78);font-size:12.5px;line-height:1.45">
+            <span data-lang="hu">A lényeg: a végén kapsz egy csomagot, amit vitánál vagy auditnál elő lehet venni.</span>
+            <span data-lang="en">Bottom line: you get a bundle you can pull out in disputes or audits.</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="section" id="packages">
-      <div class="card reveal">
-        <h2><span data-lang="hu">1) Doc→Spec 72h</span><span data-lang="en">1) Doc→Spec (72h)</span></h2>
-        <ul class="bul">
+    <div class="capTitle" id="caps">OPERATIONAL CAPABILITIES</div>
+    <div class="caps">
+      <div class="card">
+        <h2><span data-lang="hu">Doc→Spec 72h</span><span data-lang="en">Doc→Spec (72h)</span></h2>
+        <ul>
           <li><span data-lang="hu">PDF/Word → SOP / eljárásrend / specifikáció</span><span data-lang="en">PDF/Word → SOP / procedures / spec</span></li>
-          <li><span data-lang="hu">Egységesítés, fejezetelés, hibajavítás</span><span data-lang="en">Normalize, structure, fix issues</span></li>
-          <li><span data-lang="hu">Leadás: PDF + szerkeszthető DOCX</span><span data-lang="en">Delivery: PDF + editable DOCX</span></li>
+          <li><span data-lang="hu">egységesítés + fejezetelés + hibajavítás</span><span data-lang="en">normalize + structure + fix</span></li>
+          <li><span data-lang="hu">leadás: PDF + szerkeszthető DOCX</span><span data-lang="en">delivery: PDF + editable DOCX</span></li>
         </ul>
-        <div class="tags"><span class="tag">72h</span><span class="tag">NDA</span><span class="tag">DOCX+PDF</span></div>
+        <div class="tagRow"><span class="tag">72h</span><span class="tag">PDF/DOCX</span><span class="tag">NDA</span></div>
       </div>
 
-      <div class="card reveal">
-        <h2><span data-lang="hu">2) Audit / Evidence 3–7 nap</span><span data-lang="en">2) Audit / Evidence 3–7 days</span></h2>
-        <ul class="bul">
-          <li><span data-lang="hu">Policy + változásrend + átadási csomag</span><span data-lang="en">Policy + change control + handover</span></li>
-          <li><span data-lang="hu">Manifest + ellenőrzési lépések</span><span data-lang="en">Manifest + verification steps</span></li>
-          <li><span data-lang="hu">Incident-ready dokumentáció</span><span data-lang="en">Incident-ready docs</span></li>
+      <div class="card">
+        <h2><span data-lang="hu">Audit / Evidence 3–7 nap</span><span data-lang="en">Audit / Evidence 3–7 days</span></h2>
+        <ul>
+          <li><span data-lang="hu">átadási csomag + nyomvonal</span><span data-lang="en">handover bundle + trace</span></li>
+          <li><span data-lang="hu">változásrend + ellenőrzési lépések</span><span data-lang="en">change control + verification steps</span></li>
+          <li><span data-lang="hu">incident-ready dokumentáció</span><span data-lang="en">incident-ready docs</span></li>
         </ul>
-        <div class="tags"><span class="tag">3–7 nap</span><span class="tag">trace</span><span class="tag">handover</span></div>
+        <div class="tagRow"><span class="tag">3–7 days</span><span class="tag">trace</span><span class="tag">handover</span></div>
       </div>
 
-      <div class="card reveal">
-        <h2><span data-lang="hu">3) Cyber / Zero-Trust 3–7 nap</span><span data-lang="en">3) Cyber / Zero-Trust 3–7 days</span></h2>
-        <ul class="bul">
-          <li><span data-lang="hu">Hardening checklist (Docker/host/service)</span><span data-lang="en">Hardening checklist (Docker/host/service)</span></li>
-          <li><span data-lang="hu">Jogosultság-minimum + hozzáférési rend</span><span data-lang="en">Least privilege + access rules</span></li>
-          <li><span data-lang="hu">Incident triage rend + átadás</span><span data-lang="en">Incident triage + handover</span></li>
+      <div class="card">
+        <h2><span data-lang="hu">Cyber / Zero-Trust</span><span data-lang="en">Cyber / Zero-Trust</span></h2>
+        <ul>
+          <li><span data-lang="hu">hardening checklist (Docker/host/service)</span><span data-lang="en">hardening checklist (Docker/host/service)</span></li>
+          <li><span data-lang="hu">least-privilege + hozzáférési rend</span><span data-lang="en">least-privilege + access rules</span></li>
+          <li><span data-lang="hu">incident triage rend + átadás</span><span data-lang="en">incident triage + handover</span></li>
         </ul>
-        <div class="tags"><span class="tag">3–7 nap</span><span class="tag">SAFE</span><span class="tag">ops</span></div>
+        <div class="tagRow"><span class="tag">SAFE</span><span class="tag">checklist</span><span class="tag">ops</span></div>
       </div>
     </div>
 
-    <div class="footer reveal">
+    <div class="footer">
       <div><b>Contact:</b> info@dayandrossglobal.com</div>
       <div><b>Operator:</b> Gatekeeper Operations Kft. • <b>Owner:</b> Day&Ross Global LTD LLC</div>
       <div>© <span id="y"></span> RossIntel.tech</div>
     </div>
   </div>
 
-  <!-- Modal: quote/register. No external service required. -->
+  <!-- Modal -->
   <div class="modalBack" id="modalBack" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Lead form">
+    <div class="modal" role="dialog" aria-modal="true">
       <div class="modalTop">
-        <b id="modalTitle">Ajánlatkérés</b>
+        <b id="modalTitle">Inquiry</b>
         <button class="modalClose" type="button" data-close="1">Close</button>
       </div>
 
-      <!-- FORM: JS builds mailto if no endpoint set -->
       <form id="leadForm">
         <div class="modalGrid">
-          <div class="field"><label id="lblName">Név / Cég</label><input name="name_company" required></div>
-          <div class="field"><label id="lblContact">Email / Telefon</label><input name="contact" required></div>
-
-          <div class="field" id="pkgField"><label id="lblPkg">Csomag</label>
+          <div class="field"><label id="lblName">Name / Company</label><input name="name_company" required></div>
+          <div class="field"><label id="lblContact">Email / Phone</label><input name="contact" required></div>
+          <div class="field" id="pkgField"><label id="lblPkg">Package</label>
             <select name="package">
               <option>Doc→Spec (72h)</option>
               <option>Audit/Evidence (3–7 days)</option>
               <option>Cyber / Zero-Trust</option>
             </select>
           </div>
-
-          <div class="field" id="deadlineField"><label id="lblDead">Határidő</label>
-            <select name="deadline"><option>72h</option><option>7 nap</option><option>Egyedi</option></select>
-          </div>
-
-          <div class="field" style="grid-column:1/-1"><label id="lblLink">Dokumentum link</label><input name="file_link" placeholder="https://..."></div>
-          <div class="field" style="grid-column:1/-1"><label id="lblNotes">Rövid leírás</label><textarea name="notes"></textarea></div>
+          <div class="field"><label id="lblNotes">Message</label><textarea name="notes" placeholder="What do you need?"></textarea></div>
         </div>
-
         <div class="modalActions">
-          <button class="btn gold" type="submit" id="btnSend">Küldés</button>
-          <button class="btn ghost" type="button" data-close="1" id="btnCancel">Mégse</button>
+          <button class="btn gold" type="submit" id="btnSend">Send</button>
+          <button class="btn ghost" type="button" data-close="1" id="btnCancel">Cancel</button>
         </div>
-
-        <div class="modalHint" id="hint">Scope-limited. NDA-ready. Nem tanúsítás.</div>
+        <div class="modalHint" id="hint">Plain-language deliverables. NDA-ready. Scope-limited.</div>
       </form>
     </div>
   </div>
 
   <script>
   (function(){
-    // year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // bokeh (gold/blue)
-    const canvas=document.getElementById("bokeh"), ctx=canvas.getContext("2d");
+    // bokeh
+    const c=document.getElementById("bokeh"), ctx=c.getContext("2d");
     let W=0,H=0,dpr=window.devicePixelRatio||1;
-    function resize(){W=innerWidth;H=innerHeight;canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.width=W+"px";canvas.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);}
+    function resize(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;c.style.width=W+"px";c.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);}
     addEventListener("resize",resize,{passive:true}); resize();
-    const N=Math.min(54,Math.max(26,Math.floor((W*H)/48000)));
-    const pal=["rgba(214,177,91,0.22)","rgba(77,163,255,0.16)","rgba(243,211,138,0.12)"];
-    const dots=[...Array(N)].map(()=>({x:Math.random()*W,y:Math.random()*H,r:3+Math.random()*11,vx:(Math.random()-.5)*0.36,vy:(Math.random()-.5)*0.24,a:.10+Math.random()*.22,col:pal[(Math.random()*pal.length)|0]}));
-    function step(){
-      ctx.clearRect(0,0,W,H);
-      for(const d of dots){
-        d.x+=d.vx; d.y+=d.vy;
+    const N=Math.min(46,Math.max(22,Math.floor((W*H)/52000)));
+    const pal=["rgba(214,177,91,0.20)","rgba(77,163,255,0.14)","rgba(243,211,138,0.10)"];
+    const dots=[...Array(N)].map(()=>({x:Math.random()*W,y:Math.random()*H,r:3+Math.random()*11,vx:(Math.random()-.5)*0.28,vy:(Math.random()-.5)*0.18,a:.10+Math.random()*.20,col:pal[(Math.random()*pal.length)|0]}));
+    function step(){ctx.clearRect(0,0,W,H);
+      for(const d of dots){d.x+=d.vx; d.y+=d.vy;
         if(d.x<-20)d.x=W+20; if(d.x>W+20)d.x=-20;
         if(d.y<-20)d.y=H+20; if(d.y>H+20)d.y=-20;
-        ctx.globalAlpha=d.a; ctx.fillStyle=d.col;
-        ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fill();
+        ctx.globalAlpha=d.a; ctx.fillStyle=d.col; ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fill();
       }
-      ctx.globalAlpha=1;
-      requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+      ctx.globalAlpha=1; requestAnimationFrame(step);
+    } requestAnimationFrame(step);
 
-    // reveal
-    const els=[...document.querySelectorAll(".reveal")];
-    const io=new IntersectionObserver((ents)=>ents.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}}),
-      {threshold:.14, rootMargin:"0px 0px -12% 0px"});
-    els.forEach(el=>io.observe(el));
-
-    // language
-    const i18n={
-      hu:{
-        name:"Név / Cég", contact:"Email / Telefon", pkg:"Csomag", dead:"Határidő", link:"Dokumentum link", notes:"Rövid leírás",
-        send:"Küldés", cancel:"Mégse", quote:"Ajánlatkérés", reg:"Regisztráció", hint:"Scope-limited. NDA-ready. Nem tanúsítás."
-      },
-      en:{
-        name:"Name / Company", contact:"Email / Phone", pkg:"Package", dead:"Deadline", link:"File link", notes:"Short description",
-        send:"Send", cancel:"Cancel", quote:"Request quote", reg:"Register", hint:"Scope-limited. NDA-ready. Not a certification."
-      }
-    };
+    // lang
     const setLang=(l)=>{
       document.documentElement.setAttribute("data-lang", l);
       localStorage.setItem("rossintel_lang", l);
       document.querySelectorAll(".langBtn").forEach(b=>b.classList.toggle("active", b.dataset.setLang===l));
       // modal labels
-      document.getElementById("lblName").textContent=i18n[l].name;
-      document.getElementById("lblContact").textContent=i18n[l].contact;
-      document.getElementById("lblPkg").textContent=i18n[l].pkg;
-      document.getElementById("lblDead").textContent=i18n[l].dead;
-      document.getElementById("lblLink").textContent=i18n[l].link;
-      document.getElementById("lblNotes").textContent=i18n[l].notes;
-      document.getElementById("btnSend").textContent=i18n[l].send;
-      document.getElementById("btnCancel").textContent=i18n[l].cancel;
-      document.getElementById("hint").textContent=i18n[l].hint;
+      const hu = (l==="hu");
+      document.getElementById("lblName").textContent = hu ? "Név / Cég" : "Name / Company";
+      document.getElementById("lblContact").textContent = hu ? "Email / Telefon" : "Email / Phone";
+      document.getElementById("lblPkg").textContent = hu ? "Csomag" : "Package";
+      document.getElementById("lblNotes").textContent = hu ? "Üzenet" : "Message";
+      document.getElementById("btnSend").textContent = hu ? "Küldés" : "Send";
+      document.getElementById("btnCancel").textContent = hu ? "Mégse" : "Cancel";
+      document.getElementById("hint").textContent = hu ? "Érthető, asztalra tehető átadás. NDA-ready." : "Plain-language, table-ready handover. NDA-ready.";
     };
-    const stored=localStorage.getItem("rossintel_lang")||"hu";
-    setLang(stored);
+    setLang(localStorage.getItem("rossintel_lang")||"hu");
     document.addEventListener("click",(e)=>{
       const b=e.target.closest("[data-set-lang]");
       if(b) setLang(b.dataset.setLang);
@@ -354,51 +356,40 @@
     // modal
     const back=document.getElementById("modalBack");
     const title=document.getElementById("modalTitle");
-    const pkg=document.getElementById("pkgField");
-    const dead=document.getElementById("deadlineField");
     let mode="quote";
-
     function openModal(m){
       mode=m;
-      const l=document.documentElement.getAttribute("data-lang")||"hu";
-      title.textContent = (m==="register") ? i18n[l].reg : i18n[l].quote;
-      pkg.style.display = (m==="register") ? "none" : "";
-      dead.style.display = (m==="register") ? "none" : "";
+      const hu = (document.documentElement.getAttribute("data-lang")==="hu");
+      title.textContent = (m==="brief") ? (hu?"Briefing kérés":"Request a briefing") : (hu?"Inquiry / ajánlat":"Inquiry / quote");
       back.classList.add("on"); back.setAttribute("aria-hidden","false");
     }
     function closeModal(){back.classList.remove("on"); back.setAttribute("aria-hidden","true");}
-
     document.addEventListener("click",(e)=>{
       const o=e.target.closest("[data-open]");
       const c=e.target.closest("[data-close]");
-      if(o){e.preventDefault(); openModal(o.getAttribute("data-open"));}
-      if(c){e.preventDefault(); closeModal();}
-      if(e.target===back){closeModal();}
+      if(o){e.preventDefault(); openModal(o.getAttribute("data-open")); }
+      if(c){e.preventDefault(); closeModal(); }
+      if(e.target===back){ closeModal(); }
     });
-    document.addEventListener("keydown",(e)=>{if(e.key==="Escape") closeModal();});
+    document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeModal(); });
 
-    // lead submit (mailto generator, no external setup)
+    // submit -> mailto (no external setup)
     document.getElementById("leadForm").addEventListener("submit",(e)=>{
       e.preventDefault();
       const l=document.documentElement.getAttribute("data-lang")||"hu";
       const fd=new FormData(e.target);
       const obj=Object.fromEntries(fd.entries());
-      const subject = (mode==="register") ? ("RossIntel — Register") : ("RossIntel — Quote request");
-      const lines = [
+      const subject = (mode==="brief") ? "RossIntel — Briefing" : "RossIntel — Inquiry";
+      const body = [
         `mode: ${mode}`,
         `lang: ${l}`,
         `name_company: ${obj.name_company||""}`,
         `contact: ${obj.contact||""}`,
         `package: ${obj.package||""}`,
-        `deadline: ${obj.deadline||""}`,
-        `file_link: ${obj.file_link||""}`,
         `notes: ${obj.notes||""}`,
         `source: rossintel.tech`
       ].join("\n");
-      const mailto = "mailto:info@dayandrossglobal.com"
-        + "?subject=" + encodeURIComponent(subject)
-        + "&body=" + encodeURIComponent(lines);
-      window.location.href = mailto;
+      window.location.href = "mailto:info@dayandrossglobal.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
       closeModal();
     });
   })();
