@@ -374,7 +374,7 @@
     document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeModal(); });
 
     // submit -> mailto (no external setup)
-    document.getElementById("leadForm").addEventListener("submit",(e)=>{
+    document.getElementById("leadForm").addEventListener("submit", async (e)=>{
       e.preventDefault();
       const l=document.documentElement.getAttribute("data-lang")||"hu";
       const fd=new FormData(e.target);
@@ -389,8 +389,46 @@
         `notes: ${obj.notes||""}`,
         `source: rossintel.tech`
       ].join("\n");
-      window.location.href = "mailto:info@dayandrossglobal.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-      closeModal();
+      
+// === Prefer Formspree (real lead capture). Fallback: mailto ===
+const hintEl = document.getElementById("hint");
+const sendBtn = document.getElementById("btnSend");
+
+if (sendBtn) sendBtn.disabled = true;
+if (hintEl) hintEl.textContent = (l==="hu") ? "Küldés folyamatban…" : "Sending…";
+
+try {
+  const fd2 = new FormData(e.target);
+  fd2.set("mode", mode);
+  fd2.set("lang", l);
+  fd2.set("source", "rossintel.tech");
+
+  const res = await fetch("https://formspree.io/f/mwvnenwj", {
+    method: "POST",
+    body: fd2,
+    headers: { "Accept": "application/json" }
+  });
+
+  if (res.ok) {
+    if (hintEl) hintEl.textContent = (l==="hu") ? "Elküldve ✅ Hamarosan jelentkezünk." : "Sent ✅ We will get back to you.";
+    e.target.reset();
+    setTimeout(() => closeModal(), 900);
+  } else {
+    if (hintEl) hintEl.textContent = (l==="hu")
+      ? "Hiba történt. Próbáld újra vagy írj: info@dayandrossglobal.com"
+      : "Error. Try again or email: info@dayandrossglobal.com";
+  }
+} catch (err) {
+  if (hintEl) hintEl.textContent = (l==="hu")
+    ? "Hálózati hiba. Fallback email indul…"
+    : "Network error. Fallback email…";
+  const mailto = "mailto:info@dayandrossglobal.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  window.location.href = mailto;
+  closeModal();
+} finally {
+  if (sendBtn) sendBtn.disabled = false;
+}
+
     });
   })();
   </script>
