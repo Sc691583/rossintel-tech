@@ -1,5 +1,3 @@
-
-# local downloaded proof bundle artifacts (do not commit)
-bundle_*/
-verify.py
-manifest.json
+bringup_preview_sdk.py
+serve.sh
+index.html.bak.*
