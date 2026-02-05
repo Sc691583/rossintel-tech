@@ -1,99 +1,218 @@
 <!doctype html>
-<html lang="en">
+<html lang="hu">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Gatekeeper / SEMAF — Mission Assurance</title>
-  <meta name="description" content="Evidence-driven autonomous operations. Deterministic decision receipts, tamper-evident audit chain, replay verification."/>
-  <link rel="stylesheet" href="assets/style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RossIntel.tech — Dokumentáció 72 órán belül / Audit & Cyber Pack 3–7 nap</title>
+  <meta name="description" content="Profi vállalati dokumentáció 72 órán belül. Audit/Evidence Pack és Kibervédelem (Zero-Trust alapok) 3–7 nap. NDA, fix határidő, leadható csomag." />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root{
+      --bg:#070A10; --card:#0D1220; --muted:#9AA4B2; --text:#E9EEF6;
+      --line:rgba(255,255,255,.10); --accent:#4DA3FF; --accent2:#22C55E; --warn:#F59E0B;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 800px at 70% -20%, rgba(77,163,255,.18), transparent 60%),
+        radial-gradient(1000px 700px at 20% 0%, rgba(34,197,94,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 64px}
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:750; letter-spacing:.2px}
+    .dot{width:10px; height:10px; border-radius:999px; background:var(--accent); box-shadow:0 0 18px rgba(77,163,255,.6)}
+    .pill{border:1px solid var(--line); border-radius:999px; padding:8px 12px; color:var(--muted); font-size:13px}
+    .hero{padding:26px 0 18px}
+    h1{margin:0 0 10px; font-size:clamp(28px, 3.4vw, 48px); line-height:1.08}
+    .sub{color:var(--muted); font-size:clamp(14px, 1.7vw, 18px); line-height:1.55; max-width:920px}
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 16px; border-radius:14px; border:1px solid var(--line);
+      text-decoration:none; font-weight:700; letter-spacing:.2px;
+      background:rgba(255,255,255,.04);
+    }
+    .btn.primary{border-color:rgba(77,163,255,.55); box-shadow:0 0 0 1px rgba(77,163,255,.20) inset}
+    .btn.secondary{border-color:rgba(34,197,94,.45); box-shadow:0 0 0 1px rgba(34,197,94,.18) inset}
+    .btn.warn{border-color:rgba(245,158,11,.45); box-shadow:0 0 0 1px rgba(245,158,11,.16) inset}
+    .btn:hover{transform:translateY(-1px)}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .badge{font-size:13px; color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:999px}
+    .grid{display:grid; grid-template-columns:1.15fr .85fr; gap:14px; margin-top:22px}
+    @media (max-width:960px){ .grid{grid-template-columns:1fr} }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:18px; padding:16px 16px 14px;
+    }
+    .card h2{margin:0 0 6px; font-size:18px}
+    .card p{margin:0 0 10px; color:var(--muted); line-height:1.55}
+    .klist{margin:0; padding-left:18px}
+    .klist li{margin:6px 0; color:var(--muted)}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+    .tag.info{border-color:rgba(77,163,255,.35)}
+    .tag.ok{border-color:rgba(34,197,94,.35)}
+    .tag.warn{border-color:rgba(245,158,11,.35)}
+    form{display:grid; gap:10px; margin-top:10px}
+    label{font-size:13px; color:var(--muted)}
+    input, textarea, select{
+      width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--line);
+      background:rgba(0,0,0,.25); color:var(--text); outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width:640px){ .row{grid-template-columns:1fr} }
+    .mini{font-size:12px; color:var(--muted)}
+    .hr{height:1px; background:var(--line); margin:18px 0}
+    .foot{margin-top:18px; color:var(--muted); font-size:12.5px; line-height:1.6}
+  </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <b>Gatekeeper / SEMAF</b>
-        <span>Autonomous Operations with Decision Integrity</span>
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
-        <span class="chip">Mission Assurance</span>
-        <span class="chip">Deterministic Receipts</span>
-        <span class="chip">Replay Verification</span>
-      </div>
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> RossIntel.tech</div>
+      <div class="pill">NDA • Fix határidő • Számla • Evidence-first</div>
     </div>
 
     <div class="hero">
-      <div class="card">
-        <h1>Evidence-driven autonomy you can prove.</h1>
-        <p class="sub">
-          Gatekeeper is an operational integrity layer for autonomous or semi-autonomous workflows.
-          SEMAF is the governance kernel that binds decisions to policy, produces deterministic receipts,
-          and makes outcomes auditable and replayable.
-        </p>
+      <h1>Profi vállalati dokumentáció <span style="color:var(--accent)">72 órán belül</span> — és <span style="color:var(--accent2)">Audit/Cyber Pack 3–7 nap</span></h1>
+      <div class="sub">
+        PDF/Word anyagból specifikáció, eljárásrend, belső szabályzat — egységesítve, redakcióval, leadható minőségben.
+        Többnyelvű átadás kérhető. Kibervédelemnél Zero-Trust alapok + incident-ready átadás.
+      </div>
 
-        <div class="pillrow">
-          <span class="pill">SDK-first runtime visibility</span>
-          <span class="pill">Policy-bound actions</span>
-          <span class="pill">Append-only evidence</span>
-          <span class="pill">Offline-friendly</span>
-          <span class="pill">Minimal attack surface</span>
+      <div class="ctaRow">
+        <a class="btn primary" href="#doc">Doc→Spec 72h ajánlatkérés</a>
+        <a class="btn secondary" href="#audit">Audit/Evidence 3–7 nap</a>
+        <a class="btn warn" href="#cyber">Kibervédelem / Zero-Trust</a>
+      </div>
+
+      <div class="badges">
+        <div class="badge">Leadás: DOCX + PDF</div>
+        <div class="badge">Integritás: manifest (hash lista)</div>
+        <div class="badge">Bizalmas kezelés (NDA)</div>
+        <div class="badge">Munkaidőben: 15 perces visszahívás</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card" id="doc">
+        <h2>1) Doc→Spec / Műszaki és vállalati dokumentáció (72 óra)</h2>
+        <p>Gyors csomag KKV-knak: több dokumentumból egységes, profi anyag — amit le lehet tenni vezetés/partner elé.</p>
+        <ul class="klist">
+          <li>PDF/Word → specifikáció / leírás / eljárásrend</li>
+          <li>Egységesítés, hibajavítás, formázás, fejezetelés</li>
+          <li>Többnyelvű átadás kérhető (bármely nyelv)</li>
+          <li>Redakció + bizalmas kezelés (NDA)</li>
+        </ul>
+        <div class="tagrow">
+          <div class="tag info">72h Mini</div>
+          <div class="tag ok">7 nap Standard</div>
+          <div class="tag warn">Havi retainer</div>
         </div>
+      </div>
 
-        <hr/>
-
-        <h2>Defense-relevant, non-weapon use cases</h2>
-        <div class="grid">
-          <div class="card" style="padding:16px"><h2>Readiness & Maintenance</h2><div class="small">Go/No-Go decisions backed by evidence, policy gates and receipts.</div></div>
-          <div class="card" style="padding:16px"><h2>Supply-chain Trust</h2><div class="small">ALLOW/WARN/BLOCK release gates based on provenance pointers and policy.</div></div>
-          <div class="card" style="padding:16px"><h2>Incident Triage</h2><div class="small">Escalate/Isolate/Observe actions with traceable timelines and replay.</div></div>
+      <div class="card" id="audit">
+        <h2>2) Audit / Evidence Pack (3–7 nap)</h2>
+        <p>Policy + dokumentáció + ellenőrizhető átadás. Cél: nyomvonal, változásrend, viták és auditkérések kezelése.</p>
+        <ul class="klist">
+          <li>1–2 folyamat dokumentálása (scope szerint)</li>
+          <li>Policy / eljárásrend / változásnapló sablonok</li>
+          <li>Evidence export: manifest + ellenőrzési lépések</li>
+          <li>Gatekeeper-kompatibilis “proof” struktúra</li>
+        </ul>
+        <div class="tagrow">
+          <div class="tag info">3 nap Mini</div>
+          <div class="tag ok">7 nap Standard</div>
+          <div class="tag warn">Havi Evidence Ops</div>
         </div>
+      </div>
+    </div>
 
-        <hr/>
+    <div class="hr"></div>
 
-        <h2>Contact</h2>
-        <div class="small">
-          Private briefings and proof bundles on request.<br/>
- Proof Pack Demo (public): <a href="https://sc691583.github.io/gatekeeper-proofpack-demo/">link</a><br/>
-          Email: <a href="mailto:info@dayandrossglobal.com">info@dayandrossglobal.com</a>
-        </div>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="mailto:info@dayandrossglobal.com?subject=Gatekeeper%20%2F%20SEMAF%20—%20Mission%20Assurance%20Briefing">Request a briefing</a>
+    <div class="grid">
+      <div class="card" id="cyber">
+        <h2>3) Kibervédelem / Zero-Trust alapok (3–7 nap)</h2>
+        <p>Nem “pentest”. Kontrollált rendrakás: minimális jogosultság, hardening javaslatok, incident-ready átadás.</p>
+        <ul class="klist">
+          <li>Zero-Trust szemlélet: jogosultság-minimum + hozzáférési rend</li>
+          <li>Hardening checklist: Docker/host/service (scope szerint)</li>
+          <li>Incident-ready: változásnapló + átadási csomag (viták ellen)</li>
+          <li>Ajánlás/ticket only (nincs “szabadjára engedett” automatika)</li>
+        </ul>
+        <div class="tagrow">
+          <div class="tag info">Gyors felmérés</div>
+          <div class="tag ok">Javaslatcsomag</div>
+          <div class="tag warn">Havi kontroll</div>
         </div>
       </div>
 
       <div class="card">
-        <h2>Proof Bar</h2>
-        <div class="small">Pair this page with a proof bundle (hash + receipts + replay verifier).</div>
+        <h2>Ajánlatkérés (1 perc)</h2>
+        <p class="mini">Most ideiglenesen mailto módban: email készül a gépeden. Következő lépés: rendes lead-gyűjtés (POST) evidence naplóval.</p>
 
-        <div class="badge"><span class="dot"></span><b>Receipt verification</b>&nbsp;<span class="small">PASS (bundle required)</span></div>
-        <div class="badge"><span class="dot"></span><b>Replay determinism</b>&nbsp;<span class="small">PASS (bundle required)</span></div>
-        <div class="badge"><span class="dot warn"></span><b>Policy gate</b>&nbsp;<span class="small">ALLOW/WARN/BLOCK (config-driven)</span></div>
+        <form action="mailto:info@dayandrossglobal.com" method="post" enctype="text/plain">
+          <div class="row">
+            <div>
+              <label>Név / Cég</label>
+              <input name="name_company" placeholder="Név, cég" required />
+            </div>
+            <div>
+              <label>Email / Telefon</label>
+              <input name="contact" placeholder="email + telefon" required />
+            </div>
+          </div>
 
-        <hr/>
-        <div class="small"><b>Sample proof bundles (public):</b></div>
-<div class="small" style="margin-top:8px">
-• <a href="./bundles/bundle_readiness_go_nogo/manifest.json">Readiness bundle</a><br/>
-&nbsp;&nbsp;<code>chain_head=7815d606fc472519d6926f7775cb28ba5fd14141bf4671d113677870ccec16a7</code><br/>
-&nbsp;&nbsp;<code>manifest_sha256=cdae8bf5c846c423e1b1fdde32143a9f61f94c6048d7f6b0ee3fe147f2035a10</code><br/>
-• <a href="./bundles/bundle_supplychain_release_gate/manifest.json">Supply-chain bundle</a><br/>
-&nbsp;&nbsp;<code>chain_head=906a7126e52b06a8f38831137a6ea6f72b141c8e7177713b3f5cde3da4b025d4</code><br/>
-&nbsp;&nbsp;<code>manifest_sha256=191fee5893a9b74cb7b7d9d467f3b216073be29754e77e834a0d86999d9702df</code><br/>
-• <a href="./bundles/bundle_incident_triage/manifest.json">Incident triage bundle</a><br/>
-&nbsp;&nbsp;<code>chain_head=57bca1884cbb250722d4c2a55dad3a357318b20f452481012b3a5eeaf453219c</code><br/>
-&nbsp;&nbsp;<code>manifest_sha256=270971005fab17f5c85dbfdfd11a9bb85c59917ca0783c7c0668e9199d616244</code><br/>
-</div>
+          <div class="row">
+            <div>
+              <label>Csomag</label>
+              <select name="package">
+                <option>Doc→Spec 72h</option>
+                <option>Doc→Spec 7 nap</option>
+                <option>Audit/Evidence Pack 3–7 nap</option>
+                <option>Kibervédelem / Zero-Trust 3–7 nap</option>
+                <option>Havi retainer</option>
+              </select>
+            </div>
+            <div>
+              <label>Határidő</label>
+              <select name="deadline">
+                <option>72 óra</option>
+                <option>7 nap</option>
+                <option>Egyedi</option>
+              </select>
+            </div>
+          </div>
 
+          <div>
+            <label>Dokumentum link (Drive / WeTransfer / bármi)</label>
+            <input name="file_link" placeholder="https://..." />
+          </div>
 
-        <hr/>
-        <h2>Legal / Entity</h2>
-        <div class="small">Owner: Day&amp;Ross Global LTD LLC</div>
+          <div>
+            <label>Rövid leírás</label>
+            <textarea name="notes" placeholder="Mi a cél, hány oldal, nyelv (bármely), milyen formátum kell a végén?"></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">Ajánlatkérés elküldése</button>
+          <div class="mini">Email: info@dayandrossglobal.com • Owner: Day&amp;Ross Global LTD LLC / Gatekeeper Operations Kft.</div>
+        </form>
+
+        <div class="foot">
+          Jogi megjegyzés: dokumentáció- és működésrendezés. Nem tanúsítás, nem auditor-szerep.
+        </div>
       </div>
     </div>
 
-    <div class="footer">
-      <div>© <span id="y"></span> Gatekeeper / SEMAF</div>
-      <div>Day&amp;Ross Global LTD LLC</div>
-    </div>
+    <div class="foot">© <span id="y"></span> RossIntel.tech</div>
   </div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
