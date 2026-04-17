@@ -13,90 +13,96 @@
             color: var(--text); 
             font-family: 'Space Mono', monospace; 
             overflow-x: hidden;
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         /* Scanline effect */
         body::before {
             content: " ";
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
             background-size: 100% 4px, 3px 100%;
             z-index: 1000; pointer-events: none;
         }
 
-        .container { padding: 40px; }
+        .container { padding: 30px; max-width: 1400px; margin: 0 auto; }
 
-        /* Header / ENTITY STRUCTURE Area */
+        /* --- HEADER: EMBEDDED LOGO & ENTITIES --- */
         header {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            border-bottom: 1px solid var(--dim); padding-bottom: 25px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            border-bottom: 1px solid var(--dim); padding-bottom: 30px; margin-bottom: 50px;
         }
-        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.6rem; letter-spacing: -2px; text-transform: uppercase;}
-        .logo span { color: var(--gold); }
         
-        /* BILINGUAL LEGAL ENTITIES */
-        .entity-block { text-align: right; font-size: 0.75rem; color: #888; text-transform: uppercase;}
-        .primary-entity { color: var(--gold); font-weight: 700; margin-bottom: 5px;}
-        .proxy-label { font-size: 0.65rem; color: var(--dim); }
+        /* The Embedded Logo (image_0.png as base64) */
+        .logo-img {
+            max-width: 300px; width: 100%; height: auto; margin-bottom: 20px;
+        }
+
+        /* BILINGUAL LEGAL ENTITIES BELOW LOGO */
+        .entity-block { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px;}
+        .primary-entity { color: var(--gold); font-weight: 700; margin-bottom: 8px;}
+        .proxy-label { font-size: 0.65rem; color: var(--dim); margin: 5px 0; }
         .local-entity { color: #bbb; }
 
-        /* HERO SECTION */
-        .hero { margin: 120px 0; }
+        /* --- HERO SECTION --- */
+        .hero { margin-bottom: 100px; }
         .hero h1 {
             font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2.8rem, 11vw, 9rem);
+            font-size: clamp(2.2rem, 9vw, 7rem);
             text-transform: uppercase;
-            letter-spacing: -5px;
-            margin-bottom: 60px;
+            letter-spacing: -4px;
+            margin-bottom: 50px;
+            color: #fff;
         }
 
         .bilingual-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 70px;
-            border-top: 1px solid var(--dim); padding-top: 50px;
+            display: grid; grid-template-columns: 1fr; gap: 40px;
+            border-top: 1px solid var(--dim); padding-top: 40px;
         }
-        .lang-block h2 { font-size: 1.3rem; color: var(--gold); margin-bottom: 25px; text-transform: uppercase; }
-        .lang-block p { font-size: 1.2rem; color: #ccc; max-width: 550px; line-height: 1.3; }
+        .lang-block h2 { font-size: 1.1rem; color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
+        .lang-block p { font-size: 1rem; color: #ccc; max-width: 600px; line-height: 1.4; }
 
-        /* L3.3 PROTOCOL SEALS */
-        .tiers { margin: 120px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--dim); }
-        .tier-card { background: var(--bg); padding: 60px; transition: 0.5s; position: relative;}
-        .tier-card:hover { background: #08080a; border-top: 6px solid var(--gold); padding-top: 54px; }
+        /* --- EXECUTION TIERS (PROTOCOLS) --- */
+        .tiers { margin: 100px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--dim); }
+        .tier-card { background: var(--bg); padding: 40px; transition: 0.4s; position: relative;}
+        .tier-card:hover { background: #08080a; border-top: 5px solid var(--gold); padding-top: 35px; }
         
-        .tier-protocol { color: var(--accent); font-size: 0.75rem; margin-bottom: 25px; display: block; font-weight: 700;}
-        .tier-card h3 { font-family: 'Syncopate', sans-serif; margin-bottom: 20px; font-size: 1.3rem; text-transform: uppercase;}
+        .tier-protocol { color: var(--accent); font-size: 0.7rem; margin-bottom: 20px; display: block; font-weight: 700;}
+        .tier-card h3 { font-family: 'Syncopate', sans-serif; margin-bottom: 15px; font-size: 1.1rem; text-transform: uppercase; color: #fff;}
         
-        .tier-content { display: flex; flex-direction: column; gap: 25px; height: 100%; }
-        .tier-text { font-size: 0.9rem; color: #999; line-height: 1.4; }
-        .tier-text.hu { border-bottom: 1px solid #1a1a1a; padding-bottom: 20px; color: #ddd; }
+        .tier-content { display: flex; flex-direction: column; gap: 20px; height: 100%; }
+        .tier-text { font-size: 0.85rem; color: #999; line-height: 1.4; }
+        .tier-text.hu { border-bottom: 1px solid #1a1a1a; padding-bottom: 15px; color: #ddd; }
 
-        .price { font-size: 2.2rem; font-weight: 700; margin-top: auto; padding-top: 40px; color: #fff; }
+        .price { font-size: 2rem; font-weight: 700; margin-top: auto; padding-top: 30px; color: #fff; }
 
-        /* CONTACT AREA / SECURE ACCESS */
+        /* --- CONTACT AREA / SECURE ACCESS --- */
         .contact-area {
-            border: 3px solid var(--gold); padding: 100px; text-align: center; margin-bottom: 120px;
+            border: 2px solid var(--gold); padding: 60px 30px; text-align: center; margin-bottom: 100px;
             position: relative; transition: 0.3s;
         }
-        .contact-area:hover { box-shadow: 0 0 30px rgba(197, 160, 89, 0.3); }
-        .contact-area h2 { font-family: 'Syncopate', sans-serif; font-size: 3.5rem; margin-bottom: 50px; text-transform: uppercase;}
+        .contact-area:hover { box-shadow: 0 0 25px rgba(197, 160, 89, 0.2); }
+        .contact-area h2 { font-family: 'Syncopate', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 40px; text-transform: uppercase; color: #fff;}
         .btn-elite {
-            display: inline-block; padding: 30px 60px; background: var(--gold); color: #000;
-            text-decoration: none; font-weight: 700; font-size: 1.3rem; text-transform: uppercase;
-            transition: 0.3s;
+            display: inline-block; padding: 25px 50px; background: var(--gold); color: #000;
+            text-decoration: none; font-weight: 700; font-size: 1.1rem; text-transform: uppercase;
+            transition: 0.3s; width: 100%; max-width: 400px;
         }
-        .btn-elite:hover { background: #fff; transform: scale(1.03); }
+        .btn-elite:hover { background: #fff; transform: scale(1.02); }
 
-        /* FINAL ENTITY FOOTER */
-        footer { font-size: 0.75rem; color: var(--dim); display: flex; justify-content: space-between; padding-bottom: 50px; }
-        .footer-entities { display: flex; gap: 40px; }
+        /* --- FINAL FOOTER --- */
+        footer { font-size: 0.7rem; color: var(--dim); display: flex; flex-direction: column; gap: 10px; align-items: center; padding-bottom: 40px; text-align: center;}
+        .footer-entities { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;}
 
-        @media (max-width: 1000px) {
-            .bilingual-grid, .tiers { grid-template-columns: 1fr; }
-            .container { padding: 25px; }
-            .contact-area { padding: 50px; }
-            header { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .entity-block { text-align: left; }
+        /* --- MEDIA QUERIES --- */
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; align-items: flex-start; text-align: right; padding-bottom: 20px;}
+            .logo-img { max-width: 250px; margin-bottom: 0; margin-right: 30px;}
+            .entity-block { text-align: right; }
+            .bilingual-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
+            .tiers { grid-template-columns: repeat(3, 1fr); }
+            footer { flex-direction: row; justify-content: space-between; align-items: flex-start; text-align: left;}
         }
     </style>
 </head>
@@ -104,7 +110,7 @@
 
 <div class="container">
     <header>
-        <div class="logo">ROSS<span>INTEL</span></div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABDgAAAK6CAYAAABH9B3NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyNDowNDoxNiAxNDoyODowOQAt87UAAC02SURBVHhe7d2HeBRXFvfxL1pZg5W9pZXV1d57773X3nvvvffepffea4GQAOmlBBJ6CSGBQAglIAn59zP7zJvZbO7MbiZ7725v5/0/v5//w==" alt="ROSSINTEL // Day&Ross Gatekeeper L3.3 Logo" class="logo-img">
         
         <div class="entity-block">
             <div class="primary-entity">
