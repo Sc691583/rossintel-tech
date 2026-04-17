@@ -3,140 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROSSINTEL // AUDIT OR FAILURE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>ROSSINTEL // GATEKEEPER L4 // SOVEREIGN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #000; --gold: #c5a059; --red: #ff3e3e; --text: #fff; --dim: #111; --border: #222; }
+        :root { --gold: #c5a059; --bg: #020202; --dim: #111; --text: #f0f0f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.4; overflow-x: hidden; }
+        body { background: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* HEADER - ENTITIES */
-        .logo-container { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .logo-svg { width: 160px; height: auto; }
-        .entities { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--gold); text-align: right; line-height: 1.6; }
-        .entities b { color: #fff; }
-
-        /* HERO - BILINGUAL HOOK */
-        .hero { padding: 100px 0; text-align: center; }
-        .alert { color: var(--red); font-family: 'Space Mono', monospace; font-size: 0.8rem; margin-bottom: 20px; display: block; letter-spacing: 2px; }
-        h1 { font-size: clamp(2rem, 8vw, 5.5rem); font-weight: 900; line-height: 0.95; margin-bottom: 40px; letter-spacing: -2px; }
-        h1 span { color: var(--gold); }
-        
-        .hero-desc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; margin-top: 50px; border-top: 1px solid var(--border); padding-top: 40px; }
-        .desc-box h2 { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; font-family: 'Space Mono'; }
-        .desc-box p { font-size: 1rem; color: #ccc; line-height: 1.6; }
-
-        /* TIERS - BILINGUAL CARDS */
-        .pricing { padding: 80px 0; }
-        .p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
-        .p-card { background: var(--dim); border: 1px solid var(--border); padding: 45px; position: relative; transition: 0.4s; }
-        .p-card:hover { border-color: var(--gold); }
-        .p-card.featured { border: 2px solid var(--gold); }
-        
-        .p-card h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; display: flex; justify-content: space-between; }
-        .p-card h3 span { color: var(--gold); font-size: 0.7rem; font-family: 'Space Mono'; }
-
-        .service-list { list-style: none; margin-bottom: 40px; }
-        .service-list li { padding: 12px 0; border-bottom: 1px solid #222; font-size: 0.9rem; color: #aaa; }
-        .service-list li b { color: #fff; display: block; font-size: 0.85rem; margin-bottom: 4px; }
-        
-        .price-val { font-size: 2.5rem; font-weight: 900; color: #fff; }
-        .price-val small { font-size: 0.9rem; color: #555; font-weight: 400; }
-
-        /* THE CLOSER */
-        .cta-final { background: var(--gold); color: #000; padding: 80px 20px; text-align: center; }
-        .cta-btn { display: inline-block; background: #000; color: #fff; padding: 22px 50px; text-decoration: none; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; transition: 0.3s; }
-        .cta-btn:hover { letter-spacing: 2px; }
-
-        footer { padding: 40px 0; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #444; }
-
-        @media (max-width: 850px) {
-            .hero-desc-grid { grid-template-columns: 1fr; }
-            .logo-container { flex-direction: column; gap: 20px; text-align: center; }
-            .entities { text-align: center; }
-            h1 { font-size: 3rem; }
+        /* Infrastructure Grid */
+        body::after {
+            content: ""; position: fixed; inset: 0;
+            background-image: linear-gradient(to right, #0a0a0a 1px, transparent 1px), linear-gradient(to bottom, #0a0a0a 1px, transparent 1px);
+            background-size: 50px 50px; z-index: -1;
         }
+
+        .container { padding: 0 5vw; max-width: 1400px; margin: 0 auto; }
+
+        /* HEADER & LANG TOGGLE */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 40px 0; border-bottom: 1px solid #1a1a1a; 
+        }
+        .brand { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; letter-spacing: -1px; }
+        .brand span { color: var(--gold); }
+        
+        .lang-switch { display: flex; gap: 10px; }
+        .lang-btn { 
+            background: transparent; border: 1px solid #333; color: #444; 
+            padding: 8px 15px; font-size: 0.7rem; cursor: pointer; transition: 0.3s;
+            font-family: 'Space Mono', monospace; font-weight: 700;
+        }
+        .lang-btn.active { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 10px rgba(197, 160, 89, 0.2); }
+
+        /* HERO */
+        .hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; }
+        .version { color: var(--gold); font-size: 0.7rem; letter-spacing: 10px; margin-bottom: 20px; text-transform: uppercase; }
+        h1 { font-family: 'Syncopate', sans-serif; font-size: clamp(2.5rem, 12vw, 8rem); line-height: 0.85; letter-spacing: -8px; text-transform: uppercase; }
+        
+        .hero-desc { max-width: 600px; margin-top: 40px; font-size: 1.1rem; line-height: 1.5; color: #888; }
+
+        /* TIERS */
+        .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: #1a1a1a; margin: 100px 0; border: 1px solid #1a1a1a; }
+        .tier { background: var(--bg); padding: 60px 40px; transition: 0.4s; }
+        .tier:hover { background: #080808; border-top: 4px solid var(--gold); padding-top: 56px; }
+        
+        .tier-id { font-size: 0.6rem; color: var(--gold); margin-bottom: 30px; display: block; letter-spacing: 5px; }
+        .tier h3 { font-family: 'Syncopate', sans-serif; font-size: 1.1rem; margin-bottom: 20px; text-transform: uppercase; }
+        .tier p { font-size: 0.85rem; color: #666; margin-bottom: 40px; height: 4.5rem; overflow: hidden; }
+        .price { font-family: 'Syncopate', sans-serif; font-size: 2rem; color: #fff; }
+
+        /* CTA */
+        .cta-section { border: 1px solid var(--gold); padding: 80px 40px; text-align: center; margin-bottom: 100px; }
+        .cta-section h2 { font-family: 'Syncopate', sans-serif; font-size: clamp(1.5rem, 5vw, 3rem); margin-bottom: 30px; }
+        .btn { display: inline-block; background: var(--gold); color: #000; padding: 25px 50px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 1rem; transition: 0.3s; }
+        .btn:hover { background: #fff; transform: translateY(-5px); }
+
+        /* FOOTER */
+        footer { padding-bottom: 50px; font-size: 0.6rem; color: #333; display: flex; justify-content: space-between; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* BILINGUAL LOGIC */
+        .hu, .en { display: none; }
+        body.lang-hu .hu { display: block; }
+        body.lang-en .en { display: block; }
     </style>
 </head>
-<body>
+<body class="lang-hu">
 
 <div class="container">
-    <header class="logo-container">
-        <svg class="logo-svg" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 5L30 12V25C30 35 15 42 15 42C15 42 0 35 0 25V12L15 5Z" fill="#c5a059"/>
-            <text x="40" y="25" fill="white" font-family="Inter" font-weight="900" font-size="18">ROSSINTEL</text>
-            <text x="40" y="38" fill="#c5a059" font-family="Space Mono" font-size="7" letter-spacing="2">GATEKEEPER L3.3</text>
-        </svg>
-        <div class="entities">
-            <b>DAY&ROSS GLOBAL LTD LLC</b> // Wyoming, USA<br>
-            <b>GATEKEEPER OPERATIONS KFT</b> // Budapest, HU
+    <header>
+        <div class="brand">ROSS<span>INTEL</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('hu')">HU</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
         </div>
     </header>
 
-    <section class="hero">
-        <span class="alert">// CRITICAL COMPLIANCE PROTOCOL //</span>
-        <h1>Audit Ready.<br><span>Guaranteed.</span></h1>
-        
-        <div class="hero-desc-grid">
-            <div class="desc-box">
-                <h2>HU // Megfelelőség</h2>
-                <p>A legtöbb cég elbukik az első rostán. Mi 72 órán belül audit-kész állapotba hozzuk a rendszeredet. Ha az audit nem sikerül, a munkadíj visszajár. Nincs kockázat.</p>
-            </div>
-            <div class="desc-box">
-                <h2>EN // Global Standard</h2>
-                <p>Most companies fail their first audit. We bring you to a state of total compliance within 72 hours. Money-back guarantee if the audit fails. Zero risk.</p>
-            </div>
+    <div class="hero">
+        <div class="version">Hardened Protocol // L4 Active</div>
+        <h1>
+            <span class="hu">Az Audit<br>Nem Kockázat.</span>
+            <span class="en">Audit Is<br>No Risk.</span>
+        </h1>
+        <div class="hero-desc">
+            <p class="hu">72 órán belül audit-kész dokumentáció. Mi nem kiberbiztonsági tanácsot adunk, hanem a sikeres audit garanciáját. Az L4 Sovereign protokoll nem hibázik.</p>
+            <p class="en">Audit-ready documentation in 72 hours. We don't provide "cybersecurity advice"—we provide a guaranteed pass. The L4 Sovereign protocol never fails.</p>
+        </div>
+    </div>
+
+    <section class="tiers">
+        <div class="tier">
+            <span class="tier-id">01 / DISCOVERY</span>
+            <h3>DOC-SPEC</h3>
+            <p class="hu">Káosz felszámolása. Dokumentációs rendrakás és SOP igazítás L4 standardra.</p>
+            <p class="en">Eliminating chaos. Documentation cleanup and SOP alignment to L4 standards.</p>
+            <div class="price">€490</div>
+        </div>
+        <div class="tier">
+            <span class="tier-id">02 / COMPLIANCE</span>
+            <h3>AUDIT READY</h3>
+            <p class="hu">Teljes NIS2 / SZTFH integráció. Garantált auditori elfogadás.</p>
+            <p class="en">Full NIS2 / SZTFH integration. Guaranteed auditor acceptance.</p>
+            <div class="price">€1,490</div>
+        </div>
+        <div class="tier">
+            <span class="tier-id">03 / SOVEREIGN</span>
+            <h3>ELITE DEFENSE</h3>
+            <p class="hu">Zero Trust architektúra. L4 szintű hardening. Egyedi infrastruktúra védelem.</p>
+            <p class="en">Zero Trust architecture. L4 level hardening. Custom infrastructure protection.</p>
+            <div class="price">€2,490</div>
         </div>
     </section>
 
-    <section class="pricing">
-        <div class="p-grid">
-            <div class="p-card">
-                <h3>Express <span>01 // SOP</span></h3>
-                <ul class="service-list">
-                    <li><b>SOP Rendszerezés</b> Documentation & process cleanup</li>
-                    <li><b>72 órás átfutás</b> Rapid 72h delivery</li>
-                    <li><b>Audit-kész PDF</b> Full compliance documentation</li>
-                </ul>
-                <span class="price-val">€490 <small>/ fix</small></span>
-            </div>
-            
-            <div class="p-card featured">
-                <h3>Audit Pass <span>02 // FULL</span></h3>
-                <ul class="service-list">
-                    <li><b>NIS2 / SZTFH Megfelelés</b> Full framework alignment</li>
-                    <li><b>Auditori képviselet</b> Auditor-ready representation</li>
-                    <li><b>Sikerdíj alapú garancia</b> Success-based guarantee</li>
-                </ul>
-                <span class="price-val">€1,490 <small>/ fix</small></span>
-            </div>
+    <div class="cta-section">
+        <h2 class="hu">Hozzáférés Kérése</h2>
+        <h2 class="en">Secure Access</h2>
+        <a href="mailto:info@dayandrossglobal.com" class="btn">
+            <span class="hu">Konzultáció Indítása</span>
+            <span class="en">Start Protocol</span>
+        </a>
+    </div>
 
-            <div class="p-card">
-                <h3>Sovereign <span>03 // L3.3</span></h3>
-                <ul class="service-list">
-                    <li><b>Zero Trust Architektúra</b> Zero Trust Implementation</li>
-                    <li><b>Hardver-alapú védelem</b> TPM & Hardware hardening</li>
-                    <li><b>Day&Ross L3.3 Protocol</b> Military grade security standards</li>
-                </ul>
-                <span class="price-val">€2,490 <small>/ fix</small></span>
-            </div>
-        </div>
-    </section>
+    <footer>
+        <div>© 2026 ROSSINTEL.TECH</div>
+        <div>OWNER: DAY&ROSS GLOBAL LTD LLC // GATEKEEPER OPERATIONS KFT</div>
+    </footer>
 </div>
 
-<section class="cta-final">
-    <div class="container">
-        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 10px;">Audit-kész dokumentáció 72 órán belül.</h2>
-        <p style="margin-bottom: 30px; font-weight: 700;">Audit-ready documentation in 72 hours.</p>
-        <a href="mailto:info@dayandrossglobal.com" class="cta-btn">Start Protocol // Ingyenes Konzultáció</a>
-    </div>
-</section>
-
-<footer>
-    © 2026 ROSSINTEL.TECH // PROPERTY OF DAY&ROSS GLOBAL LTD LLC & GATEKEEPER OPERATIONS KFT.
-</footer>
+<script>
+    function setLang(lang) {
+        document.body.className = 'lang-' + lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+        });
+    }
+</script>
 
 </body>
 </html>
