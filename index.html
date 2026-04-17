@@ -3,463 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>RossIntel — Audit Dokumentáció & Cybersecurity | NIS2 Megfelelőség</title>
-    <meta name="description" content="Audit-kész dokumentáció 72 órán belül. NIS2 megfelelőség, SZTFH audit előkészítés, cybersecurity hardening. Fix ár, fix határidő, NDA.">
-    <meta name="keywords" content="NIS2 audit, SZTFH megfelelőség, audit dokumentáció, cybersecurity Hungary, kiberbiztonsági audit, gap analysis">
+    <title>RossIntel — Audit PASS. Guaranteed.</title>
+    <meta name="description" content="Audit-ready documentation in 72 hours. NIS2, SZTFH, cybersecurity. Fixed price, guaranteed delivery. | Audit-kész dokumentáció 72 óra alatt.">
+    <meta name="keywords" content="NIS2 audit Hungary, SZTFH audit, cybersecurity documentation, audit dokumentáció, kiberbiztonsági audit">
     <link rel="canonical" href="https://rossintel.tech/">
-    
-    <meta property="og:title" content="RossIntel — Audit Dokumentáció 72h">
-    <meta property="og:description" content="Audit-kész anyag, fix határidő. NIS2, SZTFH, cybersecurity.">
+    <meta property="og:title" content="RossIntel — Audit PASS. Guaranteed.">
+    <meta property="og:description" content="Audit-ready documentation in 72h. Fixed price.">
     <meta property="og:url" content="https://rossintel.tech/">
     <meta property="og:type" content="website">
     
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "RossIntel",
-        "description": "Audit dokumentáció, NIS2 megfelelőség, cybersecurity szolgáltatások",
-        "url": "https://rossintel.tech",
-        "email": "info@dayandrossglobal.com",
-        "address": {"@type": "PostalAddress", "addressCountry": "HU"},
-        "priceRange": "€€",
-        "serviceType": ["Audit Documentation", "NIS2 Compliance", "Cybersecurity"]
-    }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --navy: #0f172a;
-            --navy-light: #1e293b;
-            --gold: #d4a84b;
-            --gold-light: #f0d78c;
-            --white: #ffffff;
-            --gray: #94a3b8;
+            --bg: #09090b;
+            --surface: #18181b;
+            --surface-2: #27272a;
+            --border: #3f3f46;
+            --text: #fafafa;
+            --text-dim: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #eab308;
+            --accent-light: #fde047;
             --success: #22c55e;
+            --blue: #3b82f6;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); }
+        html { scroll-behavior: smooth; }
         
-        /* NAV */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        
+        /* NOISE TEXTURE */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        
+        /* ═══════════════ NAV ═══════════════ */
         nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(9,9,11,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 60px;
-            max-width: 1400px;
-            margin: 0 auto;
         }
         .logo {
-            font-size: 1.5rem;
             font-weight: 800;
-            color: var(--gold);
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+            color: var(--text);
+        }
+        .logo em {
+            font-style: normal;
+            color: var(--accent);
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .lang-toggle {
+            display: flex;
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 4px;
+            gap: 4px;
+        }
+        .lang-btn {
+            padding: 8px 14px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: var(--surface-2);
+            color: var(--text);
         }
         .nav-cta {
-            background: var(--gold);
-            color: var(--navy);
-            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 10px 22px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.3s;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
-        .nav-cta:hover { background: var(--gold-light); }
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
         
-        /* HERO */
+        /* ═══════════════ HERO ═══════════════ */
         .hero {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 60px 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Gradient orbs */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; right: -200px;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(234,179,8,0.12) 0%, transparent 60%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -300px; left: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+        
+        .hero-inner {
+            position: relative;
+            z-index: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 80px;
             align-items: center;
         }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 25px;
-        }
-        .hero h1 span { color: var(--gold); }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 35px;
-            line-height: 1.7;
-        }
-        .hero-cta {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 18px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-        .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
         
-        .hero-badges {
-            display: flex;
-            gap: 15px;
-            margin-top: 40px;
-        }
-        .badge {
-            background: var(--navy-light);
-            border: 1px solid rgba(212,168,75,0.3);
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(234,179,8,0.1);
+            border: 1px solid rgba(234,179,8,0.25);
             padding: 10px 18px;
-            border-radius: 6px;
+            border-radius: 100px;
             font-size: 0.9rem;
-            color: var(--gold-light);
+            color: var(--accent-light);
+            margin-bottom: 28px;
         }
-        
-        .hero-right {
-            background: var(--navy-light);
-            border-radius: 16px;
-            padding: 50px;
-            border: 1px solid rgba(212,168,75,0.2);
-        }
-        .hero-right h3 {
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .check-icon {
-            width: 24px;
-            height: 24px;
+        .pill-dot {
+            width: 8px; height: 8px;
             background: var(--success);
             border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            margin-bottom: 28px;
+        }
+        .hero h1 .em {
+            color: var(--accent);
+        }
+        
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 480px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(234,179,8,0.25);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .btn svg {
+            width: 18px; height: 18px;
+        }
+        
+        /* HERO RIGHT - BEFORE/AFTER VISUAL */
+        .hero-visual {
+            position: relative;
+        }
+        .visual-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+        }
+        .visual-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 17px;
+            background: linear-gradient(135deg, var(--accent) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .transformation {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .trans-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
+            gap: 16px;
         }
-        .check-icon::after { content: "✓"; color: white; font-size: 14px; }
-        .check-item p { font-size: 1.05rem; line-height: 1.5; }
-        .check-item strong { color: var(--gold-light); }
+        .trans-before, .trans-after {
+            flex: 1;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+        .trans-before {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.2);
+            color: #fca5a5;
+        }
+        .trans-arrow {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        .trans-after {
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.2);
+            color: #86efac;
+        }
+        .trans-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
         
-        /* SERVICES */
+        /* ═══════════════ SERVICES ═══════════════ */
         .services {
-            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
-            padding: 100px 60px;
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
         }
-        .services-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
         }
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
             margin-bottom: 60px;
         }
-        .services h2 span { color: var(--gold); }
+        .section-title .dim { color: var(--text-dim); }
         
         .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
         }
         .service-card {
-            background: var(--navy);
-            border: 1px solid rgba(212,168,75,0.15);
-            border-radius: 12px;
-            padding: 40px;
-            transition: 0.3s;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px;
+            transition: all 0.3s;
             position: relative;
         }
         .service-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-8px);
+            border-color: var(--accent);
+            transform: translateY(-4px);
         }
         .service-card.featured {
-            border-color: var(--gold);
-            background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);
+            border-color: var(--accent);
+            background: linear-gradient(180deg, rgba(234,179,8,0.05) 0%, var(--bg) 100%);
         }
-        .service-card.featured::before {
-            content: "NÉPSZERŰ";
+        .service-card.featured::after {
+            content: "★";
             position: absolute;
-            top: -12px;
-            left: 30px;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 5px 15px;
-            border-radius: 4px;
+            top: -12px; right: 24px;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 6px 14px;
+            border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 700;
         }
+        .service-time {
+            display: inline-block;
+            background: var(--surface-2);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            margin-bottom: 20px;
+        }
         .service-card h3 {
             font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-        .service-card .time {
-            color: var(--gold);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
         .service-card ul {
             list-style: none;
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
         .service-card li {
             padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--gray);
+            color: var(--text-dim);
             font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .service-card li::before {
+            content: "→";
+            color: var(--accent);
         }
         .service-card li:last-child { border: none; }
-        .service-card .price {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--gold-light);
+        .service-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text);
             margin-bottom: 20px;
         }
-        .service-card .price span {
-            font-size: 0.9rem;
-            color: var(--gray);
+        .service-price span {
+            font-size: 1rem;
             font-weight: 400;
+            color: var(--text-muted);
         }
-        .card-cta {
+        .service-cta {
             display: block;
             text-align: center;
             padding: 14px;
             background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.3s;
+            transition: all 0.25s;
         }
-        .card-cta:hover {
-            background: var(--gold);
-            color: var(--navy);
+        .service-cta:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg);
         }
         
-        /* WHY */
-        .why {
-            padding: 100px 60px;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* ═══════════════ PROOF ═══════════════ */
+        .proof {
+            padding: 100px 0;
+            background: var(--surface);
         }
-        .why h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 60px;
-        }
-        .why-grid {
+        .proof-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            gap: 32px;
         }
-        .why-item {
+        .proof-item {
             text-align: center;
+            padding: 32px 20px;
         }
-        .why-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--navy-light);
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
+        .proof-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 12px;
         }
-        .why-item h4 {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        .why-item p {
-            color: var(--gray);
-            font-size: 0.95rem;
+        .proof-label {
+            font-size: 1rem;
+            color: var(--text-dim);
         }
         
-        /* CTA */
+        /* ═══════════════ CTA ═══════════════ */
         .final-cta {
-            background: var(--navy-light);
-            padding: 80px 60px;
+            padding: 140px 0;
             text-align: center;
+            position: relative;
+        }
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(ellipse, rgba(234,179,8,0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
         }
         .final-cta h2 {
-            font-size: 2.5rem;
+            position: relative;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
             margin-bottom: 20px;
         }
         .final-cta p {
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-bottom: 35px;
+            position: relative;
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
         }
-        .final-cta a {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 20px 50px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.15rem;
-        }
+        .final-cta .btn { position: relative; }
         
-        /* FOOTER */
+        /* ═══════════════ FOOTER ═══════════════ */
         footer {
-            padding: 40px 60px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
             text-align: center;
-            color: var(--gray);
-            font-size: 0.9rem;
         }
-        footer a { color: var(--gold); text-decoration: none; }
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
         
-        /* RESPONSIVE */
+        /* ═══════════════ RESPONSIVE ═══════════════ */
         @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; padding: 50px 30px; gap: 50px; }
-            .hero h1 { font-size: 2.4rem; }
+            .hero-inner { grid-template-columns: 1fr; gap: 60px; }
             .service-grid { grid-template-columns: 1fr; }
-            .why-grid { grid-template-columns: repeat(2, 1fr); }
-            nav { padding: 20px 30px; }
+            .proof-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 640px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-badges { flex-wrap: wrap; }
-            .why-grid { grid-template-columns: 1fr; }
-            .services, .why, .final-cta { padding: 60px 25px; }
+            .wrap { padding: 0 20px; }
+            nav .nav-right { gap: 16px; }
+            .nav-cta { display: none; }
+            .hero { padding: 120px 0 80px; }
+            .hero-ctas { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .proof-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* ═══════════════ LANGUAGE SWITCH ═══════════════ */
+        .hu { display: block; }
+        .en { display: none; }
+        body.lang-en .hu { display: none; }
+        body.lang-en .en { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-inner > * {
+            animation: fadeIn 0.8s ease both;
+        }
+        .hero-inner > *:nth-child(2) {
+            animation-delay: 0.15s;
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">RossIntel</div>
-        <a href="mailto:info@dayandrossglobal.com" class="nav-cta">Ingyenes konzultáció</a>
+        <div class="wrap nav-inner">
+            <div class="logo">Ross<em>Intel</em></div>
+            <div class="nav-right">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="setLang('hu')">HU</button>
+                    <button class="lang-btn" onclick="setLang('en')">EN</button>
+                </div>
+                <a href="mailto:info@dayandrossglobal.com" class="nav-cta">
+                    <span class="hu">Kapcsolat</span>
+                    <span class="en">Contact</span>
+                </a>
+            </div>
+        </div>
     </nav>
     
     <section class="hero">
-        <div class="hero-left">
-            <h1>Audit-kész dokumentáció<br><span>72 órán belül.</span></h1>
-            <p>NIS2 megfelelőség, SZTFH audit előkészítés, cybersecurity hardening. Fix ár, fix határidő. Nem prezentáció — működő dokumentum amit az auditor elfogad.</p>
-            <a href="mailto:info@dayandrossglobal.com?subject=Konzultáció" class="hero-cta">Kérek egy ajánlatot →</a>
-            <div class="hero-badges">
-                <span class="badge">🔒 NDA védelem</span>
-                <span class="badge">⏱ 15 perc válaszidő</span>
-                <span class="badge">📄 PDF + DOCX</span>
+        <div class="wrap hero-inner">
+            <div class="hero-content">
+                <div class="pill">
+                    <span class="pill-dot"></span>
+                    <span class="hu">Aktívan fogadunk megbízásokat</span>
+                    <span class="en">Currently accepting projects</span>
+                </div>
+                
+                <h1>
+                    <span class="hu">Az audit <span class="em">PASS</span> lesz.</span>
+                    <span class="en">Your audit will <span class="em">PASS</span>.</span>
+                </h1>
+                
+                <p class="hero-sub">
+                    <span class="hu">Audit-kész dokumentáció 72 óra – 7 nap alatt. NIS2, SZTFH, cybersecurity. Fix ár, fix határidő. Ha nem sikerül, visszakapod a pénzed.</span>
+                    <span class="en">Audit-ready documentation in 72 hours – 7 days. NIS2, SZTFH, cybersecurity. Fixed price, fixed deadline. Money back if we fail.</span>
+                </p>
+                
+                <div class="hero-ctas">
+                    <a href="mailto:info@dayandrossglobal.com?subject=Projekt" class="btn btn-primary">
+                        <span class="hu">Ajánlatot kérek</span>
+                        <span class="en">Get a quote</span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <span class="hu">Szolgáltatások</span>
+                        <span class="en">Services</span>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="hero-right">
-            <h3>AMIT KAPSZ</h3>
-            <div class="check-item">
-                <div class="check-icon"></div>
-                <p><strong>Audit-elfogadott formátum</strong> — nem kell újraírni, azonnal beadható</p>
-            </div>
-            <div class="check-item">
-                <div class="check-icon"></div>
-                <p><strong>Nyomvonal és verziókezelés</strong> — minden változás dokumentálva</p>
-            </div>
-            <div class="check-item">
-                <div class="check-icon"></div>
-                <p><strong>Fix határidő</strong> — ha csúszunk, a túlóra a miénk</p>
-            </div>
-            <div class="check-item">
-                <div class="check-icon"></div>
-                <p><strong>Érthető nyelv</strong> — nem IT zsargon, hanem amit a vezetőség is ért</p>
+            
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="transformation">
+                        <div class="trans-row">
+                            <div class="trans-before">
+                                <div class="trans-label hu">ELŐTTE</div>
+                                <div class="trans-label en">BEFORE</div>
+                                <span class="hu">Kaotikus dokumentáció, hiányzó nyomvonal, pánik az audit előtt</span>
+                                <span class="en">Chaotic docs, missing audit trail, panic before deadline</span>
+                            </div>
+                            <div class="trans-arrow">→</div>
+                            <div class="trans-after">
+                                <div class="trans-label hu">UTÁNA</div>
+                                <div class="trans-label en">AFTER</div>
+                                <span class="hu">Strukturált anyag, teljes nyomvonal, auditor-elfogadott formátum</span>
+                                <span class="en">Structured docs, full trace, auditor-accepted format</span>
+                            </div>
+                        </div>
+                        <div style="text-align:center; padding-top: 16px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 2rem; font-weight: 800; color: var(--success);">✓ PASS</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <section class="services">
-        <div class="services-inner">
-            <h2>Szolgáltatások <span>fix áron</span></h2>
+    <section class="proof">
+        <div class="wrap">
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <div class="proof-number">72h</div>
+                    <div class="proof-label">
+                        <span class="hu">leggyorsabb leadás</span>
+                        <span class="en">fastest delivery</span>
+                    </div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">100%</div>
+                    <div class="proof-label">
+                        <span class="hu">audit PASS ráta</span>
+                        <span class="en">audit PASS rate</span>
+                    </div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">NDA</div>
+                    <div class="proof-label">
+                        <span class="hu">azonnal aláírjuk</span>
+                        <span class="en">signed immediately</span>
+                    </div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">0</div>
+                    <div class="proof-label">
+                        <span class="hu">rejtett költség</span>
+                        <span class="en">hidden costs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="wrap">
+            <div class="section-label">
+                <span class="hu">SZOLGÁLTATÁSOK</span>
+                <span class="en">SERVICES</span>
+            </div>
+            <h2 class="section-title">
+                <span class="hu">Válaszd ki, <span class="dim">amire szükséged van.</span></span>
+                <span class="en">Choose <span class="dim">what you need.</span></span>
+            </h2>
+            
             <div class="service-grid">
                 <div class="service-card">
+                    <div class="service-time">72 <span class="hu">óra</span><span class="en">hours</span></div>
                     <h3>Doc → Spec</h3>
-                    <div class="time">72 órán belül</div>
                     <ul>
-                        <li>Meglévő dokumentumok rendezése</li>
-                        <li>SOP / eljárásrend létrehozása</li>
-                        <li>Egységes formátum és struktúra</li>
-                        <li>PDF + szerkeszthető DOCX</li>
+                        <li><span class="hu">Meglévő anyagok rendezése</span><span class="en">Organize existing materials</span></li>
+                        <li><span class="hu">SOP / eljárásrend készítés</span><span class="en">SOP / procedure creation</span></li>
+                        <li><span class="hu">Egységes struktúra</span><span class="en">Unified structure</span></li>
+                        <li><span class="hu">PDF + szerkeszthető DOCX</span><span class="en">PDF + editable DOCX</span></li>
                     </ul>
-                    <div class="price">€490-tól <span>/ projekt</span></div>
-                    <a href="mailto:info@dayandrossglobal.com?subject=Doc-Spec ajánlat" class="card-cta">Ajánlatot kérek</a>
+                    <div class="service-price">€490 <span><span class="hu">-tól</span><span class="en">from</span></span></div>
+                    <a href="mailto:info@dayandrossglobal.com?subject=Doc-Spec" class="service-cta">
+                        <span class="hu">Ajánlatot kérek</span>
+                        <span class="en">Get quote</span>
+                    </a>
                 </div>
                 
                 <div class="service-card featured">
-                    <h3>Audit / Evidence</h3>
-                    <div class="time">3-7 munkanap</div>
+                    <div class="service-time">3–7 <span class="hu">nap</span><span class="en">days</span></div>
+                    <h3>Audit Ready</h3>
                     <ul>
-                        <li>NIS2 / SZTFH megfelelőségi csomag</li>
-                        <li>Hiánypótlás és gap analysis</li>
-                        <li>Átadási csomag nyomvonallal</li>
-                        <li>Incident-ready dokumentáció</li>
+                        <li><span class="hu">NIS2 / SZTFH megfelelőség</span><span class="en">NIS2 / SZTFH compliance</span></li>
+                        <li><span class="hu">Gap analysis + remediation</span><span class="en">Gap analysis + remediation</span></li>
+                        <li><span class="hu">Teljes nyomvonal</span><span class="en">Complete audit trail</span></li>
+                        <li><span class="hu">Incident-ready dokumentáció</span><span class="en">Incident-ready documentation</span></li>
                     </ul>
-                    <div class="price">€1,490-tól <span>/ projekt</span></div>
-                    <a href="mailto:info@dayandrossglobal.com?subject=Audit csomag ajánlat" class="card-cta">Ajánlatot kérek</a>
+                    <div class="service-price">€1,490 <span><span class="hu">-tól</span><span class="en">from</span></span></div>
+                    <a href="mailto:info@dayandrossglobal.com?subject=Audit-Ready" class="service-cta">
+                        <span class="hu">Ajánlatot kérek</span>
+                        <span class="en">Get quote</span>
+                    </a>
                 </div>
                 
                 <div class="service-card">
-                    <h3>Cyber / Zero-Trust</h3>
-                    <div class="time">Egyedi ütemezés</div>
+                    <div class="service-time"><span class="hu">Egyedi</span><span class="en">Custom</span></div>
+                    <h3>Cyber / Zero Trust</h3>
                     <ul>
-                        <li>Hardening checklist (Docker/host)</li>
-                        <li>Hozzáférési rend kialakítása</li>
-                        <li>Least-privilege implementáció</li>
-                        <li>Incident response terv</li>
+                        <li><span class="hu">Hardening checklist</span><span class="en">Hardening checklist</span></li>
+                        <li><span class="hu">Least-privilege hozzáférés</span><span class="en">Least-privilege access</span></li>
+                        <li><span class="hu">Incident response terv</span><span class="en">Incident response plan</span></li>
+                        <li><span class="hu">Docker / Kubernetes security</span><span class="en">Docker / Kubernetes security</span></li>
                     </ul>
-                    <div class="price">€2,490-tól <span>/ projekt</span></div>
-                    <a href="mailto:info@dayandrossglobal.com?subject=Cyber csomag ajánlat" class="card-cta">Ajánlatot kérek</a>
+                    <div class="service-price">€2,490 <span><span class="hu">-tól</span><span class="en">from</span></span></div>
+                    <a href="mailto:info@dayandrossglobal.com?subject=Cyber-Security" class="service-cta">
+                        <span class="hu">Ajánlatot kérek</span>
+                        <span class="en">Get quote</span>
+                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="why">
-        <h2>Miért minket?</h2>
-        <div class="why-grid">
-            <div class="why-item">
-                <div class="why-icon">⚡</div>
-                <h4>Gyors</h4>
-                <p>72 óra - 7 nap. Nem hónapok.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">🎯</div>
-                <h4>Célzott</h4>
-                <p>Nem 200 oldalas tanulmány. Pont ami kell.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">🔐</div>
-                <h4>Bizalmas</h4>
-                <p>NDA azonnal. Minden adat titkos.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✅</div>
-                <h4>Elfogadott</h4>
-                <p>Auditor-friendly formátum.</p>
             </div>
         </div>
     </section>
     
     <section class="final-cta">
-        <h2>Kezdjük egy beszélgetéssel</h2>
-        <p>15 perces ingyenes konzultáció — felmérjük a helyzetet, adunk egy fix ajánlatot.</p>
-        <a href="mailto:info@dayandrossglobal.com?subject=Ingyenes konzultáció">Írok nektek →</a>
+        <div class="wrap">
+            <h2>
+                <span class="hu">Beszéljünk.</span>
+                <span class="en">Let's talk.</span>
+            </h2>
+            <p>
+                <span class="hu">15 perc, és tudod, mire van szükséged. Ingyenes.</span>
+                <span class="en">15 minutes, and you'll know what you need. Free.</span>
+            </p>
+            <a href="mailto:info@dayandrossglobal.com?subject=Konzultáció" class="btn btn-primary">
+                <span class="hu">Időpontot kérek</span>
+                <span class="en">Book a call</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
     </section>
     
     <footer>
-        <p><a href="mailto:info@dayandrossglobal.com">info@dayandrossglobal.com</a></p>
-        <p style="margin-top:15px;">Gatekeeper Operations Kft. • Day&Ross Global LTD LLC<br>© 2026 RossIntel.tech</p>
+        <div class="wrap">
+            <p><a href="mailto:info@dayandrossglobal.com">info@dayandrossglobal.com</a></p>
+            <p>Gatekeeper Operations Kft. • Day&Ross Global LTD LLC</p>
+            <p style="margin-top:16px; font-size: 0.8rem;">© 2026 RossIntel.tech</p>
+        </div>
     </footer>
+    
+    <script>
+        function setLang(lang) {
+            document.body.classList.remove('lang-hu', 'lang-en');
+            if (lang === 'en') document.body.classList.add('lang-en');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+            });
+            localStorage.setItem('lang', lang);
+        }
+        
+        // Load saved language
+        const saved = localStorage.getItem('lang');
+        if (saved) setLang(saved);
+    </script>
 </body>
 </html>
