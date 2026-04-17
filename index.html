@@ -4,290 +4,391 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- SEO -->
     <title>RossIntel | NIS2 & SZTFH Audit Megfelelőség 72 Óra Alatt</title>
     <meta name="description" content="Gatekeeper L4 protokoll: Garantált audit-kész kiberbiztonsági dokumentáció (NIS2, SZTFH) 72 órán belül. Zero Trust architektúra és teljes megfelelőség.">
     <meta name="keywords" content="NIS2 audit, SZTFH megfelelőség, kiberbiztonsági audit, IT biztonsági szabályzat, Zero Trust architektúra, Day&Ross Gatekeeper">
     <meta property="og:title" content="RossIntel | Audit Pass. Guaranteed.">
     <meta property="og:description" content="72 órán belül audit-kész dokumentáció. Ha elbukik az audit, a munkadíj visszajár.">
-    <meta property="og:image" content="https://rossintel.tech/logo.png">
+    <meta property="og:image" content="https://rossintel.tech/og-image.png">
     <meta property="og:url" content="https://rossintel.tech">
     <meta property="og:type" content="website">
+    <link rel="canonical" href="https://rossintel.tech">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #000000;
-            --text-main: #ffffff;
-            --text-muted: #8a8f98;
-            --gold: #c5a059;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --card-border: rgba(255, 255, 255, 0.06);
-            --card-hover: rgba(255, 255, 255, 0.05);
+            --black: #000;
+            --gold: #b8860b;
+            --gold-light: #d4a84b;
+            --gold-glow: rgba(184, 134, 11, 0.15);
+            --white: #fff;
+            --gray: #666;
+            --gray-light: #888;
+            --border: rgba(184, 134, 11, 0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        /* Ambient Glow Background */
-        .ambient-glow {
-            position: absolute;
-            top: -20%; left: 50%;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        .fade-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .d1 { animation-delay: 0.1s; }
+        .d2 { animation-delay: 0.2s; }
+        .d3 { animation-delay: 0.3s; }
+        .d4 { animation-delay: 0.4s; }
+        .d5 { animation-delay: 0.5s; }
+
+        .glow-bg {
+            position: fixed;
+            top: -200px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 80vw; height: 800px;
-            background: radial-gradient(ellipse at center, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
-            z-index: -1;
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, var(--gold-glow) 0%, transparent 70%);
             pointer-events: none;
+            z-index: 0;
+            animation: glow 6s ease-in-out infinite;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-        /* HEADER & NAVIGATION */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 0; border-bottom: 1px solid var(--card-border);
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        /* A TÉNYLEGES LOGÓ HELYE */
-        .brand-logo {
-            height: 45px; 
-            width: auto;
-            object-fit: contain;
+        header { padding: 28px 0; border-bottom: 1px solid var(--border); }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        /* Apple-style Language Toggle */
-        .lang-toggle {
-            display: flex; background: #111; border-radius: 30px; padding: 4px;
-            border: 1px solid var(--card-border);
-        }
-        .lang-btn {
-            background: transparent; border: none; color: var(--text-muted);
-            padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
-            cursor: pointer; transition: all 0.3s ease;
-        }
-        .lang-btn.active { background: #222; color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .logo-area { display: flex; align-items: center; gap: 16px; }
+        .logo-img { height: 40px; width: auto; }
 
-        /* LEGAL ENTITIES */
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+        }
+        .logo-text span { color: var(--gold); }
+
         .entities {
-            text-align: right; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            color: var(--gray);
+            text-align: right;
+            line-height: 2;
         }
-        .entities b { color: #fff; font-weight: 500; }
 
-        /* HERO SECTION */
-        .hero { padding: 120px 0 80px; text-align: center; }
+        .lang-toggle {
+            display: flex;
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 4px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active { background: var(--gold); color: var(--black); }
+
+        .hero { padding: 100px 0 80px; text-align: center; }
+
         .badge {
-            display: inline-block; padding: 6px 14px; border-radius: 20px;
-            background: rgba(197, 160, 89, 0.1); border: 1px solid rgba(197, 160, 89, 0.2);
-            color: var(--gold); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;
-            margin-bottom: 30px;
+            display: inline-block;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--border);
+            padding: 10px 24px;
+            border-radius: 4px;
+            margin-bottom: 40px;
         }
-        
+
         h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 400; letter-spacing: -2px;
-            line-height: 1.1; margin-bottom: 30px;
-        }
-        h1 span {
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 28px;
         }
 
-        .hero-subtitle {
-            font-size: 1.1rem; color: var(--text-muted); max-width: 650px; margin: 0 auto;
+        h1 em { font-style: italic; color: var(--gold); }
+
+        .subtitle {
+            font-size: 1rem;
             font-weight: 300;
+            color: var(--gray-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.9;
         }
 
-        /* TIERS / CARDS */
-        .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px; margin: 80px 0;
+        .tiers { padding: 60px 0 100px; }
+        .tiers-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+        .tier {
+            background: #050505;
+            border: 1px solid var(--border);
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
 
-        .card {
-            background: var(--card-bg); border: 1px solid var(--card-border);
-            border-radius: 16px; padding: 40px; transition: all 0.3s ease;
-            backdrop-filter: blur(10px); position: relative; overflow: hidden;
-        }
-        .card:hover {
-            background: var(--card-hover); border-color: rgba(197, 160, 89, 0.3);
-            transform: translateY(-4px);
-        }
-        
-        /* Subtle top highlight on cards */
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        .tier:hover { border-color: rgba(184, 134, 11, 0.4); transform: translateY(-4px); }
+        .tier.featured { border-color: var(--gold); background: linear-gradient(180deg, rgba(184, 134, 11, 0.03) 0%, #050505 100%); }
+
+        .tier-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+        .tier-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; }
+
+        .tier-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
         }
 
-        .card-header { margin-bottom: 30px; }
-        .card-title { font-size: 1.3rem; font-weight: 500; margin-bottom: 8px; color: #fff; }
-        .card-desc { font-size: 0.85rem; color: var(--text-muted); height: 40px; }
+        .tier-desc { font-size: 0.9rem; color: var(--gray); margin-bottom: 24px; line-height: 1.7; min-height: 50px; }
+        .tier-features { list-style: none; margin-bottom: 32px; }
 
-        .price { font-size: 2.5rem; font-weight: 400; color: #fff; margin-bottom: 30px; letter-spacing: -1px; }
-        .price span { font-size: 0.9rem; color: var(--text-muted); letter-spacing: 0; }
+        .tier-features li {
+            font-size: 0.85rem;
+            color: var(--gray-light);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-        .features { list-style: none; }
-        .features li {
-            font-size: 0.9rem; color: #ccc; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
-        }
-        .features li svg { width: 16px; height: 16px; fill: var(--gold); flex-shrink: 0; }
+        .tier-features li:last-child { border: none; }
+        .tier-features li::before { content: "→"; color: var(--gold); font-size: 0.8rem; }
 
-        /* CALL TO ACTION */
-        .cta {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
-            border: 1px solid var(--card-border); border-radius: 24px;
-            padding: 80px 40px; text-align: center; margin-bottom: 100px;
+        .tier-price { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); }
+        .tier-price span { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--gray); }
+
+        .cta { padding: 100px 0; text-align: center; border-top: 1px solid var(--border); }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 40px;
         }
-        .cta h2 { font-size: 2.5rem; font-weight: 400; margin-bottom: 30px; letter-spacing: -1px; }
-        .btn {
-            display: inline-block; background: #fff; color: #000;
-            padding: 16px 40px; border-radius: 30px; font-weight: 500; font-size: 1rem;
-            text-decoration: none; transition: all 0.3s ease;
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 20px 56px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s;
         }
-        .btn:hover { background: var(--gold); color: #fff; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3); }
+
+        .cta-btn:hover { background: var(--gold-light); box-shadow: 0 0 60px var(--gold-glow); }
 
         footer {
-            border-top: 1px solid var(--card-border); padding: 40px 0;
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.75rem; color: var(--text-muted);
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
-        /* BILINGUAL DISPLAY */
-        .hu, .en { display: none; }
-        body.lang-hu .hu { display: block; }
+        footer p { font-size: 0.65rem; color: var(--gray); letter-spacing: 0.05em; }
+
+        .hu { display: block; }
+        .en { display: none; }
+        body.lang-en .hu { display: none; }
         body.lang-en .en { display: block; }
 
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 20px; align-items: flex-start; }
+        @media (min-width: 768px) {
+            .container { padding: 0 48px; }
+            .hero { padding: 120px 0 100px; }
+            .tiers-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        }
+
+        @media (min-width: 1024px) { .container { padding: 0 60px; } }
+
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; align-items: flex-start; }
             .entities { text-align: left; }
-            h1 { font-size: 3rem; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 10px; text-align: center; }
+            footer { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body class="lang-hu">
 
-    <div class="ambient-glow"></div>
+    <div class="glow-bg"></div>
 
     <div class="container">
-        <nav>
-            <img src="logo.png" alt="Day&Ross Gatekeeper" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div style="display:none; font-weight: 700; font-size: 1.2rem;">ROSS<span style="color:#c5a059">INTEL</span></div>
+        <header>
+            <div class="header-inner fade-up">
+                <div class="logo-area">
+                    <img src="logo.png" alt="RossIntel" class="logo-img" onerror="this.style.display='none'">
+                    <div class="logo-text">Ross<span>Intel</span></div>
+                </div>
 
-            <div class="entities">
-                <b>Day&Ross Global LTD LLC</b> // Wyoming, US<br>
-                Gatekeeper Operations Kft. // Budapest, HU
-            </div>
+                <div class="entities">
+                    Day&Ross Global LTD LLC — Wyoming, USA<br>
+                    Gatekeeper Operations Kft. — Budapest, HU
+                </div>
 
-            <div class="lang-toggle">
-                <button id="btn-hu" class="lang-btn active" onclick="setLang('hu')">HU</button>
-                <button id="btn-en" class="lang-btn" onclick="setLang('en')">EN</button>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="setLang('hu')">HU</button>
+                    <button class="lang-btn" onclick="setLang('en')">EN</button>
+                </div>
             </div>
-        </nav>
+        </header>
 
         <section class="hero">
-            <div class="badge">L4 Sovereign Architecture</div>
-            <h1>
+            <div class="badge fade-up d1">L4 Sovereign Protocol</div>
+
+            <h1 class="fade-up d2">
                 <span class="hu">Compliance.</span>
-                <span class="en">Compliance.</span><br>
-                Guaranteed.
+                <span class="en">Compliance.</span>
+                <em>Guaranteed.</em>
             </h1>
-            <p class="hero-subtitle hu">
-                Az audit nem formalitás. Üzleti kockázat. A Gatekeeper protokollal 72 órán belül garantáljuk a teljes megfelelést. Ha elbukik az audit, a munkadíj visszajár.
-            </p>
-            <p class="hero-subtitle en">
-                An audit is not a formality. It's a business risk. With the Gatekeeper protocol, we guarantee full compliance within 72 hours. Money-back guarantee.
+
+            <p class="subtitle fade-up d3">
+                <span class="hu">Az audit nem formalitás — üzleti kockázat. A Gatekeeper protokollal 72 órán belül garantált megfelelés. Ha elbukik, a munkadíj visszajár.</span>
+                <span class="en">An audit isn't a formality — it's business risk. With Gatekeeper protocol, guaranteed compliance in 72 hours. Money back if it fails.</span>
             </p>
         </section>
 
-        <section class="pricing-grid">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Discovery</h3>
-                    <p class="card-desc hu">Gyors beavatkozás és dokumentációs rendrakás.</p>
-                    <p class="card-desc en">Rapid intervention and documentation cleanup.</p>
+        <section class="tiers">
+            <div class="tiers-grid">
+                <div class="tier fade-up d3">
+                    <div class="tier-header">
+                        <div class="tier-name">Discovery</div>
+                        <div class="tier-tag">L1</div>
+                    </div>
+                    <p class="tier-desc">
+                        <span class="hu">Dokumentáció rendezés és SOP protokollok.</span>
+                        <span class="en">Documentation cleanup and SOP protocols.</span>
+                    </p>
+                    <ul class="tier-features">
+                        <li><span class="hu">Meglévő adatok strukturálása</span><span class="en">Structuring existing data</span></li>
+                        <li><span class="hu">SOP protokollok felállítása</span><span class="en">Establishing SOP protocols</span></li>
+                        <li><span class="hu">72 órás szállítás</span><span class="en">72-hour delivery</span></li>
+                    </ul>
+                    <div class="tier-price">€490 <span>/ fix</span></div>
                 </div>
-                <div class="price">€490 <span>/ fix</span></div>
-                <ul class="features hu">
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Meglévő adatok strukturálása</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> SOP protokollok felállítása</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 72 órás szállítási garancia</li>
-                </ul>
-                <ul class="features en">
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Structuring existing data</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Establishing SOP protocols</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 72-hour delivery guarantee</li>
-                </ul>
-            </div>
 
-            <div class="card" style="border-color: rgba(197, 160, 89, 0.4); background: rgba(197, 160, 89, 0.02);">
-                <div class="card-header">
-                    <h3 class="card-title">Audit Pass</h3>
-                    <p class="card-desc hu">A teljes megoldás NIS2 és SZTFH megfeleléshez.</p>
-                    <p class="card-desc en">The complete solution for NIS2 and SZTFH.</p>
+                <div class="tier featured fade-up d4">
+                    <div class="tier-header">
+                        <div class="tier-name">Audit Pass</div>
+                        <div class="tier-tag">L2</div>
+                    </div>
+                    <p class="tier-desc">
+                        <span class="hu">Teljes NIS2/SZTFH megfelelőség. Garantált.</span>
+                        <span class="en">Full NIS2/SZTFH compliance. Guaranteed.</span>
+                    </p>
+                    <ul class="tier-features">
+                        <li><span class="hu">Jogi és IT integráció</span><span class="en">Legal and IT integration</span></li>
+                        <li><span class="hu">Auditor support</span><span class="en">Auditor support</span></li>
+                        <li><span class="hu">100% siker garancia</span><span class="en">100% success guarantee</span></li>
+                    </ul>
+                    <div class="tier-price">€1,490 <span>/ fix</span></div>
                 </div>
-                <div class="price">€1,490 <span>/ fix</span></div>
-                <ul class="features hu">
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Teljes jogi és IT integráció</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Auditori support és képviselet</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 100% sikerdíj garancia</li>
-                </ul>
-                <ul class="features en">
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Full legal and IT integration</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Auditor support & representation</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 100% success fee guarantee</li>
-                </ul>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Sovereign L4</h3>
-                    <p class="card-desc hu">Katonai szintű védelem és infrastruktúra hardening.</p>
-                    <p class="card-desc en">Military-grade defense and infrastructure hardening.</p>
+                <div class="tier fade-up d5">
+                    <div class="tier-header">
+                        <div class="tier-name">Sovereign</div>
+                        <div class="tier-tag">L4</div>
+                    </div>
+                    <p class="tier-desc">
+                        <span class="hu">Zero Trust és TPM hardver-szintű védelem.</span>
+                        <span class="en">Zero Trust and TPM hardware-level protection.</span>
+                    </p>
+                    <ul class="tier-features">
+                        <li><span class="hu">Zero Trust architektúra</span><span class="en">Zero Trust architecture</span></li>
+                        <li><span class="hu">L4 TPM védelem</span><span class="en">L4 TPM protection</span></li>
+                        <li><span class="hu">Teljes adat-szuverenitás</span><span class="en">Full data sovereignty</span></li>
+                    </ul>
+                    <div class="tier-price">€2,490 <span>/ fix</span></div>
                 </div>
-                <div class="price">€2,490 <span>/ fix</span></div>
-                <ul class="features hu">
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Zero Trust Architektúra</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> L4 Hardver-szintű (TPM) védelem</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Teljes adat-szuverenitás</li>
-                </ul>
-                <ul class="features en">
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Zero Trust Architecture</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> L4 Hardware-level (TPM) defense</li>
-                    <li><svg><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Total data sovereignty</li>
-                </ul>
             </div>
         </section>
 
         <section class="cta">
-            <h2 class="hu">Ne várj az auditori hibajelentésre.</h2>
-            <h2 class="en">Don't wait for the auditor's failure report.</h2>
-            <a href="mailto:info@dayandrossglobal.com" class="btn">
-                <span class="hu">Konzultáció kérése</span>
-                <span class="en">Request Consultation</span>
+            <h2 class="fade-up">
+                <span class="hu">Ne várj az auditori hibajelentésre.</span>
+                <span class="en">Don't wait for the auditor's failure report.</span>
+            </h2>
+            <a href="mailto:info@dayandrossglobal.com?subject=Consultation" class="cta-btn fade-up d1">
+                <span class="hu">Konzultáció</span>
+                <span class="en">Consultation</span>
             </a>
         </section>
 
         <footer>
-            <div>© 2026 RossIntel. All rights reserved.</div>
-            <div>Day&Ross Global LTD LLC</div>
+            <p>© 2026 RossIntel.tech</p>
+            <p>Day&Ross Global LTD LLC // Gatekeeper Operations Kft.</p>
         </footer>
     </div>
 
     <script>
-        function setLang(l) {
-            document.body.className = 'lang-' + l;
-            document.getElementById('btn-hu').classList.toggle('active', l === 'hu');
-            document.getElementById('btn-en').classList.toggle('active', l === 'en');
+        function setLang(lang) {
+            document.body.className = 'lang-' + lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+            });
+            localStorage.setItem('rossintel-lang', lang);
         }
+        const saved = localStorage.getItem('rossintel-lang');
+        if (saved) setLang(saved);
     </script>
 </body>
 </html>
