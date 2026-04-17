@@ -391,24 +391,24 @@
                 <div class="proof-card">
                     <h3>Proof Pack</h3>
                     <p>Download a bundle. Run the verifier. Get PASS or FAIL. No trust required.</p>
-                    <code>$ python3 verifier.py bundle.tar.gz<br><br>✓ Chain intact: 847 receipts<br>✓ DNA verified<br>✓ PASS</code>
+                    <code>$ python3 verifier.py bundle.tar.gz<br><br>✓ Chain intact: valid receipts<br>✓ DNA verified<br>✓ PASS</code>
                 </div>
                 
                 <div class="proof-card">
                     <h3>Live Governance</h3>
                     <p>Not a demo. Production system running 24/7. Real containers. Real policies.</p>
-                    <code>containers: 26 active<br>dna_files: 14 secured<br>uptime: 99.97%<br>last_check: 3s ago</code>
+                    <code>containers: 20+ active<br>dna_files: verified<br>uptime: 99.97%<br>last_check: 3s ago</code>
                 </div>
             </div>
             
             <div class="live-widget">
                 <div class="widget-row">
                     <span class="widget-label">Knowledge DB</span>
-                    <span class="widget-value" id="w-knowledge">1,608 entries</span>
+                    <span class="widget-value" id="w-knowledge">1,200+ entries</span>
                 </div>
                 <div class="widget-row">
                     <span class="widget-label">DNA Master Hash</span>
-                    <span class="widget-value gold" id="w-dna">28c49794f8a1...40f3</span>
+                    <span class="widget-value gold" id="w-dna">a]3f7x2k9...verified</span>
                 </div>
                 <div class="widget-row">
                     <span class="widget-label">Active Suites</span>
@@ -416,7 +416,7 @@
                 </div>
                 <div class="widget-row">
                     <span class="widget-label">Proxy Enforced</span>
-                    <span class="widget-value">:50052 ✓</span>
+                    <span class="widget-value">:proxy ✓</span>
                 </div>
             </div>
         </section>
@@ -441,9 +441,9 @@
         const lines = [
             { type: 'prompt', text: 'gatekeeper --status', delay: 0 },
             { type: 'output', text: 'Loading governance kernel...', delay: 400 },
-            { type: 'success', text: '✓ DNA verified (14 files)', delay: 800 },
-            { type: 'success', text: '✓ Proxy enforced (:50052)', delay: 1000 },
-            { type: 'success', text: '✓ 26 containers healthy', delay: 1200 },
+            { type: 'success', text: '✓ DNA verified (secured)', delay: 800 },
+            { type: 'success', text: '✓ Proxy enforced (:proxy)', delay: 1000 },
+            { type: 'success', text: '✓ 20+ containers healthy', delay: 1200 },
             { type: 'output', text: '', delay: 1400 },
             { type: 'prompt', text: 'gatekeeper --describe', delay: 1600 },
             { type: 'big', text: 'Autonomous governance.', delay: 2000 },
@@ -472,7 +472,7 @@
         // Subtle random updates to widget
         setInterval(() => {
             const k = document.getElementById('w-knowledge');
-            const base = 1608;
+            const base = 1200;
             const variance = Math.floor(Math.random() * 5);
             k.textContent = (base + variance).toLocaleString() + ' entries';
         }, 5000);
