@@ -1,257 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROSSINTEL // THE GATEKEEPER</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <title>ROSSINTEL // AUDIT DOMINANCE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #000000;
-            --accent: #ffffff;
-            --gold: #c5a059;
-            --dim: #333333;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
-        
+        :root { --bg: #000; --gold: #c5a059; --text: #fff; --dim: #444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             background: var(--bg); 
-            color: var(--accent); 
-            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text); 
+            font-family: 'Space Mono', monospace; 
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.1;
         }
 
-        /* Background Matrix Effect */
-        #canvas-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.4;
+        /* Scanline effect */
+        body::before {
+            content: " ";
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 1000; pointer-events: none;
         }
 
-        .wrapper { padding: 0 5%; }
+        .container { padding: 40px; }
 
+        /* Header / Logo Area */
         header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: flex; justify-content: space-between; align-items: flex-start;
+            border-bottom: 1px solid var(--dim); padding-bottom: 20px;
+        }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; letter-spacing: -2px; }
+        .logo span { color: var(--gold); }
+        .gatekeeper-id { font-size: 0.7rem; color: var(--gold); text-align: right; }
+
+        /* HERO SECTION */
+        .hero { margin: 100px 0; }
+        .hero h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2.5rem, 10vw, 8rem);
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin-bottom: 50px;
+        }
+
+        .bilingual-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            border-top: 1px solid var(--dim); padding-top: 40px;
+        }
+        .lang-block h2 { font-size: 1.2rem; color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
+        .lang-block p { font-size: 1.1rem; color: #ccc; max-width: 500px; }
+
+        /* EXECUTION CARDS */
+        .tiers { margin: 100px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--dim); }
+        .tier-card { background: var(--bg); padding: 50px; transition: 0.4s; }
+        .tier-card:hover { background: #0a0a0a; border-top: 5px solid var(--gold); padding-top: 45px; }
+        
+        .tier-num { color: var(--gold); font-size: 0.8rem; margin-bottom: 20px; display: block; }
+        .tier-card h3 { font-family: 'Syncopate', sans-serif; margin-bottom: 15px; font-size: 1.2rem; }
+        
+        .tier-content { display: flex; flex-direction: column; gap: 20px; height: 100%; }
+        .tier-text { font-size: 0.85rem; color: #888; }
+        .tier-text.hu { border-bottom: 1px solid #222; padding-bottom: 15px; color: #bbb; }
+
+        .price { font-size: 2rem; font-weight: 700; margin-top: auto; padding-top: 30px; }
+
+        /* FINAL CALL */
+        .contact-area {
+            border: 2px solid var(--gold); padding: 80px; text-align: center; margin-bottom: 100px;
             position: relative;
         }
-
-        .nav-top {
-            position: absolute;
-            top: 40px; left: 5%; right: 5%;
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        .gatekeeper-status { color: #00ff41; display: flex; align-items: center; gap: 8px; }
-        .dot { width: 6px; height: 6px; background: #00ff41; border-radius: 50%; box-shadow: 0 0 10px #00ff41; }
-
-        h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(3rem, 12vw, 10rem);
-            line-height: 0.9;
-            text-transform: uppercase;
-            letter-spacing: -5px;
-            margin-left: -5px;
-        }
-
-        .hero-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 20px;
-        }
-
-        .hero-desc {
-            max-width: 450px;
-            font-size: 1.2rem;
-            font-weight: 300;
-            line-height: 1.4;
-            color: #888;
-        }
-
-        .cta-main {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 30px 60px;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-main:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        /* GRID SECTION */
-        .section-label {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 8px;
-            color: var(--dim);
-            margin: 150px 0 50px;
-        }
-
-        .audit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1px;
-            background: var(--dim);
-            border: 1px solid var(--dim);
-        }
-
-        .audit-item {
-            background: var(--bg);
-            padding: 60px 40px;
+        .contact-area h2 { font-family: 'Syncopate', sans-serif; font-size: 3rem; margin-bottom: 40px; }
+        .btn-elite {
+            display: inline-block; padding: 25px 50px; background: var(--gold); color: #000;
+            text-decoration: none; font-weight: 700; font-size: 1.2rem; text-transform: uppercase;
             transition: 0.3s;
         }
+        .btn-elite:hover { background: #fff; transform: scale(1.05); }
 
-        .audit-item:hover { background: #080808; }
+        footer { font-size: 0.7rem; color: var(--dim); display: flex; justify-content: space-between; padding-bottom: 40px; }
 
-        .audit-item h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        @media (max-width: 900px) {
+            .bilingual-grid, .tiers { grid-template-columns: 1fr; }
+            .container { padding: 20px; }
+            .contact-area { padding: 40px; }
         }
-
-        .audit-item p { color: #666; margin-bottom: 30px; font-size: 0.9rem; }
-
-        .price-tag {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* LOGO / GATEKEEPER SEAL */
-        .seal {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 100px; height: 100px;
-            border: 1px solid var(--dim);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.5rem;
-            text-align: center;
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        @media (max-width: 768px) {
-            h1 { letter-spacing: -2px; }
-            .hero-flex { flex-direction: column; align-items: flex-start; gap: 40px; }
-            .cta-main { width: 100%; text-align: center; }
-        }
-
-        .lang-switch {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
-            z-index: 100;
-            display: flex;
-            gap: 20px;
-        }
-
-        .lang-link {
-            text-decoration: none;
-            color: var(--dim);
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-
-        .lang-link.active { color: var(--accent); }
-
-        .hu, .en { display: none; }
-        body.lang-hu .hu { display: block; }
-        body.lang-en .en { display: block; }
     </style>
 </head>
-<body class="lang-en">
+<body>
 
-    <div id="canvas-container"></div>
-
-    <nav class="nav-top wrapper">
-        <div>RossIntel // Strategic Intel</div>
-        <div class="gatekeeper-status">
-            <div class="dot"></div>
-            <span>Gatekeeper Active</span>
+<div class="container">
+    <header>
+        <div class="logo">ROSS<span>INTEL</span></div>
+        <div class="gatekeeper-id">
+            SYSTEM: GATEKEEPER OPERATIONAL<br>
+            OWNER: DAY&ROSS GLOBAL LTD LLC<br>
+            SECURE_NODE: v.2026.04
         </div>
-    </nav>
+    </header>
 
-    <div class="wrapper">
-        <header>
-            <h1>
-                Audit<br>Is Not<br>A Risk.
-            </h1>
-            <div class="hero-flex">
-                <div class="hero-desc">
-                    <span class="en">We don't provide "advice". We provide the PASS. 72 hours to total compliance. Gatekeeper-backed cybersecurity architecture for the 0.1%.</span>
-                    <span class="hu">Nem tanácsot adunk. Mi a SIKERT adjuk. 72 óra a teljes megfelelőségig. Gatekeeper-szintű kiberbiztonsági architektúra a felső 0.1% számára.</span>
-                </div>
-                <a href="mailto:info@dayandrossglobal.com" class="cta-main">
-                    <span class="en">Secure Access</span>
-                    <span class="hu">Hozzáférés</span>
-                </a>
+    <section class="hero">
+        <h1>Audit<br>Is Not<br>Optional.</h1>
+        <div class="bilingual-grid">
+            <div class="lang-block">
+                <h2>HU // Megfelelőség</h2>
+                <p>72 órán belül audit-kész dokumentáció. Mi nem kiberbiztonsági tanácsot adunk, hanem a sikeres audit garanciáját. A Gatekeeper architektúra nem hibázik.</p>
             </div>
-        </header>
-
-        <div class="section-label">Execution Tiers</div>
-
-        <section class="audit-grid">
-            <div class="audit-item">
-                <h3>01 // Express</h3>
-                <p>Strategic documentation cleanup and SOP alignment. Zero friction.</p>
-                <span class="price-tag">€490</span>
+            <div class="lang-block">
+                <h2>EN // Compliance</h2>
+                <p>Audit-ready documentation in 72 hours. We don't provide "cybersecurity advice"—we provide a guaranteed pass. The Gatekeeper architecture never fails.</p>
             </div>
-            <div class="audit-item" style="border-left: 1px solid var(--dim); border-right: 1px solid var(--dim);">
-                <h3>02 // Audit Pass</h3>
-                <p>Full NIS2 / SZTFH integration. We handle the auditors. You stay profitable.</p>
-                <span class="price-tag">€1,490</span>
+        </div>
+    </section>
+
+    <section class="tiers">
+        <div class="tier-card">
+            <span class="tier-num">01 / DISCOVERY</span>
+            <h3>DOC-SPEC</h3>
+            <div class="tier-content">
+                <p class="tier-text hu">Meglévő káosz felszámolása. Dokumentációs rendrakás és SOP igazítás.</p>
+                <p class="tier-text en">Eliminating existing chaos. Documentation cleanup and SOP alignment.</p>
+                <div class="price">€490</div>
             </div>
-            <div class="audit-item">
-                <h3>03 // Sovereign</h3>
-                <p>Zero Trust implementation. Custom infrastructure hardening. Ultimate defense.</p>
-                <span class="price-tag">€2,490</span>
+        </div>
+        <div class="tier-card">
+            <span class="tier-num">02 / INTEGRATION</span>
+            <h3>AUDIT PASS</h3>
+            <div class="tier-content">
+                <p class="tier-text hu">Teljes NIS2 és SZTFH megfelelőség. Garantált auditori elfogadás.</p>
+                <p class="tier-text en">Full NIS2 and SZTFH compliance. Guaranteed auditor acceptance.</p>
+                <div class="price">€1,490</div>
             </div>
-        </section>
-    </div>
+        </div>
+        <div class="tier-card">
+            <span class="tier-num">03 / SOVEREIGN</span>
+            <h3>ELITE DEFENSE</h3>
+            <div class="tier-content">
+                <p class="tier-text hu">Zero Trust implementáció. Gatekeeper-szintű hardening. Egyedi infrastruktúra védelem.</p>
+                <p class="tier-text en">Zero Trust implementation. Gatekeeper-level hardening. Custom infrastructure protection.</p>
+                <div class="price">€2,490</div>
+            </div>
+        </div>
+    </section>
 
-    <div class="lang-switch">
-        <a href="#" class="lang-link active" onclick="setLang('en')">EN</a>
-        <a href="#" class="lang-link" onclick="setLang('hu')">HU</a>
-    </div>
+    <section class="contact-area">
+        <h2>SECURE THE PASS.</h2>
+        <a href="mailto:info@dayandrossglobal.com" class="btn-elite">Start Consultation // Konzultáció</a>
+    </section>
 
-    <div class="seal">
-        GATEKEEPER<br>OPERATIONS<br>SYSTEMS
-    </div>
+    <footer>
+        <div>© 2026 ROSSINTEL.TECH</div>
+        <div>PROPERTY OF DAY&ROSS GLOBAL LTD LLC</div>
+    </footer>
+</div>
 
-    <script>
-        function setLang(l) {
-            document.body.className = 'lang-' + l;
-            document.querySelectorAll('.lang-link').forEach(a => {
-                a.classList.toggle('active', a.innerText.toLowerCase() === l);
-            });
-        }
-
-        // Simple Matrix-like background logic could go here
-    </script>
 </body>
 </html>
