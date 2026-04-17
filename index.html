@@ -6,58 +6,57 @@
     <title>ROSSINTEL // AUDIT OR FAILURE</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #000; --gold: #c5a059; --red: #ff3e3e; --text: #fff; --dim: #111; }
+        :root { --bg: #000; --gold: #c5a059; --red: #ff3e3e; --text: #fff; --dim: #111; --border: #222; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.4; overflow-x: hidden; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* SCALABLE SVG LOGO */
-        .logo-container { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-        .logo-img { width: 180px; height: auto; }
-        .entities { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--gold); text-align: right; }
+        /* HEADER - ENTITIES */
+        .logo-container { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .logo-svg { width: 160px; height: auto; }
+        .entities { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--gold); text-align: right; line-height: 1.6; }
+        .entities b { color: #fff; }
 
-        /* HERO - THE HOOK */
+        /* HERO - BILINGUAL HOOK */
         .hero { padding: 100px 0; text-align: center; }
-        .alert { color: var(--red); font-family: 'Space Mono', monospace; font-size: 0.9rem; margin-bottom: 20px; display: block; letter-spacing: 2px; }
-        h1 { font-size: clamp(2.5rem, 10vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 30px; letter-spacing: -3px; }
+        .alert { color: var(--red); font-family: 'Space Mono', monospace; font-size: 0.8rem; margin-bottom: 20px; display: block; letter-spacing: 2px; }
+        h1 { font-size: clamp(2rem, 8vw, 5.5rem); font-weight: 900; line-height: 0.95; margin-bottom: 40px; letter-spacing: -2px; }
         h1 span { color: var(--gold); }
-        .sub-hero { font-size: 1.2rem; color: #888; max-width: 700px; margin: 0 auto 40px; }
-
-        /* THE "WHY US" SECTION - PROBLEM/SOLUTION */
-        .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: #222; margin: 50px 0; border: 1px solid #222; }
-        .p-box { background: var(--bg); padding: 50px; }
-        .p-box h3 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
-        .p-box p { font-size: 1.1rem; color: #ccc; }
-
-        /* TIERS - PRICING WITH PSYCHOLOGY */
-        .pricing { padding: 80px 0; }
-        .p-title { text-align: center; margin-bottom: 60px; font-size: 2rem; font-weight: 900; text-transform: uppercase; }
-        .p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-        .p-card { background: var(--dim); border: 2px solid #222; padding: 50px; position: relative; transition: 0.3s; }
-        .p-card:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .p-card.featured { border-color: var(--gold); }
-        .p-card.featured::after { content: "MOST POPULAR"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: 900; }
         
-        .p-card h4 { font-size: 1.8rem; margin-bottom: 10px; }
-        .p-card ul { list-style: none; margin: 30px 0; color: #888; }
-        .p-card li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .p-card li::before { content: "→"; color: var(--gold); }
-        .price-val { font-size: 3rem; font-weight: 900; color: #fff; display: block; }
-        .price-val span { font-size: 1rem; color: #555; }
+        .hero-desc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; margin-top: 50px; border-top: 1px solid var(--border); padding-top: 40px; }
+        .desc-box h2 { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; font-family: 'Space Mono'; }
+        .desc-box p { font-size: 1rem; color: #ccc; line-height: 1.6; }
 
-        /* THE CLOSER - CTA */
-        .cta-final { background: var(--gold); color: #000; padding: 100px 20px; text-align: center; }
-        .cta-final h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; margin-bottom: 30px; }
-        .cta-btn { display: inline-block; background: #000; color: #fff; padding: 25px 60px; text-decoration: none; font-weight: 900; font-size: 1.2rem; border-radius: 0; transition: 0.3s; }
-        .cta-btn:hover { background: #222; letter-spacing: 2px; }
+        /* TIERS - BILINGUAL CARDS */
+        .pricing { padding: 80px 0; }
+        .p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+        .p-card { background: var(--dim); border: 1px solid var(--border); padding: 45px; position: relative; transition: 0.4s; }
+        .p-card:hover { border-color: var(--gold); }
+        .p-card.featured { border: 2px solid var(--gold); }
+        
+        .p-card h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; display: flex; justify-content: space-between; }
+        .p-card h3 span { color: var(--gold); font-size: 0.7rem; font-family: 'Space Mono'; }
 
-        footer { padding: 50px 0; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #444; }
+        .service-list { list-style: none; margin-bottom: 40px; }
+        .service-list li { padding: 12px 0; border-bottom: 1px solid #222; font-size: 0.9rem; color: #aaa; }
+        .service-list li b { color: #fff; display: block; font-size: 0.85rem; margin-bottom: 4px; }
+        
+        .price-val { font-size: 2.5rem; font-weight: 900; color: #fff; }
+        .price-val small { font-size: 0.9rem; color: #555; font-weight: 400; }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
+        /* THE CLOSER */
+        .cta-final { background: var(--gold); color: #000; padding: 80px 20px; text-align: center; }
+        .cta-btn { display: inline-block; background: #000; color: #fff; padding: 22px 50px; text-decoration: none; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; transition: 0.3s; }
+        .cta-btn:hover { letter-spacing: 2px; }
+
+        footer { padding: 40px 0; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #444; }
+
+        @media (max-width: 850px) {
+            .hero-desc-grid { grid-template-columns: 1fr; }
             .logo-container { flex-direction: column; gap: 20px; text-align: center; }
             .entities { text-align: center; }
+            h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -65,67 +64,63 @@
 
 <div class="container">
     <header class="logo-container">
-        <svg class="logo-img" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 10L50 25V60C50 85 20 100 20 100C20 100 -10 85 -10 60V25L20 10Z" fill="#c5a059"/>
-            <text x="70" y="55" fill="white" font-family="Inter" font-weight="900" font-size="40">ROSSINTEL</text>
-            <text x="70" y="80" fill="#c5a059" font-family="Space Mono" font-size="12" letter-spacing="4">GATEKEEPER L3.3</text>
+        <svg class="logo-svg" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 5L30 12V25C30 35 15 42 15 42C15 42 0 35 0 25V12L15 5Z" fill="#c5a059"/>
+            <text x="40" y="25" fill="white" font-family="Inter" font-weight="900" font-size="18">ROSSINTEL</text>
+            <text x="40" y="38" fill="#c5a059" font-family="Space Mono" font-size="7" letter-spacing="2">GATEKEEPER L3.3</text>
         </svg>
         <div class="entities">
-            DAY&ROSS GLOBAL LTD LLC // WYOMING, USA<br>
-            GATEKEEPER OPERATIONS KFT // BUDAPEST
+            <b>DAY&ROSS GLOBAL LTD LLC</b> // Wyoming, USA<br>
+            <b>GATEKEEPER OPERATIONS KFT</b> // Budapest, HU
         </div>
     </header>
 
     <section class="hero">
-        <span class="alert">// SZTFH & NIS2 DEADLINE APPROACHING</span>
-        <h1>Az Audit Nem Játék.<br>A <span>Siker</span> Garancia.</h1>
-        <p class="sub-hero">A legtöbb cég elbukik az első rostán. Mi 72 órán belül audit-kész állapotba hozzuk a rendszeredet, vagy visszafizetjük a díjat. Gatekeeper L3.3 szintű védelem.</p>
-        <a href="#pricing" class="cta-btn" style="background:var(--gold); color:#000;">Védelmi Terv Kérése</a>
-    </section>
-
-    <section class="problem-grid">
-        <div class="p-box">
-            <h3>Miért mi?</h3>
-            <p>Mert nem elméleti tanácsadók vagyunk. A Day&Ross saját Hardver-alapú protokollját használjuk, ami az amerikai katonai standardokon alapul.</p>
-        </div>
-        <div class="p-box">
-            <h3>Mit kapsz?</h3>
-            <p>Nem csak PDF-eket. Kapsz egy golyóálló rendszert, teljes SOP-t és egy olyan audit-nyomvonalat, amibe a legszigorúbb auditor sem tud belekötni.</p>
+        <span class="alert">// CRITICAL COMPLIANCE PROTOCOL //</span>
+        <h1>Audit Ready.<br><span>Guaranteed.</span></h1>
+        
+        <div class="hero-desc-grid">
+            <div class="desc-box">
+                <h2>HU // Megfelelőség</h2>
+                <p>A legtöbb cég elbukik az első rostán. Mi 72 órán belül audit-kész állapotba hozzuk a rendszeredet. Ha az audit nem sikerül, a munkadíj visszajár. Nincs kockázat.</p>
+            </div>
+            <div class="desc-box">
+                <h2>EN // Global Standard</h2>
+                <p>Most companies fail their first audit. We bring you to a state of total compliance within 72 hours. Money-back guarantee if the audit fails. Zero risk.</p>
+            </div>
         </div>
     </section>
 
-    <section class="pricing" id="pricing">
-        <h2 class="p-title">Válassz Szintet</h2>
+    <section class="pricing">
         <div class="p-grid">
             <div class="p-card">
-                <h4>Express</h4>
-                <p>Dokumentációs gyorssegély. Ha már szorít a határidő.</p>
-                <ul>
-                    <li>SOP Rendszerezés</li>
-                    <li>72 órás átfutás</li>
-                    <li>Audit-kész PDF/DOCX</li>
+                <h3>Express <span>01 // SOP</span></h3>
+                <ul class="service-list">
+                    <li><b>SOP Rendszerezés</b> Documentation & process cleanup</li>
+                    <li><b>72 órás átfutás</b> Rapid 72h delivery</li>
+                    <li><b>Audit-kész PDF</b> Full compliance documentation</li>
                 </ul>
-                <span class="price-val">€490 <span>/ fix ár</span></span>
+                <span class="price-val">€490 <small>/ fix</small></span>
             </div>
+            
             <div class="p-card featured">
-                <h4>Audit PASS</h4>
-                <p>A teljes körű megoldás. NIS2 és SZTFH megfelelőség.</p>
-                <ul>
-                    <li>Teljes körű megfelelőség</li>
-                    <li>Auditori képviselet support</li>
-                    <li>Garancia a megfelelésre</li>
+                <h3>Audit Pass <span>02 // FULL</span></h3>
+                <ul class="service-list">
+                    <li><b>NIS2 / SZTFH Megfelelés</b> Full framework alignment</li>
+                    <li><b>Auditori képviselet</b> Auditor-ready representation</li>
+                    <li><b>Sikerdíj alapú garancia</b> Success-based guarantee</li>
                 </ul>
-                <span class="price-val">€1,490 <span>/ fix ár</span></span>
+                <span class="price-val">€1,490 <small>/ fix</small></span>
             </div>
+
             <div class="p-card">
-                <h4>Sovereign</h4>
-                <p>Amikor a biztonság nem opció, hanem alapfeltétel.</p>
-                <ul>
-                    <li>Zero Trust Architektúra</li>
-                    <li>Hardver-alapú (TPM) védelem</li>
-                    <li>L3.3 Hardening</li>
+                <h3>Sovereign <span>03 // L3.3</span></h3>
+                <ul class="service-list">
+                    <li><b>Zero Trust Architektúra</b> Zero Trust Implementation</li>
+                    <li><b>Hardver-alapú védelem</b> TPM & Hardware hardening</li>
+                    <li><b>Day&Ross L3.3 Protocol</b> Military grade security standards</li>
                 </ul>
-                <span class="price-val">€2,490 <span>/ fix ár</span></span>
+                <span class="price-val">€2,490 <small>/ fix</small></span>
             </div>
         </div>
     </section>
@@ -133,9 +128,9 @@
 
 <section class="cta-final">
     <div class="container">
-        <h2>Ne hagyd az auditort tippelni.</h2>
-        <p style="margin-bottom: 40px; font-size: 1.2rem;">Havi 3 új projektet fogadunk. Biztosítsd be a helyed.</p>
-        <a href="mailto:info@dayandrossglobal.com" class="cta-btn">START PROTOCOL // KONZULTÁCIÓ</a>
+        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 10px;">Audit-kész dokumentáció 72 órán belül.</h2>
+        <p style="margin-bottom: 30px; font-weight: 700;">Audit-ready documentation in 72 hours.</p>
+        <a href="mailto:info@dayandrossglobal.com" class="cta-btn">Start Protocol // Ingyenes Konzultáció</a>
     </div>
 </section>
 
